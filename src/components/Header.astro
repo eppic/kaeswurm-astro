@@ -1,0 +1,130 @@
+---
+---
+
+<header>
+    <nav>
+        <ul class="sidebar typo-24">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="/">Startseite</a></li>
+            <li><a href="/kurse">Kurse</a></li>
+            <li><a href="/ausbildung">Ausbildung</a></li>
+            <li><a href="/astrid">Über mich</a></li>
+            <li><a href="/shop">Shop</a></li>
+
+        </ul>
+        <ul class="topbar">
+            <li class="burger" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+            
+            <li class="topbar-hide"><a href="/">Startseite</a></li>
+            <li class="topbar-hide"><a href="/kurse">Kurse</a></li>
+            <li class="topbar-hide"><a href="/ausbildung">Ausbildung</a></li>
+            <li class="topbar-hide"><a href="/astrid">Über mich</a></li>
+            <li class="topbar-hide"><a href="/shop">Shop</a></li>
+
+            <li class="lang"><a href="/en"><img src="../../public/svg/uk.svg" alt="Change to English"></a></li>
+            <li class="logo"><a href="/"><img src="../../public/svg/logoXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.svg" alt="Astrid Kaeswurm Logo"></a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<style>
+
+header {
+    background-color: var(--base-white);
+    width: 100%;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+li {
+    height: 4.8rem;
+}
+
+a {
+    height: 100%;
+    padding: 0 var(--spacing-s);
+    display: flex;
+    align-items: center;
+}
+
+a:hover {
+    background-color: var(--kw-red);
+    color: var(--base-white);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.topbar li:nth-last-child(2) {
+    margin-left: auto;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 30rem;
+    z-index: 999;
+    background-color: var(--base-white);
+    box-shadow: var(--spacing-s) 0 var(--spacing-s) rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+
+    li, a {
+        width: 100%;
+    }
+}
+
+.burger {
+    display: none;
+    border-right-width: 0.1rem;
+    border-right-style: solid;
+    border-right-color: var(--base-gray);
+
+}
+
+@media (max-width: 800px) {
+
+    .topbar-hide {
+        display: none;
+    }
+
+    .burger, .logo, .lang {
+        display: block;
+    }
+
+    a:hover {
+        background-color: var(--base-white);
+        color: var(--base-black);
+    }
+
+    .sidebar li {
+        border-top-width: 0.1rem;
+        border-top-style: solid;
+        border-top-color: var(--base-gray);
+    }
+    
+
+}
+
+</style>
+
+
+<script is:inline>
+    function showSidebar(){
+        const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'flex'
+    }
+
+    function hideSidebar(){
+        const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'none'
+    }
+</script>

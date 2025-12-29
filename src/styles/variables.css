@@ -1,0 +1,24 @@
+
+:root {
+    /* Colors */
+    --kw-red: #8c3333;
+    --kw-red2: #b12222;
+    --kw-red-l: #AF7070;
+    --kw-red-l2: #D1ADAD;
+    --kw-green: #557a46;
+    --kw-green2: #7A9D54;
+    --kw-green-light: #CAD8BB;
+    --kw-yellow: #F2EE9D;
+
+    /* Base Colors */
+    --base-black: black;
+    --base-gray: #5f5f5f;
+    --base-white: white;
+
+    /* Spacing */
+    --spacing-s: 1rem;
+    --spacing-m: 2rem;
+    --spacing-l: 4rem;
+    --spacing-xl: 5.25rem;
+
+}
