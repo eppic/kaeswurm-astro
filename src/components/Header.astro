@@ -22,7 +22,7 @@
             <li class="topbar-hide"><a href="/shop">Shop</a></li>
 
             <li class="lang"><a href="/en"><img src="../../public/svg/uk.svg" alt="Change to English"></a></li>
-            <li class="logo"><a href="/"><img src="../../public/svg/logoXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.svg" alt="Astrid Kaeswurm Logo"></a></li>
+            <li class="logo"><a href="/"><img src="../../public/svg/logo.svg" alt="Astrid Kaeswurm Logo"></a></li>
         </ul>
     </nav>
 </header>
@@ -48,7 +48,7 @@ li {
 
 a {
     height: 100%;
-    padding: 0 var(--spacing-s);
+    padding: 0 var(--spacing-m);
     display: flex;
     align-items: center;
 }
@@ -69,7 +69,7 @@ a:hover {
     top: 0;
     left: 0;
     height: 100vh;
-    width: 30rem;
+    width: calc(100vw - 5rem);
     z-index: 999;
     background-color: var(--base-white);
     box-shadow: var(--spacing-s) 0 var(--spacing-s) rgba(0, 0, 0, 0.1);
@@ -88,9 +88,22 @@ a:hover {
     border-right-style: solid;
     border-right-color: var(--base-gray);
 
+    a {
+        padding: var(--spacing-s);
+    }
 }
 
-@media (max-width: 800px) {
+.logo {
+    width: 10rem;
+    background-color: var(--kw-red);
+}
+
+@media (max-width: 879px) {
+
+
+    li {
+        height: 3.2rem;
+    }
 
     .topbar-hide {
         display: none;
@@ -109,6 +122,15 @@ a:hover {
         border-top-width: 0.1rem;
         border-top-style: solid;
         border-top-color: var(--base-gray);
+    }
+
+    .logo {
+        width: 5rem;
+        background-color: var(--kw-red);
+    }
+    
+    a {
+        padding: 0 var(--spacing-s);
     }
     
 

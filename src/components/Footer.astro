@@ -1,4 +1,208 @@
+---
+
+---
+
 <footer>
-    
+    <div class="footer-top">
+        <p class="typo-xl-fat">LineUp<br>by<br>Cheesy</p>
+        <div class="logo">
+            <div class="circle" />
+            <img src="../../public/svg/logo.svg" alt="Astrid Kaeswum Logo">
+        </div>
+        <div class="information typo-exp">
+            <div>
+                <h4 class="typo-con-slim">Kontakt</h4>
+                <h5>Email:</h5>
+                <p><a href="mailto:astrid@kaeswurm.de">astrid@kaeswurm.de</a></p>
+                <h5>Instagram:</h5>
+                <p><a href="https://www.instagram.com/astrid_kaeswurm" target="_blank" rel="noopener noreferrer">@astrid_kaeswurm</a></p>
+                <h5>Facebook:</h5>
+                <p><a href="https://www.facebook.com/LD.Cheesy" target="_blank" rel="noopener noreferrer">Astrid Kaeswurm</a></p>
+            </div>
+            <div>
+                <h4 class="typo-con-slim">Adresse</h4>
+                <h5></h5>
+                <p>Marzoller Weg 21</p>
+                <p>83451 Piding</p>
+                <br>
+                <h5>Telefon:</h5>
+                <p><a href="tel:01703171206">0170 3171206</a></p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+        <p class="typo-exp">© {new Date().getFullYear()} Astrid Kaeswurm – alle Rechte vorbehalten.</p>
+        <a class="social-icons" href="https://www.instagram.com/astrid_kaeswurm" target="_blank" rel="noopener noreferrer">
+            <img src="../../public/svg/instagram.svg" alt="Instagram Logo">
+        </a>
+        <a class="social-icons" href="https://www.facebook.com/LD.Cheesy" target="_blank" rel="noopener noreferrer">
+            <img src="../../public/svg/facebook.svg" alt="Facebook Logo">
+        </a>
+        <div class="typo-exp">
+            <a href="/impressum">Datenschutz</a>
+            <a href="/impressum">Impressum</a>
+        </div>
+    </div>
+    <img class="shape" src="../../public/svg/footer-desktop-shape.svg" alt="">
 </footer>
 
+
+<style>
+
+    footer {
+        position: relative;
+        z-index: 2;
+    }
+
+    .footer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--spacing-l);
+        height: 24rem;
+
+        & > p {
+            position: relative;
+            z-index: 1;
+        }
+
+    }
+
+    .footer-top, .footer-bottom {
+        padding: var(--spacing-s) var(--spacing-m);
+        padding-bottom: var(--spacing-m);
+    }
+
+    .logo {
+        width: 6.75rem;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+
+        .circle {
+            position: absolute;
+            transform: translate(0%, -30%);
+
+            background-color: var(--kw-red);
+            height: 12rem;
+            width: 12rem;
+            border-radius: 50%;
+
+
+        }
+
+        img {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .information {
+        position: relative;
+        z-index: 1;
+
+        color: var(--base-white);
+
+        display: flex;
+        gap: var(--spacing-l);
+
+        
+
+        p, h5 {
+            font-size: 1.125rem;
+            font-weight: 400;
+        }
+
+        h5 {
+            padding-top: calc(var(--spacing-s)/2);
+        }
+
+        h4 {
+            font-weight: 600;
+            padding-bottom: var(--spacing-s);
+        }
+    }
+
+    .shape  {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 0;
+    }
+    
+    .footer-bottom {
+        position: relative;
+        z-index: 1;
+               
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--spacing-m);
+
+        div:last-child {
+            color: var(--base-white);
+
+            display: flex;
+            gap: var(--spacing-m);
+            padding-left: var(--spacing-m);
+        }
+
+        a:nth-child(2) {
+            margin-left: auto;
+            
+        }
+    }
+
+    /* Slim View */
+
+    @media (max-width: 1089px) {
+        .information {
+            gap: var(--spacing-s);
+            padding-top: calc(var(--spacing-xl)*1);
+
+            h4, h5, p {
+                font-size: 1rem;
+            }
+        }
+
+        h4, {
+            font-size: 1rem;
+        }
+
+
+        .footer-top {
+            padding: var(--spacing-s);
+            gap: var(--spacing-m);
+
+            & > p:first-child {
+                font-size: 7.875rem;
+            }
+        }
+
+        .social-icons {
+            display: none;
+        }
+
+        .shape {
+            height: 100%;
+            width: 45%;
+        }
+
+        .logo {
+            width: 5rem;
+            .circle {
+                height: 9rem;
+                width: 9rem;
+            }
+        }
+
+    }
+
+    /* Mobile View */
+
+    @media (max-width: 819px) {
+        
+    }
+</style>
