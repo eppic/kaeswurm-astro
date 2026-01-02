@@ -67,3 +67,17 @@ body {
     letter-spacing: -0.02em;
     font-stretch: expanded;
 }
+
+@media (max-width: 610px) {
+    .typo-xl-fat, .typo-xl-slim {
+        font-size: 6rem !important;
+    }
+}
+
+
+@media (max-width: 499px) {
+    .typo-xl-fat, .typo-xl-slim {
+        font-size: 4rem !important;
+    }
+}
+

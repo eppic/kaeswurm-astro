@@ -1,0 +1,61 @@
+---
+
+---
+
+
+<section id="ticker" >
+    <div class="ticker-container">
+        <ul>
+            <slot />
+        </ul>
+        <ul aria-hidden="true">
+            <slot />
+        </ul>
+        <ul aria-hidden="true">
+            <slot />
+        </ul>
+    </div>
+</section>
+
+<style>
+
+/* Ticker */
+
+#ticker {
+  height: 3rem;
+  background-color: var(--kw-red2);
+  display: flex;
+  align-items: center;
+
+  color: var(--base-white);
+  font-weight: 600;
+  max-width: 100%;
+}
+
+.ticker-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-width: 100%;
+  animation: scroll 26s linear infinite;
+}
+
+li {
+    padding: 1rem 1.5rem;
+}
+
+@keyframes scroll {
+  to  {
+    transform: translateX(-100%);
+  }
+}
+
+
+</style>

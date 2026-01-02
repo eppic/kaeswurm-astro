@@ -15,11 +15,13 @@ import img_buch from "../../public/img/home/buch.webp"
 
 <Layout>
 <main>
-	<Hero img={img_hero}>
-		
+	<Hero img={img_hero} text="Line Dance lernen mit Cheesy ist easy!">
+		<Button href="/kurse">Aktuelle Kurse</Button>
 	</Hero>
 	<Ticker>
-
+        <li>Tanz bedeutet für mich pure Lebensfreude und Ausdruck.</li>
+        <li>Ich liebe es, Menschen durch Bewegung zu verbinden.</li>
+        <li>Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll.</li>
 	</Ticker>
 	<div id="content">
 		<section class="home-section">
@@ -45,7 +47,7 @@ import img_buch from "../../public/img/home/buch.webp"
 				<Button href="/kurse">Mehr Details</Button>
 			</div>
 		</section>
-		<section class="home-section">
+		<section class="home-section order-change">
 			<div class="img-box img-3">
 				<h2 class="typo-xl-fat">Buch</h2>
 				<Image src={img_buch} alt="Depiction of the Line Dance book" />
@@ -83,6 +85,7 @@ import img_buch from "../../public/img/home/buch.webp"
 
 		position: relative;
 		overflow: hidden;
+        user-select: none;  
 
 		img {
 			position: absolute;
@@ -112,6 +115,10 @@ import img_buch from "../../public/img/home/buch.webp"
 		}
 	}
 
+	.order-change .info-box { /* Change Container Order */
+		grid-row: 1;
+	}
+
 	.info-box {
 		display: flex;
 		flex-direction: column;
@@ -120,6 +127,28 @@ import img_buch from "../../public/img/home/buch.webp"
 
 		margin: var(--spacing-xl);
 
+	}
+
+
+	@media (max-width: 849px) {
+		.home-section {
+			grid-template-columns: 1fr;
+			grid-template-rows: 28rem ;
+			height: unset;
+		}
+
+		.order-change .info-box {
+			grid-row: unset;
+		}
+
+	}
+
+
+
+	@media (max-width: 439px) {
+		.info-box {
+			margin: var(--spacing-m);
+		}
 	}
 
 </style>

@@ -5,7 +5,63 @@ import heroImg from '../../public/img/home/hero.webp';
 const { img = heroImg, text = 'Line Dance' } = Astro.props;
 ---
 <section id="hero">
-  <Image src={img} alt="Hero Image" />
-  <h1>{text}</h1>
-  <slot />
+    <Image src={img} alt="Hero Image" />
+    <div class="overlay" />
+    <h1 class="typo-xl-fat">{text}</h1>
+    <slot />
 </section>
+
+
+<style>
+
+    #hero {
+        position: relative;
+        z-index: -1000;
+        
+        overflow: hidden;
+        min-height: 32rem;
+
+        padding: 2.25rem 1.75rem;
+
+        user-select: none;  
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+    }
+
+    img {
+        position: absolute;
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+
+        top: 0;
+        left: 0;
+    }
+
+    .overlay {
+        position: absolute;
+        background: #86212150;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        z-index: -1;
+        top: 0;
+        left: 0;
+    }
+
+    h1 {
+        max-width: 60rem;
+        color: var(--base-white);
+    }
+
+
+    @media (max-width: 610px) {
+        #hero {
+            justify-content: space-between;
+        }
+    }
+
+</style>
