@@ -4,12 +4,12 @@
 
 <footer>
     <div class="footer-top">
-        <p class="typo-xl-fat">LineUp<br>by<br>Cheesy</p>
+        <p class="slogan typo-xl-fat">LineUp<br>by<br>Cheesy</p>
         <div class="logo">
             <div class="circle" />
             <img src="../../public/svg/logo.svg" alt="Astrid Kaeswum Logo">
         </div>
-        <div class="information typo-exp">
+        <div class="information typo-exp desktop">
             <div>
                 <h4 class="typo-con-slim">Kontakt</h4>
                 <h5>Email:</h5>
@@ -28,11 +28,19 @@
                 <h5>Telefon:</h5>
                 <p><a href="tel:01703171206">0170 3171206</a></p>
             </div>
+            
+        </div>
+        <div class="information-mobile mobile">
+            <h4 class="typo-con-slim">Kontakt</h4>
+            <p>Marzoller Weg 21</p>
+            <p>83451 Piding</p>
+            <p>Tel.: <a href="tel:01703171206">0170 3171206</a></p>
+            <p>Email: <a href="mailto:astrid@kaeswurm.de">astrid@kaeswurm.de</a></p>
         </div>
     </div>
     <hr>
     <div class="footer-bottom">
-        <p class="typo-exp">© {new Date().getFullYear()} Astrid Kaeswurm – alle Rechte vorbehalten.</p>
+        <p class="typo-exp desktop">© {new Date().getFullYear()} Astrid Kaeswurm – alle Rechte vorbehalten.</p>
         <a class="social-icons" href="https://www.instagram.com/astrid_kaeswurm" target="_blank" rel="noopener noreferrer">
             <img src="../../public/svg/instagram.svg" alt="Instagram Logo">
         </a>
@@ -44,11 +52,21 @@
             <a href="/impressum">Impressum</a>
         </div>
     </div>
-    <img class="shape" src="../../public/svg/footer-desktop-shape.svg" alt="">
+    <p class="copy-mobile typo-exp mobile">© {new Date().getFullYear()} Astrid Kaeswurm – alle Rechte vorbehalten.</p>
+    <img class="shape desktop" src="../../public/svg/footer-desktop-shape.svg" alt="">
+    <img class="shape-mobile mobile" src="../../public/svg/footer-mobile-shape.svg" alt="">
+    
 </footer>
 
 
 <style>
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
 
     footer {
         position: relative;
@@ -62,7 +80,7 @@
         gap: var(--spacing-l);
         height: 24rem;
 
-        & > p {
+        .slogan {
             position: relative;
             z-index: 1;
         }
@@ -108,7 +126,9 @@
         display: flex;
         gap: var(--spacing-l);
 
-        
+        a {
+            text-decoration: underline;
+        }
 
         p, h5 {
             font-size: 1.125rem;
@@ -149,7 +169,7 @@
             padding-left: var(--spacing-m);
         }
 
-        a:nth-child(2) {
+        .social-icons:nth-child(2) {
             margin-left: auto;
             
         }
@@ -174,11 +194,8 @@
 
         .footer-top {
             padding: var(--spacing-s);
-            gap: var(--spacing-m);
+            gap: calc(var(--spacing-m)*1.5);
 
-            & > p:first-child {
-                font-size: 7.875rem;
-            }
         }
 
         .social-icons {
@@ -200,9 +217,101 @@
 
     }
 
-    /* Mobile View */
+    /* Mobile Views */
 
-    @media (max-width: 819px) {
-        
+    @media (max-width: 899px) {
+        .mobile, .social-icons {
+            display: block;
+        }
+
+        .desktop {
+            display: none;
+        }
+
+        .shape-mobile {
+            position: absolute;
+            z-index: -1;
+            bottom: 0;
+
+            height: 22rem;
+            width: 100%;
+        }
+
+        .footer-top {
+            flex-direction: column;
+            align-items: start;
+            justify-content: space-between;
+            height: 26rem;
+
+            position: relative;
+
+            .information-mobile {
+                
+                a {
+                    text-decoration: underline;
+                }
+
+                * {
+                    color: var(--base-white);
+                }
+
+                h4 {
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .slogan {
+            font-size: 4rem;
+        }
+
+        .logo {
+            position: absolute;
+            right: 2rem;
+            bottom: 4rem;
+        }
+
+        .footer-bottom {
+
+            padding: var(--spacing-s);
+
+            div:last-child {
+                font-size: 1rem;
+                gap: var(--spacing-s);
+                padding-left: 0;
+                margin-left: auto;
+            }
+
+            .social-icons:nth-child(2) {
+                margin-left: 0;
+            }
+        }
+
+        .copy-mobile {
+            color: var(--base-white);
+            padding: 0 0 var(--spacing-s) var(--spacing-s);
+            font-size: 1rem;
+            font-stretch: condensed;
+            letter-spacing: -0.005em;
+        }
+
+        hr {
+            color: var(--base-white);
+        }
     }
+
+    @media (max-width: 340px) {
+
+        .footer-bottom :last-child {
+            font-stretch: condensed;
+            letter-spacing: -0.005em;
+        }
+
+        .footer-bottom, .footer-top, .copy-mobile {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+
+    }
+
 </style>

@@ -1,7 +1,11 @@
 ---
-const { href = "#" } = Astro.props;
----
+import { Image } from 'astro:assets';
+import heroImg from '../../public/img/home/hero.webp';
 
-<a href={href}>
-    <slot />
-</a>
+const { img = heroImg, text = 'Line Dance' } = Astro.props;
+---
+<section id="hero">
+  <Image src={img} alt="Hero Image" />
+  <h1>{text}</h1>
+  <slot />
+</section>
