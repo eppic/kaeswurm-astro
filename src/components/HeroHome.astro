@@ -6,8 +6,8 @@ const { img = heroImg, text = 'Line Dance' } = Astro.props;
 ---
 <section id="hero">
     <Image src={img} alt="Hero Image" />
-    <div class="gradient" />
-    <h1 class="typo-xl-slim">{text}</h1>
+    <div class="overlay" />
+    <h1 class="typo-xl-fat">{text}</h1>
     <slot />
 </section>
 
@@ -41,9 +41,9 @@ const { img = heroImg, text = 'Line Dance' } = Astro.props;
         left: 0;
     }
 
-    .gradient {
+    .overlay {
         position: absolute;
-        background-image: linear-gradient(to bottom right, #00000048, #ffffff00);
+        background: #86212150;
         height: 100%;
         width: 100%;
         object-fit: cover;

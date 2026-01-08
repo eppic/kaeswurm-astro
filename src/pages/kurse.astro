@@ -1,0 +1,352 @@
+---
+import { Image } from 'astro:assets';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Ticker from "../components/Ticker.astro";
+import MailSection from '../components/MailSection.astro';
+
+import img_hero from "../../public/img/kurse/hero.webp";
+
+import gal1 from "../../public/img/kurse/img1.webp";
+import gal2 from "../../public/img/kurse/img2.webp";
+import gal3 from "../../public/img/kurse/img3.webp";
+import gal4 from "../../public/img/kurse/img4.webp";
+import gal5 from "../../public/img/kurse/img5.webp";
+import gal6 from "../../public/img/kurse/img6.webp";
+import gal7 from "../../public/img/kurse/img7.webp";
+
+---
+
+<Layout>
+    <main>
+        <Hero img={img_hero} text="Kurse">
+
+        </Hero>
+        <Ticker>
+            <li>Lerne die neuesten Choreografien mit Astrid Kaeswurm</li>
+            <li>Mehr erfahren & buchen</li>
+            <li>Kurse, Workshops & Veranstaltungen</li>
+        </Ticker>
+        
+    <div id="content">
+
+        <section class="section_def quote">
+            <div>
+                <div><img src="/img/astrid-mic.webp" alt="Astrid holding a Microphone"></div>
+                <div>
+                    <p>Astrid Kaeswurm</p>
+                    <p class="gray">Tänzerin, Trainerin und Autorin im Bereich Line Dance</p>
+                </div>
+                <img src="/svg/quote.svg" alt="Quote Icon" width="48px" height="32px">
+            </div>
+            <p>Die Anmeldung sowie weitere Informationen erhältst du ganz einfach per E-Mail (siehe unten).<br>Ich freue mich, von dir zu hören!</p>
+        </section>
+
+        <section class="section_def termine">
+            <h2 class="typo-48">Termine & Kurse Line Dance 2026</h2>
+            <h3 class="typo-24">Regelmäßige Kurse:</h3>
+
+            <details>
+                <summary>
+                    <div>
+                        <p>Line Dance in Piding, DE</p>
+                        <img src="/svg/fold.svg" alt="Fold Section">
+                    </div>
+                    <hr>
+                </summary>
+                <ul class="information">
+                    <li>Termin: Montags, 18:30–20:00 Uhr</li>
+                    <li>Leitung: Astrid „Cheesy“ Kaeswurm</li>
+                    <li>Schnupperstunde: 15. September, 18:30 Uhr</li>
+                    <li>Ort: <a href="#">Reichenhaller Straße 15, 83451 Piding</a></li>
+                    <li>Kurs: 10er-Block</li>
+                    <li>Preise:
+                        <ul>
+                            <li>Einführungspreis: 100 €</li>
+                            <li>Schnupperstunde: 5 €</li>
+                        </ul>
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>
+                    <div>
+                        <p>Line Dance im TSC Dance & Lifestyle in Salzburg, AT</p>
+                        <img src="/svg/fold.svg" alt="Fold Section">
+                    </div>
+                    <hr>
+                </summary>
+                <ul class="information">
+                    <li>Termin: Dienstags, 18:00–21:00 Uhr</li>
+                    <li>Ort: TSC Dance & Lifestyle</li>
+                    <li>Adresse: <a href="#">Wiener Bundesstraße 15, 5300 Hallwang bei Salzburg</a></li>
+                </ul>
+            </details>
+
+            <h3 class="typo-24">Einzelveranstaltungen & Workshops</h3>
+
+            <details>
+                <summary>
+                    <div>
+                        <p>Line Dance Kurs in der Bar Oceans in Bad Reichenhall</p>
+                        <img src="/svg/fold.svg" alt="Fold Section">
+                    </div>
+                    <hr>
+                </summary>
+                <ul class="information">
+                    <li>Termin: Samstag, 27.12.</li>
+                    <li>Uhrzeit: 19:00–21:00 Uhr</li>
+                    <li>Ort: Bar Oceans, Spielbank Bad Reichenhall</li>
+                    <li>Leitung: Astrid Kaeswurm</li>
+                    <li><a href="#">Webseite</a></li>
+                    <li><a href="#">Facebook Informationen</a></li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>
+                    <div>
+                        <p>Workshop bei den Saloon Sweepers in Velburg, DE</p>
+                        <img src="/svg/fold.svg" alt="Fold Section">
+                    </div>
+                    <hr>
+                </summary>
+                <ul class="information">
+                    <li>Termin: Freitag, 27.03.2026 & Samstag, 28.03.2026</li>
+                    <li>Workshops: Cheesy (Astrid Kaeswurm) & Kerstin</li>
+                    <li>Musik & Recaps: DJ Gerhard</li>
+                    <li>Zeiten:
+                        <ul>
+                            <li>Freitag, 27.03.2026: 19:00–23:00 Uhr (Einlass ab 18:00 Uhr)</li>
+                            <li>Samstag, 28.03.2026: 12:00–17:00 Uhr (Einlass ab 11:00 Uhr)</li>
+                            <li>Samstag, 28.03.2026: 18:00–23:00 Uhr (Recaps & DJ Gerhard)</li>
+                        </ul>
+                    </li>
+                    <li>Ort: <a href="#">Gasthaus „Zur Adelburg“, Zur Adelburg 4, 92366 Velburg / Hollerstetten</a></li>
+                    <li>
+                        Anmeldung & Teilnahme:
+                        <ul>
+                            <li>Preis: 35 € für beide Tage</li>
+                            <li>Anmeldung bis: 15.02.2026</li>
+                            <li>Teilnehmerzahl: begrenzt</li>
+                            <li>Anmeldung & Infos: <a href="#">event@saloon-sweepers.de</a></li>
+                            <li>Kontakt: <a href="#">Sonja (WhatsApp) 0170 / 4816421</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>
+                    <div>
+                        <p>T-T-T-T - Tanz-Trainer-Tratsch-Treff in Piding, DE</p>
+                        <img src="/svg/fold.svg" alt="Fold Section">
+                    </div>
+                    <hr>
+                </summary>
+                <ul class="information">
+                    <li>Termin: Freitag, 1. Mai</li>
+                    <li>Uhrzeit: ab 10:00 Uhr</li>
+                    <li>Ort: Neubichler Alm, Piding</li>
+                    <li>Inhalt: Austausch & Treffen für Tanz-Trainer:innen</li>
+                    <li><a href="#">Facebook Informationen</a></li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>
+                    <div>
+                        <p>Line Dance Ferien & Festival in Oberstaufen, DE</p>
+                        <img src="/svg/fold.svg" alt="Fold Section">
+                    </div>
+                    <hr>
+                </summary>
+                <ul class="information">
+                    <li>Termin: Sonntag, 17. Mai – Sonntag, 31. Mai 2026</li>
+                    <li>Event: Line Dance Ferien & Festival</li>
+                    <li>Ort: Kurhaus Oberstaufen, Oberstaufen, DE</li>
+                    <li>Adresse: <a href="#">Argenstraße 3, 87534 Oberstaufen, Deutschland</a></li>
+                    <li>
+                        Programm:
+                        <ul>
+                            <li>Line Dance Workshops</li>
+                            <li>Abend-Partys</li>
+                            <li>DJ</li>
+                            <li>Rahmen-Programm</li>
+                            <li>Wellness & Bewegung im Allgäu</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Kosten (Auswahl):
+                        <ul>
+                            <li>Tages-Ticket ca. 45 €</li>
+                            <li>Abend-Ticket ab ca. 20 €</li>
+                            <li>Paketpreise inkl. Hotelaufenthalt variieren nach Zimmer & Dauer</li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Flyer</a></li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>
+                    <div>
+                        <p>Line Dance AlpFestival in Kaprun, AT</p>
+                        <img src="/svg/fold.svg" alt="Fold Section">
+                    </div>
+                    <hr>
+                </summary>
+                <ul class="information">
+                    <li>Termin: Donnerstag, 18. Juni – Sonntag, 21. Juni 2026</li>
+                    <li>Event: Line Dance AlpFestival – Workshops, Live-Bands, DJ & Weltrekord-Attempt</li>
+                    <li>Ort: Festival-Gelände am Parkplatz Maiskogel, Kaprun, AT</li>
+                    <li>Adresse: <a href="#">Kitzsteinhornplatz 8, 5710 Kaprun, Österreich</a></li>
+                    <li>
+                        Programm-Highlights:
+                        <ul>
+                            <li>Line Dance Workshops</li>
+                            <li>DJ-Nights</li>
+                            <li>Live-Musik</li>
+                            <li>Weltrekord-Workshop auf der Schmittenhöhe (Samstag)</li>
+                        </ul>
+                    </li>
+                    <li>Kosten: Wochenend-Pässe online erhältlich – Preis je nach Kategorie/Frühbucher</li>
+                    <li><a href="#">Tickets</a></li>
+                </ul>
+            </details>
+
+        </section>
+
+        <section class="section_def gallery">
+            <h2 class="typo-48">Unsere Line Dance Stunden - Sei dabei!</h2>
+            <p class="gray">Werde Teil unserer Tanz-Community und erlebe Line Dance live!<br>Egal ob Anfänger oder Fortgeschritten - wir freuen uns auf dich und deine Moves.</p>
+
+            <div class="images">
+                <Image src={gal1} alt="Woman Dancing" width={400}/>
+                <Image src={gal2} alt="Group Photo" />
+                <Image src={gal3} alt="Woman and Man Dancing" />
+                <Image src={gal4} alt="Portrait of Woman" />
+                <Image src={gal5} alt="Women Dancing" />
+                <Image src={gal6} alt="Group Photo" />
+                <Image src={gal7} alt="Line Dancing" />
+
+            </div>
+        </section>
+
+        <MailSection>
+            Jetzt schreiben
+        </MailSection>
+
+    </div>
+        
+    </main>
+</Layout>
+
+
+
+<style>
+    .gray {
+        color: var(--base-gray);
+    }
+    .quote {
+        background-color: var(--base-white);
+        border-radius: var(--spacing-s);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        padding: var(--spacing-m);
+        max-width: 55rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+        
+
+        & > div {
+            display: flex;
+            gap: var(--spacing-s);
+
+            & > div:first-child {
+                width: 3rem;
+                height: 3rem;
+                overflow: hidden;
+                border-radius: 0.8rem;
+
+                img {
+                    object-fit: cover;
+                    object-position: center;
+
+                }
+            }
+
+            & img:last-child {
+                margin-left: auto;
+            }
+        }
+
+    }
+
+    .termine {
+        display: flex;
+        flex-direction: column;
+
+        h2, h3 {
+            margin: var(--spacing-m) var(--spacing-s);
+        }
+
+        details {
+            background-color: var(--kw-red-l2);
+            padding: var(--spacing-s) var(--spacing-m);
+            border-radius: var(--spacing-s);
+            margin: calc(var(--spacing-s)*0.1);
+
+            cursor: pointer;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: calc(var(--spacing-s)*0.1);
+                list-style-type: disc;
+                list-style-position: inside;
+            }
+        }
+
+        .information {
+            margin-top: var(--spacing-s);
+
+            & li ul {
+                margin-left: var(--spacing-m);
+            }
+        }
+
+        summary {
+            font-weight: 600;
+            list-style: none;
+            width: 100%;
+            height: 100%;
+
+            div {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            hr {
+                color: var(--base-white);
+                margin-top: calc(var(--spacing-s)*0.5);
+            }
+
+        }
+
+    }
+
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+
+        .images {
+            display: grid;
+
+        }
+    }
+
+</style>

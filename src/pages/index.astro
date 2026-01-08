@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
+import HeroHome from '../components/HeroHome.astro';
 import Ticker from '../components/Ticker.astro';
 import Button from '../components/Button.astro';
 
@@ -15,9 +15,9 @@ import img_buch from "../../public/img/home/buch.webp"
 
 <Layout>
 <main>
-	<Hero img={img_hero} text="Line Dance lernen mit Cheesy ist easy!">
+	<HeroHome img={img_hero} text="Line Dance lernen mit Cheesy ist easy!">
 		<Button href="/kurse">Aktuelle Kurse</Button>
-	</Hero>
+	</HeroHome>
 	<Ticker>
         <li>Tanz bedeutet für mich pure Lebensfreude und Ausdruck.</li>
         <li>Ich liebe es, Menschen durch Bewegung zu verbinden.</li>
@@ -57,6 +57,15 @@ import img_buch from "../../public/img/home/buch.webp"
 				<h3 class="typo-36">Wissen, das weiter tanzt</h3>
 				<p>Manchmal reicht ein Kurs einfach nicht aus - deshalb habe ich mein Wissen, meine Erfahrungen und viele Tipps in meinem eigenen Buch gesammelt. Und wer ein bisschen frischen Wind beim Tanzen mag: Meine Fächer gibt's auch hier.</p>
 				<Button href="/shop">Jetzt entdecken</Button>
+			</div>
+		</section>
+		<section class="quote">
+			<div class="quote-line" />
+			<div>
+				<h2 class="typo-36">
+					„Wir machen keine Fehler, wir tanzen Variationen!”
+				</h2>
+				<p><span>Astrid Kaeswurm, </span> Tänzerin, Trainierin und Autorin</p>
 			</div>
 		</section>
 	</div>
@@ -129,6 +138,32 @@ import img_buch from "../../public/img/home/buch.webp"
 
 	}
 
+	.quote {
+		background-color: var(--kw-green);
+		display: flex;
+		gap: var(--spacing-m);
+		padding: var(--spacing-xl);
+
+		& > div:last-child {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-m);
+		}
+
+		span {
+			font-weight: 600;
+		}
+
+		* {
+			color: var(--base-white);
+		}
+	}
+
+	.quote-line {
+		background: var(--base-white);
+		align-self: stretch;
+		min-width: 3px;
+	}
 
 	@media (max-width: 849px) {
 		.home-section {
@@ -141,14 +176,31 @@ import img_buch from "../../public/img/home/buch.webp"
 			grid-row: unset;
 		}
 
+		.quote {
+			padding: var(--spacing-l) var(--spacing-m);
+		}
 	}
-
-
 
 	@media (max-width: 439px) {
 		.info-box {
 			margin: var(--spacing-m);
 		}
 	}
+
+	/* Font Size Scaling */
+
+	@media (max-width: 610px) {
+		.typo-xl-fat, .typo-xl-slim {
+			font-size: 6rem !important;
+		}
+	}
+
+
+	@media (max-width: 499px) {
+		.typo-xl-fat, .typo-xl-slim {
+			font-size: 4rem !important;
+		}
+	}
+
 
 </style>
