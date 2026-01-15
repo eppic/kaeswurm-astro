@@ -1,0 +1,214 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Ticker from "../components/Ticker.astro";
+
+import img_hero from "../../public/img/astrid/hero.webp"
+---
+
+<Layout>
+    <main>
+        <Hero img={img_hero} text="Über mich"></Hero>
+
+        <Ticker>
+            <li>Tanz bedeutet für mich pure Lebensfreude und Ausdruck.</li>
+            <li>Ich liebe es, Menschen durch Bewegung zu verbinden.</li>
+            <li>Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll.</li>
+        </Ticker>
+
+        <div id="content">
+
+            <section class="section_def aboutme">
+                <div>
+                    <div><img src="/img/astrid-portrait.webp" alt="Portrait of Astrid"></div>
+                    <div>
+                        <h2 class="typo-36">Hey, ich bin Astrid!</h2>
+                        <p class="gray">Begeisterte Tänzerin, Trainerin und Autorin im Bereich Line Dance. Seit meinem ersten Schritt auf dem Parkett trage ich Leidenschaft für Bewegung und Gemeinschaft im Herzen und ich darf andere Menschen dabei begleiten, ihren eigenen Groove zu finden.</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div>
+                    <h3 class="typo-24">Mein Weg in Bewegung</h3>
+                    <p class="gray">Meine Tanzreise begann in den späten 1980er Jahren mit der klassischen Tanzschule in Bad Neuenahr-Ahrweiler -Formation, Standard/Latein inklusive Tanzsportabzeichen Bronze bis Gold. 1996 entdeckte ich schließlich den Line Dance in Frankfurt am Main - ein Moment, der alles veränderte. Von 2007 bis 2011 folgte die Ausbildung zur Line Dance Trainerin (Examen NTA) und die Tätigkeit als NTA-Direktorin in Deutschland. 2010 erwarb ich die Lizenz als diplomierte Tanztrainerin für Country- und Westerntanz in Österreich. Seit 2012 leite ich den Tanzsportclub TSC Blau-Gold Bad Reichenhall. Darüber hinaus bilde ich unabhängig davon angehende Line-Dance-TrainerInnen aus, basierend auf meinem Buch “Von Anchor Step bis Weave”.</p>
+                </div>
+            </section>
+
+            <section class="section_def events">
+                <div>
+                    <div class="img-box"><img src="img/astrid/mauritius.webp" alt="Mauritius"></div>
+                    <div class="events-title">
+                        <h3 class="typo-24">Mauritius Workshop</h3>
+                        <p class="gray">2024</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="img-box"><img src="img/ausb/hero.webp" alt="Mauritius"></div>
+                    <div class="events-title">
+                        <h3 class="typo-24">Weltrekord aufgestellt</h3>
+                        <p class="gray">2025</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="img-box"><img src="img/astrid/thumbnail.jpeg" alt="Mauritius"></div>
+                    <div class="events-title">
+                        <h3 class="typo-24">Virales Video</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section_def more">
+                <div>
+                    <h3 class="typo-24">Was mich antreibt</h3>
+                    <p class="gray">Ich bin überzeugt: Tanzen ist mehr als Schritte - es verbindet Menschen, schafft Freude und stärkt das Selbstvertrauen. Mit meinem Konzept möchte ich eine Umgebung schaffen, in der Jede und Jeder mit Spaß lernen kann. Mein Ansatz: Technik trifft Leichtigkeit vom Anchor Step bis zum Weave, klar strukturiert, herzlich und inklusiv.</p>
+                </div>
+                <div>
+                    <h3 class="typo-24">Ein kleiner persönlicher Einblick</h3>
+                    <p class="gray">Wenn ich nicht auf der Tanzfläche bin, genieße ich die Natur rund um Bad Reichenhall, lese gerne kreative Fachbücher oder lasse mich von Musikrichtungen inspirieren, die jenseits des Mainstreams liegen. Ich reise außerdem sehr gerne, entdecke neue Länder und Kulturen und freue mich besonders, wenn ich auf diesen Reisen auch tanzen und lehren darf. Tanzen heißt für mich: <span>“Offen sein für Neues, für Menschen, für das Leben.”</span></p>
+                </div>
+            </section>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .aboutme {
+
+        display: flex;
+        flex-direction: column;
+
+        hr {
+            margin-top: var(--spacing-s);
+            margin-bottom: var(--spacing-l);
+            color: #ffffff;
+        }
+        
+        & div:first-child {
+            display: flex;
+            gap: var(--spacing-l);
+            align-items: center;
+
+            & div:last-child {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-m);
+
+                max-width: 30rem;
+            }
+            img {
+                border-radius: var(--spacing-s);
+            }
+        }
+
+        & div:last-child {
+            h3 {
+                margin-bottom: var(--spacing-m);
+            }
+        }
+        
+    }
+
+    .events {
+        display: flex;
+        gap: var(--spacing-l);
+
+
+        & > div:first-child, & > div:nth-child(2) {
+            width: 33%;
+        }
+
+        .events-title{
+            padding-top: var(--spacing-m);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .img-box {
+            height: 20rem;
+            overflow: hidden;
+
+            border-radius: var(--spacing-s);
+        }
+
+        img {
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+        }
+    }
+
+    .more {
+        display: flex;
+        gap: var(--spacing-m);
+
+        & > div {
+            width: 50%;
+            h3 {
+                padding-bottom: var(--spacing-s);
+                
+            }
+        }
+
+        span {
+            font-weight: 600;
+        }
+
+        margin-bottom: 5rem;
+    }
+
+    @media (max-width: 799px) {
+        
+        .aboutme {
+            margin-top: var(--spacing-l);
+
+            & div:first-child {
+                flex-direction: column;
+                gap: var(--spacing-m);
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            h3 {
+                margin-bottom: var(--spacing-s) !important;
+            }
+        }
+
+    }
+
+    @media (max-width: 599px) {
+
+        .events {
+            flex-direction: column;
+            align-items: center;
+
+            & > div:first-child, & > div:nth-child(2) {
+                width: 100%;
+            }
+
+            & > div {
+                max-width: fit-content;
+            }
+
+            .img-box {
+                height: 14rem;
+                max-width: fit-content;
+            }
+
+            margin-bottom: var(--spacing-l);
+        }
+
+        .more {
+            flex-direction: column;
+
+            & > div {
+                width: 100%;
+            }
+        }
+    }
+
+    
+
+
+</style>

@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Ticker from "../components/Ticker.astro";
+import MailSection from "../components/MailSection.astro";
+
+import img_hero from "../../public/img/ausb/hero.webp";
+
+---
+
+<Layout>
+    <main>
+        <Hero img={img_hero} text="Ausbildung">
+
+        </Hero>
+        <Ticker>
+            <li>Die Kurse im Frühling 2026 sind bereits ausgebucht.</li>
+            <li>Für die Termine im Herbst 2026 sind noch freie Plätze verfügbar.</li>
+        </Ticker>
+    
+        <div id="content">
+
+            <section class="section_def summary">
+                <h2 class="typo-48">Line-Dance-Trainer*innen-Ausbildung</h2>
+                <p class="gray">nach Astrid Kaeswurm</p>
+
+                <p class="gray">Eine zeitgemäße Ausbildung für alle, die Line Dance professioneller unterrichten möchten - praxisnah, strukturiert und stilübergreifend (Country, Modern & Mixed). Der Lehrgang wurde von einer Line-Dance-Trainerin für Line Dancer entwickelt und orientiert sich an den Erfahrungen aus dem Unterricht mit ganz unterschiedlichen Gruppen.
+                    <br> Du erhältst fundierte didaktische und methodische Impulse, die dich dabei unterstützen, Gruppen sicher anzuleiten und deinen Unterricht abwechslungsreich zu gestalten. Neben Technik, Musikalität und Choreografie stehen auch Unterrichtsaufbau, Kommunikation und der Umgang mit verschiedenen Leistungsniveaus im Fokus.
+                </p>
+            </section>
+
+            <section class="section_def skills">
+                <h2 class="typo-48">Das lernst du</h2>
+
+            </section>
+
+            <section class="section_def faq">
+                <h2 class="typo-48">Häufig gestellte<br>Fragen</h2>
+
+                <div>
+                    <div>
+                        <h3 class="typo-24"><img src="/svg/circle.svg" alt="Circle">Brauche ich Vorkenntnisse oder Tanzerfahrung?</h3>
+                        <p class="gray">Grundlegende Line-Dance-Erfahrung ist von Vorteil, aber keine formale Ausbildung oder Trainerlizenz erforderlich. Die Inhalte sind so aufgebaut, dass sowohl ambitionierte Tänzer:innen als auch bereits unterrichtende Personen davon profitieren.</p>
+                    </div>
+                    <div>
+                        <h3 class="typo-24"><img src="/svg/hash.svg" alt="Hash">Ab welchem Alter kann ich an der Ausbildung teilnehmen?</h3>
+                        <p class="gray">Die Line-Dance-Trainer*innen-Ausbildung richtet sich an Teilnehmer:innen ab 18 Jahren. Voraussetzung ist die Freude am Tanzen und der Wunsch, Line Dance professioneller unterrichten zu können - unabhängig vom bisherigen Werdegang.</p>
+                    </div>
+                    <div>
+                        <h3 class="typo-24"><img src="/svg/triangle.svg" alt="Triangle">Ist die Ausbildung offiziell anerkannt?</h3>
+                        <p class="gray">Die Ausbildung ist eine private Qualifikation nach dem Buch Astrid Kaeswurm, von Anchor Step bis Weave und wird nicht von offiziellen Sportverbänden anerkannt. Sie vermittelt jedoch praxisnahe Kompetenzen, die für den professionellen Unterricht von Line Dance erforderlich sind.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section_def gallery">
+                <h3 class="typo-48">Blicke hinter die Kulissen der Ausbildung</h3>
+                <p>Hier siehst du viele Eindrücke aus den Ausbildungen der letzten Jahre: von den ersten Schritten in der Praxis bis zu besonderen Momenten hinter den Kulissen. Einige geprüfte Trainerinnen wurden nach ihrer Ausbildung sogar bereits als Line-Dance-Trainerinnen auf Kreuzfahrtschiffen gebucht.</p>
+
+                <div class="images">
+
+                </div>
+            </section>
+
+            <section class="alm">
+                <div class="image-carousel">
+
+                </div>
+                <div>
+                    <h2>Neubichler Alm</h2>
+                    <p>Für unsere Ausbildung habe ich die idyllische Neubichler Alm im Salzburger Land ausgewählt - ein Ort, der Ruhe, Natur und Inspiration vereint. Hier kannst du dich ganz auf den Unterricht konzentrieren, in den Pausen wandern, durchatmen oder einfach die atemberaubende Bergkulisse genießen. Abends wird gemeinsam gegessen, getanzt und gelacht - denn Line Dance verbindet!</p>
+                    <a href="https://maps.app.goo.gl/wjtHTf9QJ4hUsYaN8" target="_blank" rel="noopener noreferrer">auf Karte anzeigen</a>
+                </div>
+            </section>
+
+            <MailSection href="mailto:astrid@kaeswurm.de?subject=Ausbildung">
+                Jetzt schreiben
+            </MailSection>
+
+        </div>
+
+
+    </main>
+</Layout>
+
+
+
+<style>
+</style>

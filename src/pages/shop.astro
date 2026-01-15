@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Ticker from "../components/Ticker.astro";
+import MailSection from "../components/MailSection.astro";
+
+---
+
+<Layout>
+    <main>
+        <Hero text="Shop">
+
+        </Hero>
+        <Ticker>
+            <li>Wir feiern das 15-jährige Jubiläum des Buches mit einer Neuauflage, die derzeit erarbeitet wird und noch im Jubiläumsjahr 2026 erscheinen wird.</li>
+        </Ticker>
+
+        <div id="content">
+
+            <MailSection href="mailto:astrid@kaeswurm.de?subject=Bestellung&body=Ich%20möchte%20folgende%20Inhalte%20bestellen:%0A%0A-%20[HIER%20INHALTE%20AUFLISTEN]%0A%0A%0AMeine%20Adresse:%0A%0AVor-%20und%20Nachname:%20%0AStraße%20und%20Hausnummer:%20%0APLZ und Wohnort:%20">
+                Jetzt bestellen!
+            </MailSection>
+        </div>
+    </main>
+</Layout>

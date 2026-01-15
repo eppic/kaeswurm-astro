@@ -2,6 +2,10 @@ main {
     min-height: 100vh;
 }
 
+.gray {
+    color: #777777;
+}
+
 .section_def {
     width: 100%;
     max-width: 1200px;
