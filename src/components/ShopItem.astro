@@ -1,0 +1,100 @@
+---
+import Image from "astro/components/Image.astro";
+
+import dummy from "../../public/img/shop/book-de.webp";
+
+const { image = dummy } = Astro.props;
+const { tr = "" } = Astro.props;
+const { name = "Product Name" } = Astro.props;
+const { details = "" } = Astro.props;
+const { price = "X" } = Astro.props;
+---
+
+<div class="item">
+
+    <div class="frame">
+        {tr && (
+            <p class="tr typo-24">{tr}</p>
+        )}
+        <div class="shape" />
+        <div class="image">
+            <Image src={image} alt={name}/>
+        </div>
+    </div>
+
+    <p class="info">
+       <span class="name typo-24" set:html={name} >{name}</span>
+       <span class="details">{details}</span>
+    </p>
+
+    <p class="price typo-24 ">{price},-€ zzgl. Versandkosten</p>
+
+</div>
+
+
+<style>
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+
+        width: 21rem;
+    }
+
+    .frame {
+        position: relative;
+        height: 20rem;
+
+        .shape {
+            position: absolute;
+            background-color: var(--kw-red-l);
+            border-radius: var(--spacing-s);
+            height: 94%;
+            width: 86%;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        .tr {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .image {
+            position: absolute;
+
+            z-index: 2;
+
+            img {
+                object-fit: contain;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+    }
+
+    .tr {
+        color: white;
+        background-color: var(--kw-red);
+        border-radius: 0.8rem;
+        padding: 0.8rem;
+        width: fit-content;
+    }
+
+    .details {
+        font-size: 1.125rem;
+        color: var(--base-gray);
+    }
+
+    .price {
+        text-align: end;
+    }
+
+
+</style>

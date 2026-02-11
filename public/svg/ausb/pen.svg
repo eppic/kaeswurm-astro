@@ -1,0 +1,14 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125 124" width="125" height="124">
+	<style>
+		.s0 { fill: none;stroke: #231f20;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.2 } 
+	</style>
+	<g id="pen">
+		<path class="s0" d="m37.72 113.2l-34.82 8.7 8.7-34.82 84.44-84.43c0 0 13.6 1.22 19.25 6.86 5.64 5.65 6.86 19.25 6.86 19.25 0 0-84.43 84.44-84.43 84.44z"/>
+		<path fill-rule="evenodd" class="s0" d="m82.11 16.57l25.71 25.71"/>
+		<path fill-rule="evenodd" class="s0" d="m76.45 22.23l25.71 25.71"/>
+		<path fill-rule="evenodd" class="s0" d="m11.6 87.08l16.32 9.79 9.8 16.33"/>
+		<path fill-rule="evenodd" class="s0" d="m27.92 96.87l61.37-61.36"/>
+		<path fill-rule="evenodd" class="s0" d="m6.87 113.03l4.9 4.9"/>
+		<path fill-rule="evenodd" class="s0" d="m122.15 28.76l-26.11-26.11"/>
+	</g>
+</svg>

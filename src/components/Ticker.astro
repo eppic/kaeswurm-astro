@@ -1,9 +1,9 @@
 ---
-
+const { color = 'var(--kw-red)' } = Astro.props
 ---
 
 
-<section id="ticker" >
+<section id="ticker" style={`--color: ${color}`} >
     <div class="ticker-container">
         <ul>
             <slot />
@@ -23,7 +23,7 @@
 
 #ticker {
   height: 3rem;
-  background-color: var(--kw-red2);
+  background-color: var(--color);
   display: flex;
   align-items: center;
 

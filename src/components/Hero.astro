@@ -2,12 +2,12 @@
 import { Image } from 'astro:assets';
 import heroImg from '../../public/img/home/hero.webp';
 
-const { img = heroImg, text = 'Line Dance' } = Astro.props;
+const { img = heroImg, text = 'Line Dance', textWidth = '60rem' } = Astro.props;
 ---
 <section id="hero">
     <Image src={img} alt="Hero Image" />
     <div class="gradient" />
-    <h1 class="typo-xl-slim">{text}</h1>
+    <h1 class="typo-xl-slim" style={`--textWidth: ${textWidth}`}>{text}</h1>
     <slot />
 </section>
 
@@ -27,6 +27,7 @@ const { img = heroImg, text = 'Line Dance' } = Astro.props;
 
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         gap: var(--spacing-m);
     }
 
@@ -53,7 +54,7 @@ const { img = heroImg, text = 'Line Dance' } = Astro.props;
     }
 
     h1 {
-        max-width: 60rem;
+        max-width: var(--textWidth, 60rem);
         color: var(--base-white);
     }
 

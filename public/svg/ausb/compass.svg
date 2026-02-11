@@ -1,0 +1,16 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125 125" width="125" height="125">
+	<style>
+		.s0 { fill: none;stroke: #231f20;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.3 } 
+	</style>
+	<g id="compass">
+		<path fill-rule="evenodd" class="s0" d="m62.53 122.01c-32.98 0-59.63-26.65-59.63-59.63 0-32.97 26.65-59.62 59.63-59.62 32.97 0 59.62 26.65 59.62 59.62 0 32.98-26.65 59.63-59.62 59.63z"/>
+		<path fill-rule="evenodd" class="s0" d="m62.53 113.23c-28.12 0-50.85-22.73-50.85-50.85 0-28.12 22.73-50.85 50.85-50.85 28.12 0 50.85 22.73 50.85 50.85 0 28.12-22.73 50.85-50.85 50.85z"/>
+		<path fill-rule="evenodd" class="s0" d="m93.01 92.86c-16.86 16.86-44.11 16.86-60.96 0-16.86-16.85-16.86-44.1 0-60.96 16.85-16.85 44.1-16.85 60.96 0 16.85 16.86 16.85 44.11 0 60.96z"/>
+		<path fill-rule="evenodd" class="s0" d="m88.82 36.09l-32.11 20.48-20.48 32.11 32.11-20.49 20.48-32.1z"/>
+		<path fill-rule="evenodd" class="s0" d="m56.71 56.57l11.63 11.62"/>
+		<path fill-rule="evenodd" class="s0" d="m62.53 24.7v8.77"/>
+		<path fill-rule="evenodd" class="s0" d="m62.53 91.29v8.78"/>
+		<path fill-rule="evenodd" class="s0" d="m24.84 62.38h8.78"/>
+		<path fill-rule="evenodd" class="s0" d="m91.43 62.38h8.78"/>
+	</g>
+</svg>

@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Ticker from "../components/Ticker.astro";
@@ -6,14 +8,27 @@ import MailSection from "../components/MailSection.astro";
 
 import img_hero from "../../public/img/ausb/hero.webp";
 
+import alm_1 from "../../public/img/ausb/alm/alm_1.webp";
+import alm_2 from "../../public/img/ausb/alm/alm_2.webp";
+import alm_3 from "../../public/img/ausb/alm/alm_3.webp";
+import alm_4 from "../../public/img/ausb/alm/alm_4.webp";
+import alm_6 from "../../public/img/ausb/alm/alm_6.webp";
 ---
 
 <Layout>
     <main>
         <Hero img={img_hero} text="Ausbildung">
-
+            <div class="disclaimer">
+                <h2 class="typo-24">Unsere nächsten Termine:</h2>
+                <ul>
+                    <li>05. & 06. September 2026</li>
+                    <li>19. & 20. September 2026</li>
+                </ul>
+                <p><span>Die Ausbildung findet an den genannten Wochenenden statt.</span></p>
+                <img src="/svg/warning.svg" alt="warning icon">
+            </div>
         </Hero>
-        <Ticker>
+        <Ticker color={'var(--kw-green)'}>
             <li>Die Kurse im Frühling 2026 sind bereits ausgebucht.</li>
             <li>Für die Termine im Herbst 2026 sind noch freie Plätze verfügbar.</li>
         </Ticker>
@@ -34,14 +49,14 @@ import img_hero from "../../public/img/ausb/hero.webp";
 
                 <div>
 
-                    <div>
+                    <div class="skills-item">
                         <div>
-                            <img src="/img/svg/ausb/compass.svg" alt="Compass">
-                            <h3>Didaktik & Unterricht</h3>
+                            <img src="/svg/ausb/compass.svg" alt="Didaktik">
+                            <h3 class="typo-24">Didaktik & Unterricht</h3>
                         </div>
-                        <div>
+                        <div class="gray">
                             <ul>
-                                <li>Zielgruppe definieren und sinnvoll ansprechen</li>
+                                <li>Zielgruppen definieren und sinnvoll ansprechen</li>
                                 <li>Aufbau moderner Line-Dance-Unterrichtseinheiten</li>
                                 <li>Raumorientierung, Flächennutzung und Anpassung von Choreografien</li>
                                 <li>Auswahl und Analyse geeigneter Musik & Tänze</li>
@@ -49,26 +64,26 @@ import img_hero from "../../public/img/ausb/hero.webp";
                         </div>
                     </div>
 
-                    <div>
+                    <div class="skills-item">
                         <div>
-                            <img src="/img/svg/ausb/clock.svg" alt="Ablauf">
-                            <h3>Ablauf & Umfang</h3>
+                            <img src="/svg/ausb/clock.svg" alt="Ablauf">
+                            <h3 class="typo-24">Ablauf & Umfang</h3>
                         </div>
-                        <div>
+                        <div class="gray">
                             <ul>
-                                <li>24 Stunden Gesamtumfang (32 Lerneinheiten inkl. Praxis- & Übungsstunden)</li>
+                                <li><span>24 Stunden</span> Gesamtumfang (32 Lerneinheiten inkl. Praxis- & Übungsstunden)</li>
                                 <li>Durchführung an zwei aufeinander aufbauenden Wochenenden</li>
-                                <li>Die Wochenenden sind nicht einzeln buchbar</li>
+                                <li>Die Wochenenden sind <span>nicht</span> einzeln buchbar</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div>
+                    <div class="skills-item">
                         <div>
-                            <img src="/img/svg/ausb/gears.svg" alt="Technik">
-                            <h3>Technik & Körperarbeit</h3>
+                            <img src="/svg/ausb/gears.svg" alt="Technik">
+                            <h3 class="typo-24">Technik & Körperarbeit</h3>
                         </div>
-                        <div>
+                        <div class="gray">
                             <ul>
                                 <li>Grundhaltung und saubere Bewegung</li>
                                 <li>Fußpositionen und Gewichtsverlagerung</li>
@@ -77,38 +92,38 @@ import img_hero from "../../public/img/ausb/hero.webp";
                         </div>
                     </div>
 
-                    <div>
+                    <div class="skills-item">
                         <div>
-                            <img src="/img/svg/ausb/pen.svg" alt="Prüfung">
-                            <h3>Prüfung & Abschluss</h3>
+                            <img src="/svg/ausb/pen.svg" alt="Prüfung">
+                            <h3 class="typo-24">Prüfung & Abschluss</h3>
                         </div>
-                        <div>
+                        <div class="gray">
                             <p>Die Ausbildung schließt mit einer dreiteiligen Prüfung ab:</p>
                             <ul>
-                                <li>schriftlich</li>
-                                <li>mündlich</li>
-                                <li>praktische Lehrprobe (Kolloquium)</li>
+                                <li><span>schriftlich</span></li>
+                                <li><span>mündlich</span></li>
+                                <li><span>praktische Lehrprobe (Kolloquium)</span></li>
                             </ul>
                             <p>Nach erfolgreichem Abschluss erhältst du ein Zertifikat. Regelmäßige Weiterbildung wird empfohlen.</p>
                         </div>
                     </div>
 
-                    <div>
+                    <div class="skills-item">
                         <div>
-                            <img src="/img/svg/ausb/bell.svg" alt="Hinweis">
-                            <h3>Hinweis</h3>
+                            <img src="/svg/ausb/bell.svg" alt="Hinweis">
+                            <h3 class="typo-24">Hinweis</h3>
                         </div>
-                        <div>
-                            <p>Diese Trainer:innen-Ausbildung ist eine private Qualifikation und wird nicht von offiziellen Sportverbänden anerkannt.</p>
+                        <div class="gray">
+                            <p>Diese Trainer:innen-Ausbildung ist eine <span>private Qualifikation</span> und wird <span>nicht von offiziellen Sportverbänden anerkannt.</span></p>
                         </div>
                     </div>
 
-                    <div>
+                    <div class="skills-item">
                         <div>
-                            <img src="/img/svg/ausb/check.svg" alt="Praxis">
-                            <h3>Praxis</h3>
+                            <img src="/svg/ausb/check.svg" alt="Praxis">
+                            <h3 class="typo-24">Praxis</h3>
                         </div>
-                        <div>
+                        <div class="gray">
                             <ul>
                                 <li>Schrittfolgen, Tanzarten und Variationen</li>
                                 <li>Anwendung des Gelernten im realen Unterrichtssetting</li>
@@ -116,12 +131,12 @@ import img_hero from "../../public/img/ausb/hero.webp";
                         </div>
                     </div>
 
-                    <div>
+                    <div class="skills-item">
                         <div>
-                            <img src="/img/svg/ausb/euro.svg" alt="Kosten">
-                            <h3>Kosten</h3>
+                            <img src="/svg/ausb/euro.svg" alt="Kosten">
+                            <h3 class="typo-24">Kosten</h3>
                         </div>
-                        <div>
+                        <div class="gray">
                             <p>Die Kursgebühr beträgt <span>350 €</span>.</p>
                             <p>Hinzu kommen <span>50 € Prüfgebühren</span>, falls der Teilnehmer an der Prüfung teilnehmen möchte.</p>
                             <p>Die Entscheidung zur Prüfung kann am Tag der Prüfung getroffen werden; die Gebühr fällt nur dann an.</p>
@@ -143,15 +158,15 @@ import img_hero from "../../public/img/ausb/hero.webp";
                 <h2 class="typo-48">Häufig gestellte<br>Fragen</h2>
 
                 <div>
-                    <div>
+                    <div class="faq-item">
                         <h3 class="typo-24"><img src="/svg/circle.svg" alt="Circle">Brauche ich Vorkenntnisse oder Tanzerfahrung?</h3>
                         <p class="gray">Grundlegende Line-Dance-Erfahrung ist von Vorteil, aber keine formale Ausbildung oder Trainerlizenz erforderlich. Die Inhalte sind so aufgebaut, dass sowohl ambitionierte Tänzer:innen als auch bereits unterrichtende Personen davon profitieren.</p>
                     </div>
-                    <div>
+                    <div class="faq-item">
                         <h3 class="typo-24"><img src="/svg/hash.svg" alt="Hash">Ab welchem Alter kann ich an der Ausbildung teilnehmen?</h3>
                         <p class="gray">Die Line-Dance-Trainer*innen-Ausbildung richtet sich an Teilnehmer:innen ab 18 Jahren. Voraussetzung ist die Freude am Tanzen und der Wunsch, Line Dance professioneller unterrichten zu können - unabhängig vom bisherigen Werdegang.</p>
                     </div>
-                    <div>
+                    <div class="faq-item">
                         <h3 class="typo-24"><img src="/svg/triangle.svg" alt="Triangle">Ist die Ausbildung offiziell anerkannt?</h3>
                         <p class="gray">Die Ausbildung ist eine private Qualifikation nach dem Buch Astrid Kaeswurm, von Anchor Step bis Weave und wird nicht von offiziellen Sportverbänden anerkannt. Sie vermittelt jedoch praxisnahe Kompetenzen, die für den professionellen Unterricht von Line Dance erforderlich sind.</p>
                     </div>
@@ -160,21 +175,37 @@ import img_hero from "../../public/img/ausb/hero.webp";
 
             <section class="section_def gallery">
                 <h3 class="typo-48">Blicke hinter die Kulissen der Ausbildung</h3>
-                <p>Hier siehst du viele Eindrücke aus den Ausbildungen der letzten Jahre: von den ersten Schritten in der Praxis bis zu besonderen Momenten hinter den Kulissen. Einige geprüfte Trainerinnen wurden nach ihrer Ausbildung sogar bereits als Line-Dance-Trainerinnen auf Kreuzfahrtschiffen gebucht.</p>
+                <p>Hier siehst du viele Eindrücke aus den Ausbildungen der letzten Jahre: von den ersten Schritten in der Praxis bis zu besonderen Momenten hinter den Kulissen. Einige geprüfte TrainerInnen wurden nach ihrer Ausbildung sogar bereits als Line-Dance-Trainerinnen auf Kreuzfahrtschiffen gebucht.</p>
 
                 <div class="images">
 
                 </div>
             </section>
 
-            <section class="alm">
-                <div class="image-carousel">
+            <section class="alm-wrapper">
+                <div class="alm">
+                    <div class="slider-wrapper">
+                        <div class="slider">
+                            <Image id="alm_1" src={alm_1} alt="Images of Neubichler Alm" />
+                            <Image id="alm_2" src={alm_2} alt="Images of Neubichler Alm" />
+                            <Image id="alm_3" src={alm_3} alt="Images of Neubichler Alm" />
+                            <Image id="alm_4" src={alm_4} alt="Images of Neubichler Alm" />
+                            <Image id="alm_6" src={alm_6} alt="Images of Neubichler Alm" />
+                        </div>
+                        <div class="slider-nav">
+                            <a href="#alm_1"></a>
+                            <a href="#alm_2"></a>
+                            <a href="#alm_3"></a>
+                            <a href="#alm_4"></a>
+                            <a href="#alm_6"></a>
+                        </div>
+                    </div>
 
-                </div>
-                <div>
-                    <h2>Neubichler Alm</h2>
-                    <p>Für unsere Ausbildung habe ich die idyllische Neubichler Alm im Salzburger Land ausgewählt - ein Ort, der Ruhe, Natur und Inspiration vereint. Hier kannst du dich ganz auf den Unterricht konzentrieren, in den Pausen wandern, durchatmen oder einfach die atemberaubende Bergkulisse genießen. Abends wird gemeinsam gegessen, getanzt und gelacht - denn Line Dance verbindet!</p>
-                    <a href="https://maps.app.goo.gl/wjtHTf9QJ4hUsYaN8" target="_blank" rel="noopener noreferrer">auf Karte anzeigen</a>
+                    <div>
+                        <h2 class="typo-36">Neubichler Alm</h2>
+                        <p>Für unsere Ausbildung habe ich die idyllische Neubichler Alm im Salzburger Land ausgewählt - ein Ort, der Ruhe, Natur und Inspiration vereint. Hier kannst du dich ganz auf den Unterricht konzentrieren, in den Pausen wandern, durchatmen oder einfach die atemberaubende Bergkulisse genießen. Abends wird gemeinsam gegessen, getanzt und gelacht - denn Line Dance verbindet!</p>
+                        <a href="https://maps.app.goo.gl/wjtHTf9QJ4hUsYaN8" target="_blank" rel="noopener noreferrer">auf Karte anzeigen</a>
+                    </div>
                 </div>
             </section>
 
@@ -191,4 +222,206 @@ import img_hero from "../../public/img/ausb/hero.webp";
 
 
 <style>
+
+    .disclaimer {
+        color: var(--base-white);
+        background-color: var(--kw-green2);
+        padding: var(--spacing-m);
+        padding-bottom: var(--spacing-l);
+        border-radius: var(--spacing-s);
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+
+        position: relative;
+        width: fit-content;
+
+        ul {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-left: var(--spacing-s);
+        }
+
+        span {
+            font-weight: 600;
+        }
+
+        img {
+            position: absolute;
+            width: 2.75rem;
+            right: var(--spacing-m);
+            top: calc(var(--spacing-m) *0.75);
+        }
+
+    }
+
+    .summary {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+    }
+
+    .skills {
+        h2 {
+            margin-bottom: var(--spacing-m);
+        }
+
+        & > div {
+
+        }
+
+        
+
+        .skills-item {
+            background-color: var(--base-white);
+            border-radius: var(--spacing-s);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: var(--spacing-m);
+
+            & div:first-child {
+                display: flex;
+                align-items: center;
+                gap: var(--spacing-s);
+
+                img {
+                    width: 2rem;
+
+                }
+
+                margin-bottom: var(--spacing-m);
+            }
+
+            & div:last-child {
+                ul {
+                    list-style: disc;
+                    list-style-position: inside;
+                    margin-left: calc(var(--spacing-s)*0.5);
+                }
+
+                span {
+                    font-weight: 600;
+                }
+
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-s);
+            }
+
+        }
+    }
+
+    .faq {
+        display: flex;
+        gap: var(--spacing-xl);
+
+        h2 {
+            min-width: fit-content;
+            line-height: 120%;
+        }
+
+        & > div {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-s);
+        }
+
+        .faq-item {
+            background-color: var(--kw-green-light);
+            border-radius: var(--spacing-s);
+            padding: calc(var(--spacing-m) * 0.75);
+
+            h3 {
+                display: flex;
+                gap: var(--spacing-s);
+                margin-bottom: var(--spacing-s);
+            }
+        }
+
+    }
+
+    .alm-wrapper {
+        background-color: var(--base-black);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .alm {
+        max-width: 1200px;
+        
+        background-color: var(--base-black);
+        color: var(--base-white);
+        display: flex;
+
+        .slider-wrapper {
+            position: relative;
+            flex: 0 0 64%;
+
+            .slider {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                
+                img {
+                    flex: 1 0 100%;
+                    scroll-snap-align: start;
+                    object-fit: cover;
+                }
+            }
+            
+            .slider-nav {
+                display: flex;
+                column-gap: var(--spacing-s);
+                position: absolute;
+                bottom: var(--spacing-m);
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+
+                a {
+                    width: 1rem;
+                    height: 1rem;
+                    border-radius: 50%;
+                    background-color: var(--base-white);
+                    transition: background-color ease 250ms;
+                }
+
+                a:hover {
+                    background-color: var(--kw-yellow);
+                }
+            }
+
+            
+
+        }
+     
+        & > div:last-child {
+            flex: 0 0 36%;
+
+            padding-left: var(--spacing-l);
+            padding-right: var(--spacing-m);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--spacing-s);
+
+            h2 {
+                color: var(--kw-yellow);
+            }
+
+            a {
+                color: var(--kw-yellow);
+                text-align: end;
+                text-decoration: underline;
+                padding-right: var(--spacing-m);
+            }
+        }
+    }
+
+
+    
+
 </style>
