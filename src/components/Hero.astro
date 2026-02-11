@@ -2,12 +2,14 @@
 import { Image } from 'astro:assets';
 import heroImg from '../../public/img/home/hero.webp';
 
-const { img = heroImg, text = 'Line Dance', textWidth = '60rem' } = Astro.props;
+const { img = heroImg, text = 'Line Dance', textWidth = '60rem', small = false, home = false } = Astro.props;
 ---
-<section id="hero">
+<section id="hero" style={`--headerHeight: ${small ? '14rem' : '32rem'}`}>
+    {!small && 
     <Image src={img} alt="Hero Image" />
-    <div class="gradient" />
-    <h1 class="typo-xl-slim" style={`--textWidth: ${textWidth}`}>{text}</h1>
+    <div class={home ? 'overlay' : 'gradient'} />
+    }
+    <h1 class={home ? 'typo-xl-fat' : 'typo-xl-slim'} style={`--textWidth: ${textWidth}; --headerTextColor: ${small ? 'black' : 'white'}`}>{text}</h1>
     <slot />
 </section>
 
@@ -19,7 +21,7 @@ const { img = heroImg, text = 'Line Dance', textWidth = '60rem' } = Astro.props;
         z-index: -1000;
         
         overflow: hidden;
-        min-height: 32rem;
+        min-height: var(--headerHeight);
 
         padding: 2.25rem 1.75rem;
 
@@ -53,9 +55,20 @@ const { img = heroImg, text = 'Line Dance', textWidth = '60rem' } = Astro.props;
         left: 0;
     }
 
+    .overlay {
+        position: absolute;
+        background: #86212150;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        z-index: -1;
+        top: 0;
+        left: 0;
+    }
+
     h1 {
         max-width: var(--textWidth, 60rem);
-        color: var(--base-white);
+        color: var(--headerTextColor);
     }
 
 

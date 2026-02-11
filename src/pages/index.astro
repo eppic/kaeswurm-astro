@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 
 import Layout from '../layouts/Layout.astro';
-import HeroHome from '../components/HeroHome.astro';
+import Hero from '../components/Hero.astro';
 import Ticker from '../components/Ticker.astro';
 import Button from '../components/Button.astro';
 
@@ -15,9 +15,10 @@ import img_buch from "../../public/img/home/buch.webp"
 
 <Layout>
 <main>
-	<HeroHome img={img_hero} text="Line Dance lernen mit Cheesy ist easy!">
+	<Hero img={img_hero} text="Line Dance lernen mit Cheesy ist easy!" home>
 		<Button href="/kurse">Aktuelle Kurse</Button>
-	</HeroHome>
+	</Hero>
+	
 	<Ticker>
         <li>Tanz bedeutet für mich pure Lebensfreude und Ausdruck.</li>
         <li>Ich liebe es, Menschen durch Bewegung zu verbinden.</li>

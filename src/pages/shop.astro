@@ -18,7 +18,7 @@ import facher_en from "../../public/img/shop/facher-en.webp";
 
 <Layout>
     <main>
-        <Hero text="Shop">
+        <Hero text="Shop" small>
 
         </Hero>
         <Ticker>
@@ -33,17 +33,18 @@ import facher_en from "../../public/img/shop/facher-en.webp";
                 <p>Die Versandkosten richten sich nach dem Lieferland.Für Lieferungen innerhalb Deutschlands und Österreichs wird ein pauschales Porto berechnet.Bei internationalen Sendungen (z. B. Schweiz, Nicht-EU) werden die Versandkosten individuell ermittelt und vorab mitgeteilt. USA ist aktuell nicht möglich.</p>
             </div>
 
-            <div class="items">
-                <ShopItem class=""
+            <div class="items section_def">
+                <ShopItem
                     name="Von Anchor Step bis Weave – <br> Das Referenzbuch für Line Dance"
                     details="von Astrid Kaeswurm"
                     image={book_de} 
                     tr="DE Version"
                     price="35"
                 />
-                <p class="gray">
-                    Dieses Buch schließt eine lang bestehende Lücke: Es ist eines der ersten deutsch-sprachigen Fachbücher zur Tanztechnik im Line Dance. Praxisnah, verständlich und zeitgemäß vermittelt Astrid Kaeswurm technisch korrektes Wissen, das im Training sofort anwendbar ist. Dabei orientiert sich der Inhalt an der aktuellen Entwicklung des Line Dance und wird kontinuierlich weitergedacht. Das Buch dient als wertvolle Unterstützung im Training, ersetzt jedoch weder Gruppen-training noch Ausbildung, sondern sorgt für Klarheit, Verständnis und viele „Aha-Momente“.
-                </p>
+                <div class="gray book_de_text">
+                    <p>Dieses Buch schließt eine lang bestehende Lücke: Es ist eines der ersten deutsch-sprachigen Fachbücher zur Tanztechnik im Line Dance. Praxisnah, verständlich und zeitgemäß vermittelt Astrid Kaeswurm technisch korrektes Wissen, das im Training sofort anwendbar ist. Dabei orientiert sich der Inhalt an der aktuellen Entwicklung des Line Dance und wird kontinuierlich weitergedacht. Das Buch dient als wertvolle Unterstützung im Training, ersetzt jedoch weder Gruppen-training noch Ausbildung, sondern sorgt für Klarheit, Verständnis und viele „Aha-Momente“.</p>
+                    <a class="gray leseprobe typo-24" href="#">Leseprobe</a>
+                </div>
                 <ShopItem 
                     name="Fächer „Wie fing der an?“ <br>"
                     details="in Royal-Blau, Baumwollbespannung, Steg aus Birnenholz, Inkl. Samtbeutel"
@@ -57,19 +58,22 @@ import facher_en from "../../public/img/shop/facher-en.webp";
                     tr="DE Version"
                     price="6"
                 />
+                <div>
+                    <ShopItem 
+                        name="From Anchor Step to Weave –  <br> A Reference Book for Line Dancers"
+                        details="von Astrid Kaeswurm"
+                        image={book_en} 
+                        tr="Engl. Version"
+                        price="35"
+                    />
+                    <a class="gray leseprobe typo-24" href="#">Leseprobe</a>
+                </div>
                 <ShopItem 
                     name="Fächer „How does it start?”"
                     details="in Burgundy-Rot, Baumwollbespannung, Plastiksteg, Eng. Version"
                     image={facher_en} 
                     tr="Engl. Version"
                     price="6"
-                />
-                <ShopItem 
-                    name="From Anchor Step to Weave –  <br> A Reference Book for Line Dancers"
-                    details="von Astrid Kaeswurm"
-                    image={book_en} 
-                    tr="Engl. Version"
-                    price="35"
                 />
 
             </div>
@@ -86,14 +90,53 @@ import facher_en from "../../public/img/shop/facher-en.webp";
         display: flex;
         flex-direction: column;
         gap: var(--spacing-m);
+        margin-top: var(--spacing-m);
 
         span {
             font-weight: 600;
         }
     }
 
-    .item {
-        background-color: red;
+    .items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) ;
+        grid-gap: var(--spacing-m);
+        justify-items: center;
+
+        margin-bottom: var(--spacing-l);
+
+        .book_de_text {
+            grid-row: 2;
+            grid-column: 1;
+
+        }
+
+        .leseprobe {
+            text-align: right;
+            text-decoration: underline;
+            display: block;
+            margin-top: var(--spacing-s);
+        }
+
+    }
+
+
+    
+    @media (max-width: 1140px) {
+
+        .items {
+            grid-template-columns: repeat(2, 1fr);
+
+        }
+    }
+
+        
+    @media (max-width: 750px) {
+
+        .items {
+            grid-template-columns: repeat(1, 1fr);
+
+        }
     }
 
 </style>
