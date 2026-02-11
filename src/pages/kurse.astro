@@ -30,20 +30,24 @@ import gal7 from "../../public/img/kurse/img7.webp";
         
     <div id="content">
 
-        <section class="section_def quote">
-            <div>
-                <div><img src="/img/astrid-mic.webp" alt="Astrid holding a Microphone"></div>
+        <section class="quote-container section_def">
+            <div class="quote">
                 <div>
-                    <p>Astrid Kaeswurm</p>
-                    <p class="gray">Tänzerin, Trainerin und Autorin im Bereich Line Dance</p>
+                    <div><img src="/img/astrid-mic.webp" alt="Astrid holding a Microphone"></div>
+                    <div>
+                        <p style="font-weight: 600;">Astrid Kaeswurm</p>
+                        <p class="gray">Tänzerin, Trainerin und Autorin im Bereich Line Dance</p>
+                    </div>
+                    <img class="quote-icon" src="/svg/quote.svg" alt="Quote Icon" width="48px" height="32px">
                 </div>
-                <img src="/svg/quote.svg" alt="Quote Icon" width="48px" height="32px">
+                <p>Die Anmeldung sowie weitere Informationen erhältst du ganz einfach per E-Mail (siehe unten).<br>Ich freue mich, von dir zu hören!</p>
             </div>
-            <p>Die Anmeldung sowie weitere Informationen erhältst du ganz einfach per E-Mail (siehe unten).<br>Ich freue mich, von dir zu hören!</p>
         </section>
 
         <section class="section_def termine">
-            <h2 class="typo-48">Termine & Kurse Line Dance 2026</h2>
+            <h2 class="desktop typo-36">Termine & Kurse Line Dance 2026</h2>
+            <h2 class="mobile typo-36">Termine 2026</h2>
+
             <h3 class="typo-24">Regelmäßige Kurse:</h3>
 
             <details>
@@ -219,17 +223,24 @@ import gal7 from "../../public/img/kurse/img7.webp";
         </section>
 
         <section class="section_def gallery">
-            <h2 class="typo-48">Unsere Line Dance Stunden - Sei dabei!</h2>
+            <h2 class="typo-36">Unsere Line Dance Stunden - Sei dabei!</h2>
             <p class="gray">Werde Teil unserer Tanz-Community und erlebe Line Dance live!<br>Egal ob Anfänger oder Fortgeschritten - wir freuen uns auf dich und deine Moves.</p>
 
-            <div class="images">
-                <Image src={gal1} alt="Woman Dancing" width={400}/>
-                <Image src={gal2} alt="Group Photo" />
-                <Image src={gal3} alt="Woman and Man Dancing" />
-                <Image src={gal4} alt="Portrait of Woman" />
-                <Image src={gal5} alt="Women Dancing" />
-                <Image src={gal6} alt="Group Photo" />
-                <Image src={gal7} alt="Line Dancing" />
+            <div class="images-container">
+                
+                <div>
+                    <div><Image src={gal1} alt="Woman Dancing" class="img-1" /></div>
+                    <div><Image src={gal2} alt="Group Photo" class="img-2" /></div>
+                </div>
+                <div>
+                    <div><Image src={gal3} alt="Woman and Man Dancing" class="img-3" /></div>
+                    <div><Image src={gal4} alt="Portrait of Woman" class="img-4" /></div>
+                    <div><Image src={gal5} alt="Women Dancing" class="img-5" /></div>
+                </div>
+                <div>
+                    <div><Image src={gal6} alt="Group Photo" class="img-6" /></div>
+                    <div><Image src={gal7} alt="Line Dancing" class="img-7" /></div>
+                </div>
 
             </div>
         </section>
@@ -246,12 +257,19 @@ import gal7 from "../../public/img/kurse/img7.webp";
 
 
 <style>
+
+    .quote-container {
+        display: flex;
+        justify-content: center;
+    }
+
     .quote {
         background-color: var(--base-white);
         border-radius: var(--spacing-s);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         padding: var(--spacing-m);
         max-width: 55rem;
+
 
         display: flex;
         flex-direction: column;
@@ -264,6 +282,7 @@ import gal7 from "../../public/img/kurse/img7.webp";
 
             & > div:first-child {
                 width: 3rem;
+                min-width: 3rem;
                 height: 3rem;
                 overflow: hidden;
                 border-radius: 0.8rem;
@@ -271,7 +290,6 @@ import gal7 from "../../public/img/kurse/img7.webp";
                 img {
                     object-fit: cover;
                     object-position: center;
-
                 }
             }
 
@@ -339,12 +357,85 @@ import gal7 from "../../public/img/kurse/img7.webp";
     .gallery {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-s);
+        gap: var(--spacing-m);
 
-        .images {
+        .images-container {
             display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: var(--spacing-m);
 
+            & > div {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-m);
+
+                img {
+                    object-fit: cover;
+                    border-radius: var(--spacing-s);
+                }
+     
+            }
+
+            .img-1, .img-7 {
+                height: 23rem;
+            }
+            .img-2 {
+                height: 20rem;
+            }
+            .img-3, .img-5 {
+                height: 14rem;
+            }
+            .img-4 {
+                height: 17rem;
+            }
+            .img-6 {
+                height: 16rem;
+            }
+
+            @media (max-width: 715px) {
+
+                grid-gap: var(--spacing-s);
+
+                & > div {
+                    gap: var(--spacing-s);
+                }
+
+                .img-1, .img-7 {
+                    height: 11.5rem;
+                }
+                .img-2 {
+                    height: 10rem;
+                }
+                .img-3, .img-5 {
+                    height: 7rem;
+                }
+                .img-4 {
+                    height: 8.5rem;
+                }
+                .img-6 {
+                    height: 8rem;
+                }
+            }
         }
     }
 
+    @media (max-width: 640px) {
+        .quote-icon {
+            display: none;
+        }
+
+        .quote {
+            padding: var(--spacing-s)
+        }
+
+        .mobile {
+            display: block;
+        }
+
+        .desktop {
+            display: none;
+        }
+
+
+    }
 </style>
