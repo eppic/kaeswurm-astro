@@ -86,10 +86,19 @@ const { img = heroImg, text = 'Line Dance', textWidth = '60rem', small = false, 
         }
     }
 
-
     @media (max-width: 580px) {
         .typo-xl-fat, .typo-xl-slim {
             font-size: 4rem !important;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .typo-xl-fat, .typo-xl-slim {
+            font-size: 3.4rem !important;
+        }
+
+        #hero {
+            padding: var(--spacing-s);
         }
     }
 
