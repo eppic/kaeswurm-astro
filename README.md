@@ -1,46 +1,50 @@
-# Astro Starter Kit: Basics
+# probleme
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+englishe version
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Header nicht durchgehend sticky? 
 
-## 🚀 Project Structure
+übermich: bilder sind alle wacky 
 
-Inside of your Astro project, you'll see the following folders and files:
+facebook video klickbar machen
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+bei layout unter title wieder {title} rein machen statt Astro
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+kurse: alles klickbar machen für aufklappen
 
-## 🧞 Commands
+animationen / auch so fly in shit
 
-All commands are run from the root of the project, from a terminal:
+unter "astrid" -> img to <Image>
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+alm image 5
 
-## 👀 Want to learn more?
+besserer scroller bei alm
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+button im hero geht nd
+
+google vorschlag, social-geschickt anzeige, apple schrott, etc
+  -> wenn man linedance buch googelt kommt anderes zuerst. 
+
+bilder zuschneiden vom hero und so weiter
+
+die ganzen copyright sachen @Zell-am-See-Kaprun_JOE
+
+mobile nav -> engl button?
+
+datenschutz: 
+  einmal komplett drübergehen
+  encode font
+
+---
+
+# danach: 
+
+checken ob leseprobe geht
+
+geht der tel: link im footer?
+
+---
+
+# unwichtig:
+
+tutorial zu css clamp und css containers
