@@ -19,7 +19,8 @@ import alm_6 from "../../public/img/ausb/alm/alm_6.webp";
     <main>
         <Hero img={img_hero} text="Ausbildung">
             <div class="disclaimer">
-                <h2 class="typo-24">Unsere nächsten Termine:</h2>
+                <h2 class="desktop typo-24">Unsere nächsten Termine:</h2>
+                <h2 class="mobile typo-24">Unsere nächsten <br>Termine:</h2>
                 <ul>
                     <li>05. & 06. September 2026</li>
                     <li>19. & 20. September 2026</li>
@@ -450,6 +451,46 @@ import alm_6 from "../../public/img/ausb/alm/alm_6.webp";
             flex-direction: column;
             gap: var(--spacing-l);
         }
+
+        .alm-wrapper {
+
+            .alm {
+
+                .slider-wrapper {
+                    flex: unset;
+                }
+                
+                & > div:last-child {
+                    flex: unset;
+
+                    padding: var(--spacing-m);
+                }
+                flex-direction: column;
+            }
+        }
     }
+
+    @media (max-width: 450px) {
+        .mobile {
+            display: block;
+        }
+
+        .desktop {
+            display: none;
+        }
+    }
+
+    @media (max-width: 345px) {
+        .disclaimer {
+
+            padding: var(--spacing-s);
+        
+            img {
+                display: none;
+            }
+        }
+    }
+
+    
 
 </style>
