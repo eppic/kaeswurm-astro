@@ -5,6 +5,11 @@ import Ticker from "../components/Ticker.astro";
 import MailSection from "../components/MailSection.astro";
 import ShopItem from "../components/ShopItem.astro";
 
+const ticker = [
+    "Wir feiern das 15-jährige Jubiläum des Buches mit einer Neuauflage, die derzeit erarbeitet wird und noch im Jubiläumsjahr 2026 erscheinen wird.",
+    "Wir feiern das 15-jährige Jubiläum des Buches mit einer Neuauflage, die derzeit erarbeitet wird und noch im Jubiläumsjahr 2026 erscheinen wird."
+]
+
 // Images
 import book_de from "../../public/img/shop/book-de.webp";
 import book_en from "../../public/img/shop/book-en.webp";
@@ -21,9 +26,7 @@ import facher_en from "../../public/img/shop/facher-en.webp";
         <Hero text="Shop" small>
 
         </Hero>
-        <Ticker>
-            <li>Wir feiern das 15-jährige Jubiläum des Buches mit einer Neuauflage, die derzeit erarbeitet wird und noch im Jubiläumsjahr 2026 erscheinen wird.</li>
-        </Ticker>
+        <Ticker ticker={ticker} speed="50s"/>
 
         <div id="content">
 

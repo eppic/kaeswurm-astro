@@ -5,6 +5,15 @@ import Hero from "../components/Hero.astro";
 import Ticker from "../components/Ticker.astro";
 import MailSection from '../components/MailSection.astro';
 
+const ticker = [
+    "Lerne die neuesten Choreografien mit Astrid Kaeswurm",
+    "Mehr erfahren & buchen",
+    "Kurse, Workshops & Veranstaltungen",
+    "Lerne die neuesten Choreografien mit Astrid Kaeswurm",
+    "Mehr erfahren & buchen",
+    "Kurse, Workshops & Veranstaltungen"
+]
+
 import img_hero from "../../public/img/kurse/hero.webp";
 
 import gal1 from "../../public/img/kurse/img1.webp";
@@ -22,11 +31,7 @@ import gal7 from "../../public/img/kurse/img7.webp";
         <Hero img={img_hero} text="Kurse">
 
         </Hero>
-        <Ticker>
-            <li>Lerne die neuesten Choreografien mit Astrid Kaeswurm</li>
-            <li>Mehr erfahren & buchen</li>
-            <li>Kurse, Workshops & Veranstaltungen</li>
-        </Ticker>
+        <Ticker ticker={ticker} />
         
     <div id="content">
 

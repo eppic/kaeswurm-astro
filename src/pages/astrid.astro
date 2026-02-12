@@ -3,18 +3,24 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Ticker from "../components/Ticker.astro";
 
+const ticker = [
+	"Tanz bedeutet für mich pure Lebensfreude und Ausdruck.",
+	"Ich liebe es, Menschen durch Bewegung zu verbinden.",
+	"Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll.",
+	"Tanz bedeutet für mich pure Lebensfreude und Ausdruck.",
+	"Ich liebe es, Menschen durch Bewegung zu verbinden.",
+	"Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll."
+]
+
 import img_hero from "../../public/img/astrid/hero.webp"
+
 ---
 
 <Layout>
     <main>
         <Hero img={img_hero} text="Über mich" textWidth="24rem"></Hero>
 
-        <Ticker>
-            <li>Tanz bedeutet für mich pure Lebensfreude und Ausdruck.</li>
-            <li>Ich liebe es, Menschen durch Bewegung zu verbinden.</li>
-            <li>Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll.</li>
-        </Ticker>
+        <Ticker ticker={ticker} speed="60s"/>
 
         <div id="content">
 

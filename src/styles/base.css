@@ -27,7 +27,12 @@ main {
     }
 }
 
-
+.ticker-item {
+  display: inline-block;
+  padding: 0 2rem;
+  color: var(--base-white);
+  font-weight: 600;
+}
 
 #content {
     display: flex;
@@ -38,3 +43,4 @@ main {
 .mobile {
     display: none;
 }
+

@@ -11,6 +11,15 @@ import img_vision from "../../public/img/home/vision.webp"
 import img_kurse from "../../public/img/home/kurse.webp"
 import img_buch from "../../public/img/home/buch.webp"
 
+const ticker = [
+	"Tanz bedeutet für mich pure Lebensfreude und Ausdruck.",
+	"Ich liebe es, Menschen durch Bewegung zu verbinden.",
+	"Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll.",
+	"Tanz bedeutet für mich pure Lebensfreude und Ausdruck.",
+	"Ich liebe es, Menschen durch Bewegung zu verbinden.",
+	"Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll."
+]
+
 ---
 
 <Layout>
@@ -19,11 +28,7 @@ import img_buch from "../../public/img/home/buch.webp"
 		<Button href="/kurse">Aktuelle Kurse</Button>
 	</Hero>
 	
-	<Ticker>
-        <li>Tanz bedeutet für mich pure Lebensfreude und Ausdruck.</li>
-        <li>Ich liebe es, Menschen durch Bewegung zu verbinden.</li>
-        <li>Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll.</li>
-	</Ticker>
+	<Ticker ticker={ticker} speed="60s"/>
 	<div id="content">
 		<section class="home-section">
 			<div class="img-box img-1">
