@@ -8,11 +8,25 @@ import MailSection from "../components/MailSection.astro";
 
 import img_hero from "../../public/img/ausb/hero.webp";
 
+const ticker = [
+    "Die Kurse im Frühling 2026 sind bereits ausgebucht.",
+    "Für die Termine im Herbst 2026 sind noch freie Plätze verfügbar.",
+    "Die Kurse im Frühling 2026 sind bereits ausgebucht.",
+    "Für die Termine im Herbst 2026 sind noch freie Plätze verfügbar.",
+]
+
 import alm_1 from "../../public/img/ausb/alm/alm_1.webp";
 import alm_2 from "../../public/img/ausb/alm/alm_2.webp";
 import alm_3 from "../../public/img/ausb/alm/alm_3.webp";
 import alm_4 from "../../public/img/ausb/alm/alm_4.webp";
 import alm_6 from "../../public/img/ausb/alm/alm_6.webp";
+
+import gal_1 from "../../public/img/ausb/gal/gal_1.webp";
+import gal_2 from "../../public/img/ausb/gal/gal_2.webp";
+import gal_3 from "../../public/img/ausb/gal/gal_3.webp";
+import gal_4 from "../../public/img/ausb/gal/gal_4.webp";
+import gal_5 from "../../public/img/ausb/gal/gal_5.webp";
+
 ---
 
 <Layout>
@@ -29,10 +43,8 @@ import alm_6 from "../../public/img/ausb/alm/alm_6.webp";
                 <img src="/svg/warning.svg" alt="warning icon">
             </div>
         </Hero>
-        <Ticker color={'var(--kw-green)'}>
-            <li>Die Kurse im Frühling 2026 sind bereits ausgebucht.</li>
-            <li>Für die Termine im Herbst 2026 sind noch freie Plätze verfügbar.</li>
-        </Ticker>
+
+        <Ticker color={'var(--kw-green)'} ticker={ticker} speed="40s"/>
     
         <div id="content">
 
@@ -184,9 +196,18 @@ import alm_6 from "../../public/img/ausb/alm/alm_6.webp";
                 <h2 class="typo-36">Blicke hinter die Kulissen der Ausbildung</h3>
                 <p>Hier siehst du viele Eindrücke aus den Ausbildungen der letzten Jahre: von den ersten Schritten in der Praxis bis zu besonderen Momenten hinter den Kulissen. Einige geprüfte TrainerInnen wurden nach ihrer Ausbildung sogar bereits als Line-Dance-Trainerinnen auf Kreuzfahrtschiffen gebucht.</p>
 
-                <div class="images">
-
+                <div class="images-container">
+                    <div>
+                        <div><Image class="gal_1" src={gal_1} alt="Person sitting in a chair"/></div>
+                        <div><Image class="gal_2"src={gal_2} alt="Club Meeting in a big room"/></div>
+                    </div>
+                    <div>
+                        <div><Image class="gal_3" src={gal_3} alt="Group Photo"/></div>
+                        <div><Image class="gal_4" src={gal_4} alt="People line dancing"/></div>
+                        <div><Image class="gal_5" src={gal_5} alt="People line dancing"/></div>
+                    </div>     
                 </div>
+
             </section>
 
             <section class="alm-wrapper">
@@ -349,6 +370,72 @@ import alm_6 from "../../public/img/ausb/alm/alm_6.webp";
                 display: flex;
                 gap: var(--spacing-s);
                 margin-bottom: var(--spacing-s);
+            }
+        }
+
+    }
+
+    .gallery {
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+        margin-bottom: var(--spacing-l);
+
+        .images-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: var(--spacing-s);
+
+            & > div {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-s);
+
+
+            }
+            
+        }
+
+        img {
+            object-fit: cover;
+            border-radius: var(--spacing-s);
+        }
+
+        .gal_1 {
+            height: 24rem;
+        }
+        .gal_2 {
+            height: 21rem;
+        }
+        .gal_3, .gal_5 {
+            height: 16rem;
+        }
+        .gal_4 {
+            height: 18rem;
+        }
+
+        @media (max-width: 920px) {
+            .gal_1 {
+                height: 12rem;
+            }
+            .gal_2 {
+                height: 10.5rem;
+            }
+            .gal_3, .gal_5 {
+                height: 8rem;
+            }
+            .gal_4 {
+                height: 9rem;
+            }
+
+            .images-container {
+                
+                grid-gap: calc(var(--spacing-s) * 0.5);
+
+                div {
+                    gap: calc(var(--spacing-s) * 0.5);
+                }
             }
         }
 

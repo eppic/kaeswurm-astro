@@ -39,6 +39,10 @@ const { href = "mailto:astrid@kaeswurm.de" } = Astro.props;
         .mail {
             flex-direction: column;
             padding: var(--spacing-m);
+
+            & > div:last-child {
+                align-items: center;
+            }
         }
     }
 </style>
