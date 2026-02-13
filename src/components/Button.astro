@@ -1,8 +1,10 @@
 ---
 const { href = "#" } = Astro.props;
+
+const { class: className } = Astro.props;
 ---
 
-<a class="button" href={href}>
+<a class={`button ${className}`} href={href}>
     <slot />
 </a>
 
