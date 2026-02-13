@@ -20,8 +20,6 @@ alm image 5
 
 besserer scroller bei alm
 
-button im hero geht nd
-
 google vorschlag, social-geschickt anzeige, apple schrott, etc
   -> wenn man linedance buch googelt kommt anderes zuerst. 
 
