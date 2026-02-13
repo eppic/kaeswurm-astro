@@ -19,6 +19,7 @@ import alm_1 from "../../public/img/ausb/alm/alm_1.webp";
 import alm_2 from "../../public/img/ausb/alm/alm_2.webp";
 import alm_3 from "../../public/img/ausb/alm/alm_3.webp";
 import alm_4 from "../../public/img/ausb/alm/alm_4.webp";
+import alm_5 from "../../public/img/ausb/alm/alm_5.webp";
 import alm_6 from "../../public/img/ausb/alm/alm_6.webp";
 
 import gal_1 from "../../public/img/ausb/gal/gal_1.webp";
@@ -212,21 +213,20 @@ import gal_5 from "../../public/img/ausb/gal/gal_5.webp";
 
             <section class="alm-wrapper">
                 <div class="alm">
-                    <div class="slider-wrapper">
+                    <div class="carousel">
                         <div class="slider">
-                            <Image id="alm_1" src={alm_1} alt="Images of Neubichler Alm" />
-                            <Image id="alm_2" src={alm_2} alt="Images of Neubichler Alm" />
-                            <Image id="alm_3" src={alm_3} alt="Images of Neubichler Alm" />
-                            <Image id="alm_4" src={alm_4} alt="Images of Neubichler Alm" />
-                            <Image id="alm_6" src={alm_6} alt="Images of Neubichler Alm" />
+                            <Image src={alm_1} alt="Images" />
+                            <Image src={alm_2} alt="Images" />
+                            <Image src={alm_3} alt="Images" />
+                            <Image src={alm_4} alt="Images" />
+                            <Image src={alm_5} alt="Images" />
+                            <Image src={alm_6} alt="Images" />
                         </div>
-                        <div class="slider-nav">
-                            <a href="#alm_1"></a>
-                            <a href="#alm_2"></a>
-                            <a href="#alm_3"></a>
-                            <a href="#alm_4"></a>
-                            <a href="#alm_6"></a>
-                        </div>
+
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+
+                        <div class="slider-nav"></div>
                     </div>
 
                     <div>
@@ -455,48 +455,70 @@ import gal_5 from "../../public/img/ausb/gal/gal_5.webp";
         color: var(--base-white);
         display: flex;
 
-        .slider-wrapper {
-            position: relative;
-            flex: 0 0 64%;
-
-            .slider {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                scroll-behavior: smooth;
-                
-                img {
-                    flex: 1 0 100%;
-                    scroll-snap-align: start;
-                    object-fit: cover;
-                }
-            }
-            
-            .slider-nav {
-                display: flex;
-                column-gap: var(--spacing-s);
-                position: absolute;
-                bottom: var(--spacing-m);
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 1;
-
-                a {
-                    width: 1rem;
-                    height: 1rem;
-                    border-radius: 50%;
-                    background-color: var(--base-white);
-                    transition: background-color ease 250ms;
-                }
-
-                a:hover {
-                    background-color: var(--kw-yellow);
-                }
-            }
-
-            
-
+        .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        overflow: hidden;
         }
+
+        .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        touch-action: pan-y;
+        }
+
+
+        .slider img {
+        width: 100%;
+        flex-shrink: 0;
+        object-fit: cover;
+        }
+
+        /* Pfeile */
+        .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--kw-yellow);
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+        z-index: 10;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Dots */
+        .slider-nav {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        }
+
+        .slider-nav button {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        border: none;
+        background: var(--base-white);
+        cursor: pointer;
+        }
+
+        .slider-nav button.active {
+        background: var(--kw-yellow);
+        }
+
      
         & > div:last-child {
             flex: 0 0 36%;
@@ -581,3 +603,96 @@ import gal_5 from "../../public/img/ausb/gal/gal_5.webp";
     
 
 </style>
+
+
+<script is:inline>
+  const slider = document.querySelector(".slider");
+  const slides = document.querySelectorAll(".slider img");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const nav = document.querySelector(".slider-nav");
+
+  let current = 0;
+  let startX = 0;
+  let isDragging = false;
+  const autoplayDelay = 4000;
+
+  // -----------------------
+  // DOTS ERZEUGEN
+  // -----------------------
+  slides.forEach((_, index) => {
+    const dot = document.createElement("button");
+    if (index === 0) dot.classList.add("active");
+
+    dot.addEventListener("click", () => {
+      current = index;
+      updateSlider();
+      resetAutoplay();
+    });
+
+    nav.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll(".slider-nav button");
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${current * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[current].classList.add("active");
+  }
+
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    updateSlider();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetAutoplay();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    resetAutoplay();
+  });
+
+  // -----------------------
+  // AUTOPLAY
+  // -----------------------
+  let autoplay = setInterval(nextSlide, autoplayDelay);
+
+  function resetAutoplay() {
+    clearInterval(autoplay);
+    autoplay = setInterval(nextSlide, autoplayDelay);
+  }
+
+  // -----------------------
+  // MOBILE SWIPE
+  // -----------------------
+  slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    if (!isDragging) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (diff > 50) {
+      nextSlide();
+    } else if (diff < -50) {
+      prevSlide();
+    }
+
+    resetAutoplay();
+    isDragging = false;
+  });
+</script>

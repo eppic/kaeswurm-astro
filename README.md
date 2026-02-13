@@ -1,7 +1,6 @@
 # probleme
 
-besserer scroller bei alm
-  alm image 5
+alt tags verbessern
 
 bilder zuschneiden vom hero und so weiter
 
