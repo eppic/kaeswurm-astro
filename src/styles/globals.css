@@ -9,3 +9,8 @@
   color: var(--base-white);
   font-weight: 600;
 }
+
+/* Fix for header stopping after 100vh */
+body, html {
+    overflow-x: hidden;
+}
