@@ -1,4 +1,7 @@
 ---
+
+import { Image } from 'astro:assets';
+
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Ticker from "../components/Ticker.astro";
@@ -12,7 +15,12 @@ const ticker = [
 	"Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll."
 ]
 
-import img_hero from "../../public/img/astrid/hero.webp"
+import img_hero from "../../public/img/astrid/hero.webp";
+
+import img_astrid from "../../public/img/astrid-portrait.webp";
+import img_mauritius from "../../public/img/astrid/mauritius.webp";
+import img_weltrekord from "../../public/img/ausb/hero.webp";
+import img_facebook from "../../public/img/astrid/thumbnail.jpeg";
 
 ---
 
@@ -26,7 +34,7 @@ import img_hero from "../../public/img/astrid/hero.webp"
 
             <section class="section_def aboutme">
                 <div>
-                    <div><img src="/img/astrid-portrait.webp" alt="Portrait of Astrid"></div>
+                    <div><Image src={img_astrid} alt="Portrait of Astrid"></div>
                     <div>
                         <h2 class="typo-36">Hey, ich bin Astrid!</h2>
                         <p class="gray">Begeisterte Tänzerin, Trainerin und Autorin im Bereich Line Dance. Seit meinem ersten Schritt auf dem Parkett trage ich Leidenschaft für Bewegung und Gemeinschaft im Herzen und ich darf andere Menschen dabei begleiten, ihren eigenen Groove zu finden.</p>
@@ -42,21 +50,21 @@ import img_hero from "../../public/img/astrid/hero.webp"
 
             <section class="section_def events">
                 <div>
-                    <div class="img-box"><img src="img/astrid/mauritius.webp" alt="Mauritius"></div>
+                    <div class="img-box"><Image src={img_mauritius} alt="Mauritius"></div>
                     <div class="events-title">
                         <h3 class="typo-24">Mauritius Workshop</h3>
                         <p class="gray">2024</p>
                     </div>
                 </div>
                 <div>
-                    <div class="img-box"><img src="img/ausb/hero.webp" alt="Mauritius"></div>
+                    <div class="img-box"><Image src={img_weltrekord} alt="asd"></div>
                     <div class="events-title">
                         <h3 class="typo-24">Weltrekord aufgestellt</h3>
                         <p class="gray">2025</p>
                     </div>
                 </div>
-                <div>
-                    <div class="img-box"><img src="img/astrid/thumbnail.jpeg" alt="Mauritius"></div>
+                <div onclick="window.open('https://www.facebook.com/share/v/1HRWN2FCg7/', '_blank', 'noopener,noreferrer'); return false;">
+                    <div class="img-box"><Image src={img_facebook} alt="Mauritius"></div>
                     <div class="events-title">
                         <h3 class="typo-24">Virales Video</h3>
                     </div>
@@ -101,8 +109,13 @@ import img_hero from "../../public/img/astrid/hero.webp"
 
                 max-width: 30rem;
             }
+
             img {
                 border-radius: var(--spacing-s);
+                object-fit: cover;
+
+                max-height: 26rem;
+                width: 40rem;
             }
         }
 
@@ -123,6 +136,11 @@ import img_hero from "../../public/img/astrid/hero.webp"
             width: 33%;
         }
 
+        & > div:last-child {
+            width: 20%;
+            cursor: pointer;
+        }
+
         .events-title{
             padding-top: var(--spacing-m);
             display: flex;
@@ -131,15 +149,14 @@ import img_hero from "../../public/img/astrid/hero.webp"
 
         .img-box {
             height: 20rem;
-            overflow: hidden;
-
-            border-radius: var(--spacing-s);
         }
 
         img {
             object-fit: cover;
             object-position: center;
             height: 100%;
+
+            border-radius: var(--spacing-s);
         }
     }
 
@@ -162,7 +179,7 @@ import img_hero from "../../public/img/astrid/hero.webp"
         margin-bottom: 5rem;
     }
 
-    @media (max-width: 799px) {
+    @media (max-width: 1079px) {
         
         .aboutme {
             margin-top: var(--spacing-l);
@@ -192,6 +209,12 @@ import img_hero from "../../public/img/astrid/hero.webp"
             & > div:first-child, & > div:nth-child(2) {
                 width: 100%;
             }
+
+
+            & > div:last-child {
+                width: 33%;                
+            }
+
 
             & > div {
                 max-width: fit-content;
