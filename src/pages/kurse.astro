@@ -315,11 +315,16 @@ import gal7 from "../../public/img/kurse/img7.webp";
 
         details {
             background-color: var(--kw-red-l2);
-            padding: var(--spacing-s) var(--spacing-m);
             border-radius: var(--spacing-s);
             margin: calc(var(--spacing-s)*0.1);
+            
 
             cursor: pointer;
+
+            & > ul {
+                padding: var(--spacing-s) var(--spacing-m);
+                padding-top: 0;
+            }
 
             ul {
                 display: flex;
@@ -327,11 +332,11 @@ import gal7 from "../../public/img/kurse/img7.webp";
                 gap: calc(var(--spacing-s)*0.1);
                 list-style-type: disc;
                 list-style-position: inside;
+                
             }
         }
 
         .information {
-            margin-top: var(--spacing-s);
 
             & li ul {
                 margin-left: var(--spacing-m);
@@ -343,6 +348,8 @@ import gal7 from "../../public/img/kurse/img7.webp";
             list-style: none;
             width: 100%;
             height: 100%;
+
+            padding: var(--spacing-s) var(--spacing-m);
 
             div {
                 display: flex;

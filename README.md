@@ -1,37 +1,26 @@
 # probleme
 
-englishe version
-
-Header nicht durchgehend sticky? 
-
 übermich: bilder sind alle wacky 
-
-facebook video klickbar machen
-
-bei layout unter title wieder {title} rein machen statt Astro
-
-kurse: alles klickbar machen für aufklappen
-
-animationen / auch so fly in shit
-
-unter "astrid" -> img to <Image>
-
-alm image 5
+  facebook video klickbar machen
 
 besserer scroller bei alm
-
-google vorschlag, social-geschickt anzeige, apple schrott, etc
-  -> wenn man linedance buch googelt kommt anderes zuerst. 
+  alm image 5
 
 bilder zuschneiden vom hero und so weiter
 
-die ganzen copyright sachen @Zell-am-See-Kaprun_JOE
+animationen / auch so fly in shit
+  gallerys zu svgs?
 
-mobile nav -> engl button?
+die ganzen copyright sachen @Zell-am-See-Kaprun_JOE
 
 datenschutz: 
   einmal komplett drübergehen
   encode font
+
+bei layout unter title wieder {title} rein machen statt Astro
+
+englishe version
+  mobile nav -> engl button?
 
 ---
 
@@ -40,6 +29,9 @@ datenschutz:
 checken ob leseprobe geht
 
 geht der tel: link im footer?
+
+google vorschlag, social-geschickt anzeige, apple schrott, etc
+  -> wenn man linedance buch googelt kommt anderes zuerst. 
 
 ---
 
