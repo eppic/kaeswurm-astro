@@ -1,7 +1,5 @@
 # probleme
 
-alt tags verbessern
-
 bilder zuschneiden vom hero und so weiter
 
 animationen / auch so fly in shit
