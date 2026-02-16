@@ -2,7 +2,6 @@
 
 bei layout unter title wieder {title} rein machen statt Astro
 
-Alles prüfen
 
 ---
 
@@ -20,6 +19,8 @@ englishe version
   mobile nav -> engl button?
 
 ausbildung: gallery mobile version
+
+animationen
 
 ---
 
