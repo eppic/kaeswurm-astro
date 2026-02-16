@@ -28,9 +28,12 @@ import gal7 from "../../public/img/kurse/img7.webp";
 
 <Layout>
     <main>
-        <Hero img={img_hero} text="Kurse" credits="Tristan Schnitzler">
-
-        </Hero>
+        <div class="desktop">
+            <Hero img={img_hero} text="Kurse" credits="Tristan Schnitzler" position="20% 50%" />
+        </div>
+        <div class="mobile">
+            <Hero img={img_hero} text="Kurse" credits="Tristan Schnitzler" position="48% 35%"  height="17rem" />
+        </div>
         <Ticker ticker={ticker} />
         
     <div id="content">
@@ -49,11 +52,17 @@ import gal7 from "../../public/img/kurse/img7.webp";
             </div>
         </section>
 
-        <section class="section_def termine">
+        <section class="section_def termine" id="Termine">
             <h2 class="desktop typo-36">Termine & Kurse Line Dance 2026</h2>
             <h2 class="mobile typo-36">Termine 2026</h2>
 
+
+
+
             <h3 class="typo-24">Regelmäßige Kurse:</h3>
+
+
+
 
             <details>
                 <summary>
@@ -64,17 +73,12 @@ import gal7 from "../../public/img/kurse/img7.webp";
                     <hr>
                 </summary>
                 <ul class="information">
-                    <li>Termin: Montags, 18:30–20:00 Uhr</li>
-                    <li>Leitung: Astrid „Cheesy“ Kaeswurm</li>
-                    <li>Schnupperstunde: 15. September, 18:30 Uhr</li>
-                    <li>Ort: <a href="#">Reichenhaller Straße 15, 83451 Piding</a></li>
-                    <li>Kurs: 10er-Block</li>
-                    <li>Preise:
-                        <ul>
-                            <li>Einführungspreis: 100 €</li>
-                            <li>Schnupperstunde: 5 €</li>
-                        </ul>
-                    </li>
+                    <li>10er-Block <span>100€</span></li>
+                    <li>5er-Block <span>60€</span></li>
+                    <li>Schnuppertraining <span>5€</span></li>
+                    <li><span>Leitung</span>: Astrid „Cheesy“ Kaeswurm</li>
+                    <li><span>Wann</span>: Montags von 18:30 Uhr bis 20:00 Uhr</li>
+                    <li><span>Ort</span>: <a href="https://www.google.com/maps/place/Reichenhaller+Str.+15,+83451+Piding/@47.75498,12.8961997,17z" target="_blank" rel="noopener noreferrer">Reichenhaller Str. 15, 83451 Piding</a></li>
                 </ul>
             </details>
 
@@ -87,29 +91,32 @@ import gal7 from "../../public/img/kurse/img7.webp";
                     <hr>
                 </summary>
                 <ul class="information">
-                    <li>Termin: Dienstags, 18:00–21:00 Uhr</li>
-                    <li>Ort: TSC Dance & Lifestyle</li>
-                    <li>Adresse: <a href="#">Wiener Bundesstraße 15, 5300 Hallwang bei Salzburg</a></li>
+                    <li><span>Termin</span>: Dienstags, 18:00–21:00 Uhr</li>
+                    <li><span>Ort</span>: TSC Dance & Lifestyle</li>
+                    <li><span>Adresse</span>: <a href="https://www.google.com/maps/place/Wiener+Bundesstra%C3%9Fe+15,+5300+Esch,+%C3%96sterreich/@47.8324707,13.0834421,17z" target="_blank" rel="noopener noreferrer">Wiener Bundesstraße 15, 5300 Hallwang bei Salzburg</a></li>
                 </ul>
             </details>
 
+
+
+
             <h3 class="typo-24">Einzelveranstaltungen & Workshops</h3>
+
+
+
 
             <details>
                 <summary>
                     <div>
-                        <p>Line Dance Kurs in der Bar Oceans in Bad Reichenhall</p>
+                        <p>Workshop beim Tanz: Fest Gastein Linedance Edition</p>
                         <img src="/svg/fold.svg" alt="Fold Section">
                     </div>
                     <hr>
                 </summary>
                 <ul class="information">
-                    <li>Termin: Samstag, 27.12.</li>
-                    <li>Uhrzeit: 19:00–21:00 Uhr</li>
-                    <li>Ort: Bar Oceans, Spielbank Bad Reichenhall</li>
-                    <li>Leitung: Astrid Kaeswurm</li>
-                    <li><a href="#">Webseite</a></li>
-                    <li><a href="#">Facebook Informationen</a></li>
+                    <li><span>Termin</span>: Samstag, 14.03.2026</li>
+                    <li><span>Ort</span>: Kongresszentrum Bad Hofgastein</li>
+                    <li>Anmeldung, Infos & Zeitplan: <a href="https://www.gastein.com/events/winter/linedance-edition/" target="_blank" rel="noopener noreferrer">Event-Link</a></li>
                 </ul>
             </details>
 
@@ -122,27 +129,10 @@ import gal7 from "../../public/img/kurse/img7.webp";
                     <hr>
                 </summary>
                 <ul class="information">
-                    <li>Termin: Freitag, 27.03.2026 & Samstag, 28.03.2026</li>
-                    <li>Workshops: Cheesy (Astrid Kaeswurm) & Kerstin</li>
-                    <li>Musik & Recaps: DJ Gerhard</li>
-                    <li>Zeiten:
-                        <ul>
-                            <li>Freitag, 27.03.2026: 19:00–23:00 Uhr (Einlass ab 18:00 Uhr)</li>
-                            <li>Samstag, 28.03.2026: 12:00–17:00 Uhr (Einlass ab 11:00 Uhr)</li>
-                            <li>Samstag, 28.03.2026: 18:00–23:00 Uhr (Recaps & DJ Gerhard)</li>
-                        </ul>
-                    </li>
-                    <li>Ort: <a href="#">Gasthaus „Zur Adelburg“, Zur Adelburg 4, 92366 Velburg / Hollerstetten</a></li>
-                    <li>
-                        Anmeldung & Teilnahme:
-                        <ul>
-                            <li>Preis: 35 € für beide Tage</li>
-                            <li>Anmeldung bis: 15.02.2026</li>
-                            <li>Teilnehmerzahl: begrenzt</li>
-                            <li>Anmeldung & Infos: <a href="#">event@saloon-sweepers.de</a></li>
-                            <li>Kontakt: <a href="#">Sonja (WhatsApp) 0170 / 4816421</a></li>
-                        </ul>
-                    </li>
+                    <li><span>Termin</span>: Freitag 27.03. – Samstag 28.03.26</li>
+                    <li>Workshops mit Cheesy & Kerstin  </li>
+                    <li><span>Ort</span>: Gasthaus Zur Adelburg, Zur Adelburg 4, 92355 Velburg/Hollerstetten</li>
+                    <li>Anmeldung , Info & Zeitplan: <a href="mailto:event@saloon-sweepers.de">event@saloon-sweepers.de</a></li>
                 </ul>
             </details>
 
@@ -159,7 +149,22 @@ import gal7 from "../../public/img/kurse/img7.webp";
                     <li>Uhrzeit: ab 10:00 Uhr</li>
                     <li>Ort: Neubichler Alm, Piding</li>
                     <li>Inhalt: Austausch & Treffen für Tanz-Trainer:innen</li>
-                    <li><a href="#">Facebook Informationen</a></li>
+                    <li><a href="https://www.facebook.com/events/3857535167793559" target="_blank" rel="noopener noreferrer">Facebook Informationen</a></li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>
+                    <div>
+                        <p>Internationaler Line Dance Flashmob 2026 in Piding, DE</p>
+                        <img src="/svg/fold.svg" alt="Fold Section">
+                    </div>
+                    <hr>
+                </summary>
+                <ul class="information">
+                    <li><span>Termin</span>: Samstag 02. Mai um 18:00 Uhr</li>
+                    <li>Ort: Neubichler Alm, Piding</li>
+                    <li>Anmeldung, Info & Zeitplan: <a href="https://www.facebook.com/events/665130752817202" target="_blank" rel="noopener noreferrer">Event-Link</a></li>
                 </ul>
             </details>
 
@@ -172,56 +177,24 @@ import gal7 from "../../public/img/kurse/img7.webp";
                     <hr>
                 </summary>
                 <ul class="information">
-                    <li>Termin: Sonntag, 17. Mai – Sonntag, 31. Mai 2026</li>
-                    <li>Event: Line Dance Ferien & Festival</li>
-                    <li>Ort: Kurhaus Oberstaufen, Oberstaufen, DE</li>
-                    <li>Adresse: <a href="#">Argenstraße 3, 87534 Oberstaufen, Deutschland</a></li>
-                    <li>
-                        Programm:
-                        <ul>
-                            <li>Line Dance Workshops</li>
-                            <li>Abend-Partys</li>
-                            <li>DJ</li>
-                            <li>Rahmen-Programm</li>
-                            <li>Wellness & Bewegung im Allgäu</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Kosten (Auswahl):
-                        <ul>
-                            <li>Tages-Ticket ca. 45 €</li>
-                            <li>Abend-Ticket ab ca. 20 €</li>
-                            <li>Paketpreise inkl. Hotelaufenthalt variieren nach Zimmer & Dauer</li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Flyer</a></li>
+                    <li>Termin: Sonntag 17. Mai – Sonntag 24. Mai 2026</li>
+                    <li>Ort: Kurhaus Oberstaufen, Argenstraße 3, 87534 Oberstaufen</li>
+                    <li>Anmeldung, Info & Zeitplan: <a href="https://www.perfects-events.ch/" target="_blank" rel="noopener noreferrer">Event-Link</a></li>
                 </ul>
             </details>
 
             <details>
                 <summary>
                     <div>
-                        <p>Line Dance AlpFestival in Kaprun, AT</p>
+                        <p>Line Dance AlpFestival in Zell am See-Kaprun, AT</p>
                         <img src="/svg/fold.svg" alt="Fold Section">
                     </div>
                     <hr>
                 </summary>
                 <ul class="information">
                     <li>Termin: Donnerstag, 18. Juni – Sonntag, 21. Juni 2026</li>
-                    <li>Event: Line Dance AlpFestival – Workshops, Live-Bands, DJ & Weltrekord-Attempt</li>
-                    <li>Ort: Festival-Gelände am Parkplatz Maiskogel, Kaprun, AT</li>
-                    <li>Adresse: <a href="#">Kitzsteinhornplatz 8, 5710 Kaprun, Österreich</a></li>
-                    <li>
-                        Programm-Highlights:
-                        <ul>
-                            <li>Line Dance Workshops</li>
-                            <li>DJ-Nights</li>
-                            <li>Live-Musik</li>
-                            <li>Weltrekord-Workshop auf der Schmittenhöhe (Samstag)</li>
-                        </ul>
-                    </li>
-                    <li>Kosten: Wochenend-Pässe online erhältlich – Preis je nach Kategorie/Frühbucher</li>
-                    <li><a href="#">Tickets</a></li>
+                    <li>Ort: Festival-Gelände am Parkplatz Maiskogel, 5710 Kaprun </li>
+                    <li>Anmeldung, Info & Zeitplan: <a href="https://www.zellamsee-kaprun.com/" target="_blank" rel="noopener noreferrer">Event-Link</a></li>
                 </ul>
             </details>
 
@@ -323,6 +296,17 @@ import gal7 from "../../public/img/kurse/img7.webp";
                 list-style-type: disc;
                 list-style-position: inside;
                 
+                
+            }
+
+            span {
+                font-weight: 600;
+            }
+
+            a {
+                text-decoration: underline;
+                color: blue;
+
             }
         }
 
@@ -364,11 +348,16 @@ import gal7 from "../../public/img/kurse/img7.webp";
     }
 
     @media (max-width: 730px) {
+
         .mobile {
             display: block;
         }
-        .gallery-scroll {
 
+        .desktop {
+            display: none;
+        }
+
+        .gallery-scroll {
             overflow: hidden;
             width: 100%;
             white-space: nowrap;
@@ -377,9 +366,10 @@ import gal7 from "../../public/img/kurse/img7.webp";
             & > div {
                 display: flex;
                 width: max-content;
-                animation: scroll 14s linear infinite;
+                animation: scroll 20s linear infinite;
                 gap: var(--spacing-m);
                 will-change: transform;
+                height: 34rem;
             }
         }
     }
@@ -389,7 +379,7 @@ import gal7 from "../../public/img/kurse/img7.webp";
             transform: translateX(0);
         }
         100% {
-            transform: translateX(-50.7%);
+            transform: translateX(-51%);
         }
     }
 
@@ -400,14 +390,6 @@ import gal7 from "../../public/img/kurse/img7.webp";
 
         .quote {
             padding: var(--spacing-s)
-        }
-
-        .mobile {
-            display: block;
-        }
-
-        .desktop {
-            display: none;
         }
 
 
