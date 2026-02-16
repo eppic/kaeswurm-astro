@@ -1,15 +1,4 @@
 # probleme
-hero section kleiner im mobile ??, bild zuschgneiden
-
-animationen / auch so fly in shit
-
-ausbildung: gallery mobile version
-
-datenschutz: 
-  einmal komplett drübergehen
-  encode font
-  impressum machen
-  copyright holder
 
 bei layout unter title wieder {title} rein machen statt Astro
 
@@ -29,6 +18,8 @@ google vorschlag, social-geschickt anzeige, apple schrott, etc
 
 englishe version
   mobile nav -> engl button?
+
+ausbildung: gallery mobile version
 
 ---
 
