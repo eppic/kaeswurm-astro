@@ -2,20 +2,20 @@
 import { Image } from 'astro:assets';
 import heroImg from '../../public/img/home/hero.webp';
 
-const { img = heroImg, text = 'Line Dance', textWidth = '60rem', small = false, home = false, credits } = Astro.props;
+const { img = heroImg, text = 'Line Dance', textWidth = '60rem', home = false, credits, position, blank, height = '32rem'} = Astro.props;
 ---
-<section id="hero" style={`--headerHeight: ${small ? '14rem' : '32rem'}`}>
-    {!small && 
-    <Image src={img} alt="Hero Image" />
-    <div class={home ? 'overlay' : 'gradient'} />
+<section id="hero" style={`--headerHeight: ${height}`}>
+    {!blank && 
+        <Image style={`--position: ${position}`} src={img} alt="Hero Image" />
+        <div class={home ? 'overlay' : 'gradient'} />
     }
-    <h1 class={home ? 'typo-xl-fat' : 'typo-xl-slim'} style={`--textWidth: ${textWidth}; --headerTextColor: ${small ? 'black' : 'white'}`}>{text}</h1>
+    <h1 class={home ? 'typo-xl-fat' : 'typo-xl-slim'} style={`--textWidth: ${textWidth}; --headerTextColor: ${blank ? 'black' : 'white'}`}>{text}</h1>
     
     <slot />
 
-    <p class="credits">© {credits}</p>
-</section>
+    {credits && <p class="credits">© {credits}</p> }
 
+</section>
 
 <style>
 
@@ -41,6 +41,7 @@ const { img = heroImg, text = 'Line Dance', textWidth = '60rem', small = false, 
         width: 100%;
         height: 100%;
         object-fit: cover; 
+        object-position: var(--position);
 
         top: 0;
         left: 0;
