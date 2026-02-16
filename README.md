@@ -1,15 +1,16 @@
 # probleme
+hero section kleiner im mobile ??
 
 bilder zuschneiden vom hero und so weiter
 
 animationen / auch so fly in shit
-  gallerys zu svgs?
 
 die ganzen copyright sachen @Zell-am-See-Kaprun_JOE
 
 datenschutz: 
   einmal komplett drübergehen
   encode font
+  impressum machen
 
 bei layout unter title wieder {title} rein machen statt Astro
 
