@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import heroImg from '../../public/img/home/hero.webp';
 
-const { img = heroImg, text = 'Line Dance', textWidth = '60rem', small = false, home = false } = Astro.props;
+const { img = heroImg, text = 'Line Dance', textWidth = '60rem', small = false, home = false, credits } = Astro.props;
 ---
 <section id="hero" style={`--headerHeight: ${small ? '14rem' : '32rem'}`}>
     {!small && 
@@ -10,7 +10,10 @@ const { img = heroImg, text = 'Line Dance', textWidth = '60rem', small = false, 
     <div class={home ? 'overlay' : 'gradient'} />
     }
     <h1 class={home ? 'typo-xl-fat' : 'typo-xl-slim'} style={`--textWidth: ${textWidth}; --headerTextColor: ${small ? 'black' : 'white'}`}>{text}</h1>
+    
     <slot />
+
+    <p class="credits">© {credits}</p>
 </section>
 
 
@@ -65,11 +68,14 @@ const { img = heroImg, text = 'Line Dance', textWidth = '60rem', small = false, 
         left: 0;
     }
 
+    .credits {
+        background-color: #00000061;
+    }
+
     h1 {
         max-width: var(--textWidth, 60rem);
         color: var(--headerTextColor);
     }
-
 
     @media (max-width: 610px) {
         #hero {
@@ -98,6 +104,7 @@ const { img = heroImg, text = 'Line Dance', textWidth = '60rem', small = false, 
 
         #hero {
             padding: var(--spacing-s);
+            padding-bottom: var(--spacing-m);
         }
     }
 

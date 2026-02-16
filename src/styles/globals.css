@@ -14,3 +14,17 @@
 body, html {
     overflow-x: hidden;
 }
+
+.credits {
+  position: absolute;
+  bottom: calc(var(--spacing-s)*0.5);
+  right: calc(var(--spacing-s)*0.5);
+
+  color: var(--base-white);
+}
+
+@media (max-width: 380px) {
+  .credits {
+    font-size: 0.75rem;
+  }
+}
