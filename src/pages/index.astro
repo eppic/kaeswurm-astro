@@ -24,7 +24,7 @@ const ticker = [
 
 <Layout>
 <main>
-	<Hero img={img_hero} text="Line Dance lernen mit Cheesy ist easy!" home>
+	<Hero img={img_hero} text="Line Dance lernen mit Cheesy ist easy!" home credits="Sascha Klahn">
 		<Button href="/kurse">Aktuelle Kurse</Button>
 	</Hero>
 	
@@ -34,10 +34,11 @@ const ticker = [
 			<div class="img-box img-1">
 				<h2 class="typo-xl-fat">Vision</h2>
 				<Image src={img_vision} alt="Cheesy hält ihre Arme nach oben" />
+				<p class="credits">© Sascha Klahn</p>
 			</div>
 			<div class="info-box">
 				<h3 class="typo-36">Das bin ich!</h3>
-				<p>Ich bin Cheesy: neugierig, offen und voller Leidenschaft für Musik und Tanz. Wenn Musik meine Stimmung hebt, wird sie zur Bewegung, zum Ausdruck und zum puren Lebensgefühl. Diese Freude am Line Dance möchte ich teilen - mit Menschen, die bereit sind, Neues zu entdecken und gemeinsam die Energie der Musik zu erleben.</p>
+				<p class="info">Ich bin Cheesy: neugierig, offen und voller Leidenschaft für Musik und Tanz. Wenn Musik meine Stimmung hebt, wird sie zur Bewegung, zum Ausdruck und zum puren Lebensgefühl. Diese Freude am Line Dance möchte ich teilen - mit Menschen, die bereit sind, Neues zu entdecken und gemeinsam die Energie der Musik zu erleben.</p>
 				<Button href="/astrid">Weiterlesen</Button>
 			</div>
 		</section>
@@ -46,10 +47,11 @@ const ticker = [
 				<h2 class="typo-xl-fat">Kurse</h2>
 				<Image src={img_kurse} alt="Cheesy bei einem Kurs" />
 				<div class="overlay-gray" />
+				<p class="credits">© Tristan Schnitzler</p>
 			</div>
 			<div class="info-box">
 				<h3 class="typo-36">Meine Kurse</h3>
-				<p>Line Dance verbindet Musik, Bewegung und Gemeinschaft. In meinen Kursen treffen sich Erwachsene jeden Alters, die Spaß an Musik haben und sich gerne bewegen. Hier findest du Ausgleich, Freude und Menschen, mit denen Tanzen einfach guttut.</p>
+				<p class="info">Line Dance verbindet Musik, Bewegung und Gemeinschaft. In meinen Kursen treffen sich Erwachsene jeden Alters, die Spaß an Musik haben und sich gerne bewegen. Hier findest du Ausgleich, Freude und Menschen, mit denen Tanzen einfach guttut.</p>
 				<Button href="/kurse">Mehr Details</Button>
 			</div>
 		</section>
@@ -61,7 +63,7 @@ const ticker = [
 			</div>
 			<div class="info-box">
 				<h3 class="typo-36">Wissen, das weiter tanzt</h3>
-				<p>Manchmal reicht ein Kurs einfach nicht aus - deshalb habe ich mein Wissen, meine Erfahrungen und viele Tipps in meinem eigenen Buch gesammelt. Und wer ein bisschen frischen Wind beim Tanzen mag: Meine Fächer gibt's auch hier.</p>
+				<p class="info">Manchmal reicht ein Kurs einfach nicht aus - deshalb habe ich mein Wissen, meine Erfahrungen und viele Tipps in meinem eigenen Buch gesammelt. Und wer ein bisschen frischen Wind beim Tanzen mag: Meine Fächer gibt's auch hier.</p>
 				<Button href="/shop">Jetzt entdecken</Button>
 			</div>
 		</section>
@@ -81,7 +83,7 @@ const ticker = [
 
 
 <style>
-	p {
+	.info {
 		color: var(--base-gray);
 	}
 
