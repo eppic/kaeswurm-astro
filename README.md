@@ -1,21 +1,17 @@
 # probleme
-hero section kleiner im mobile ??
-
-bilder zuschneiden vom hero und so weiter
+hero section kleiner im mobile ??, bild zuschgneiden
 
 animationen / auch so fly in shit
 
-die ganzen copyright sachen @Zell-am-See-Kaprun_JOE
+ausbildung: gallery mobile version
 
 datenschutz: 
   einmal komplett drübergehen
   encode font
   impressum machen
+  copyright holder
 
 bei layout unter title wieder {title} rein machen statt Astro
-
-englishe version
-  mobile nav -> engl button?
 
 Alles prüfen
 
@@ -30,6 +26,9 @@ geht der facebook video link
 
 google vorschlag, social-geschickt anzeige, apple schrott, etc
   -> wenn man linedance buch googelt kommt anderes zuerst. 
+
+englishe version
+  mobile nav -> engl button?
 
 ---
 
