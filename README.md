@@ -1,29 +1,12 @@
-# probleme
+# Kaeswurm.de
 
-bei layout unter title wieder {title} rein machen statt Astro
+A fully functional website that is in use by Astrid Kaeswurm. 
+https://kaeswurm.de/
 
+## Screenshots
 
----
+<img width="1383" height="910" alt="kaeswurm-screenshot" src="https://github.com/user-attachments/assets/72eb4562-f1b8-4880-8a40-3c4ac3283e7f" />
 
-# danach: 
+## License
 
-checken ob leseprobe geht
-
-geht der tel: link im footer?
-geht der facebook video link
-
-google vorschlag, social-geschickt anzeige, apple schrott, etc
-  -> wenn man linedance buch googelt kommt anderes zuerst. 
-
-englishe version
-  mobile nav -> engl button?
-
-ausbildung: gallery mobile version
-
-animationen
-
----
-
-# unwichtig:
-
-tutorial zu css clamp und css containers
+All Rights Reserved. See LICENSE file for details.
