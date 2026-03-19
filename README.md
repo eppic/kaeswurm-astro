@@ -1,6 +1,6 @@
 # Kaeswurm.de
 
-A fully functional website that is in use by Astrid Kaeswurm. 
+A fully functional website that is in use by Astrid Kaeswurm. Fully made in Astro.
 https://kaeswurm.de/
 
 ## Screenshots
