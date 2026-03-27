@@ -189,10 +189,65 @@ import gal7 from "../../public/img/kurse/img7.webp";
             <p class="gray">Werde Teil unserer Tanz-Community und erlebe Line Dance live!<br>Egal ob Anfänger oder Fortgeschritten - wir freuen uns auf dich und deine Moves.</p>
         </section>
 
-        <div class="section_def gallery-scroll">
+        <div class="gallery-scroll">
             <div>
-                <img src="/img/kurse/gallery.svg" alt="Images of Line Dance Participants">
-                <img class="mobile" src="/img/kurse/gallery.svg" alt="Images of Line Dance Participants">
+                <Image
+                    src={gal1}
+                    alt="Woman Dancing"
+                />
+                <Image
+                    src={gal2}
+                    alt="Group Photo in a row"
+                />
+                <Image
+                    src={gal3}
+                    alt="Two people dancing"
+                />
+                <Image
+                    src={gal4}
+                    alt="Woman"
+                />
+                <Image
+                    src={gal5}
+                    alt="People dancing in the club room"
+                />
+                <Image
+                    src={gal6}
+                    alt="Big group photo"
+                />
+                <Image
+                    src={gal7}
+                    alt="People line dancing"
+                />
+                
+                <Image
+                    src={gal1}
+                    alt="Woman Dancing"
+                />
+                <Image
+                    src={gal2}
+                    alt="Group Photo in a row"
+                />
+                <Image
+                    src={gal3}
+                    alt="Two people dancing"
+                />
+                <Image
+                    src={gal4}
+                    alt="Woman"
+                />
+                <Image
+                    src={gal5}
+                    alt="People dancing in the club room"
+                />
+                <Image
+                    src={gal6}
+                    alt="Big group photo"
+                />
+                <Image
+                    src={gal7}
+                    alt="People line dancing"
+                />      
                 
             </div>
         </div>
@@ -329,6 +384,44 @@ import gal7 from "../../public/img/kurse/img7.webp";
         flex-direction: column;
         gap: var(--spacing-m);
 
+        h2, h3 {
+            margin: var(--spacing-m) var(--spacing-s);
+        }
+
+    }
+
+
+    .gallery-scroll {
+        overflow: hidden;
+        width: 100%;
+        white-space: nowrap;
+        position: relative;
+        padding: 4rem 0;
+
+        & > div {
+            display: flex;
+            width: max-content;
+            animation: scroll 50s linear infinite;
+            gap: var(--spacing-m);
+            will-change: transform;
+            height: 27rem;
+            
+            img {
+                border-radius: var(--spacing-m);
+                object-fit: cover;
+                height: 100%;
+                width: 40rem
+            }
+
+            @media (max-width: 900px) {
+                
+                height: 13rem;
+
+                img {
+                    width: 20rem;
+                }
+            }
+        }
     }
 
     @media (max-width: 730px) {
@@ -341,21 +434,6 @@ import gal7 from "../../public/img/kurse/img7.webp";
             display: none;
         }
 
-        .gallery-scroll {
-            overflow: hidden;
-            width: 100%;
-            white-space: nowrap;
-            position: relative;
-
-            & > div {
-                display: flex;
-                width: max-content;
-                animation: scroll 20s linear infinite;
-                gap: var(--spacing-m);
-                will-change: transform;
-                height: 34rem;
-            }
-        }
     }
 
     @keyframes scroll {
@@ -363,7 +441,7 @@ import gal7 from "../../public/img/kurse/img7.webp";
             transform: translateX(0);
         }
         100% {
-            transform: translateX(-51%);
+            transform: translateX(-50.2%);
         }
     }
 

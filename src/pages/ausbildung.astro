@@ -188,19 +188,24 @@ import gal_5 from "../../public/img/ausb/gal/gal_5.webp";
                 <h2 class="typo-36">Blicke hinter die Kulissen der Ausbildung</h3>
                 <p>Hier siehst du viele Eindrücke aus den Ausbildungen der letzten Jahre: von den ersten Schritten in der Praxis bis zu besonderen Momenten hinter den Kulissen. </p>
 
-                <div class="images-container">
-                    <div>
-                        <div><Image class="gal_1" src={gal_1} alt="Leute die eine Konferenz halten"/></div>
-                        <div><Image class="gal_2" src={gal_2} alt="Ein Mann vor einem Laptop"/></div>
-                    </div>
-                    <div>
-                        <div><Image class="gal_3" src={gal_3} alt="Klubtreffen in einem großen Raum"/></div>
-                        <div><Image class="gal_4" src={gal_4} alt="Gruppenfoto"/></div>
-                        <div><Image class="gal_5" src={gal_5} alt="Line Dancing im Klubraum"/></div>
-                    </div>     
-                </div>
-
             </section>
+        
+            <div class="gallery-scroll">
+                <div>
+                    <Image class="gal_1" src={gal_1} alt="Leute die eine Konferenz halten"/>
+                    <Image class="gal_2" src={gal_2} alt="Ein Mann vor einem Laptop"/>
+                    <Image class="gal_3" src={gal_3} alt="Klubtreffen in einem großen Raum"/>
+                    <Image class="gal_4" src={gal_4} alt="Gruppenfoto"/>
+                    <Image class="gal_5" src={gal_5} alt="Line Dancing im Klubraum"/>
+
+                    <Image class="gal_1" src={gal_1} alt="Leute die eine Konferenz halten"/>
+                    <Image class="gal_2" src={gal_2} alt="Ein Mann vor einem Laptop"/>
+                    <Image class="gal_3" src={gal_3} alt="Klubtreffen in einem großen Raum"/>
+                    <Image class="gal_4" src={gal_4} alt="Gruppenfoto"/>
+                    <Image class="gal_5" src={gal_5} alt="Line Dancing im Klubraum"/>
+                </div>     
+            </div>
+
 
             <section class="alm-wrapper">
                 <div class="alm">
@@ -372,66 +377,48 @@ import gal_5 from "../../public/img/ausb/gal/gal_5.webp";
         flex-direction: column;
         gap: var(--spacing-m);
         margin-bottom: var(--spacing-l);
+    }
 
-        .images-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: var(--spacing-s);
+    .gallery-scroll {
+        overflow: hidden;
+        width: 100%;
+        white-space: nowrap;
+        position: relative;
+        padding-bottom: 6rem;
 
-            & > div {
-                display: flex;
-                flex-direction: column;
-                gap: var(--spacing-s);
-
-
-            }
-            
-        }
-
-        img {
-            object-fit: cover;
-            border-radius: var(--spacing-s);
-        }
-
-        .gal_1 {
-            height: 24rem;
-        }
-        .gal_2 {
+        & > div {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+            gap: var(--spacing-m);
+            will-change: transform;
             height: 27rem;
-            object-position: right;
-        }
-        .gal_3, .gal_5 {
-            height: 16rem;
-        }
-        .gal_4 {
-            height: 18rem;
-        }
 
-        @media (max-width: 920px) {
-            .gal_1 {
-                height: 12rem;
-            }
-            .gal_2 {
-                height: 13.5rem;
-                object-position: right;
-            }
-            .gal_3, .gal_5 {
-                height: 8rem;
-            }
-            .gal_4 {
-                height: 9rem;
+            img {
+                border-radius: var(--spacing-m);
+                object-fit: cover;
+                height: 100%;
+                width: 40rem;
             }
 
-            .images-container {
+            @media (max-width: 900px) {
                 
-                grid-gap: calc(var(--spacing-s) * 0.5);
+                height: 13rem;
 
-                div {
-                    gap: calc(var(--spacing-s) * 0.5);
+                img {
+                    width: 20rem;
                 }
             }
         }
+    }
 
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50.2%);
+        }
     }
 
     .alm-wrapper {
