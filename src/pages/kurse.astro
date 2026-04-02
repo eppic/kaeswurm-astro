@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Ticker from "../components/Ticker.astro";
 import MailSection from '../components/MailSection.astro';
+import KurseItem from '../components/KurseItem.astro';
 
 const ticker = [
     "Lerne die neuesten Choreografien mit Astrid Kaeswurm",
@@ -56,131 +57,66 @@ import gal7 from "../../public/img/kurse/img7.webp";
             <h2 class="desktop typo-36">Termine & Kurse Line Dance 2026</h2>
             <h2 class="mobile typo-36">Termine 2026</h2>
 
-
-
-
             <h3 class="typo-24">Regelmäßige Kurse:</h3>
 
-
-
-
-            <details>
-                <summary>
-                    <div>
-                        <p>Line Dance in Piding, DE</p>
-                        <img src="/svg/fold.svg" alt="Fold Section">
-                    </div>
-                    <hr>
-                </summary>
-                <ul class="information">
+            <KurseItem
+                title="Line Dance in Piding"
+                date="Montags von 18:30 Uhr - 20:00 Uhr"
+                address="Reichenhaller Str. 15, 83451 Piding"
+            >
+                <ul>
+                    <li><span>Leitung</span>: Astrid „Cheesy“ Kaeswurm</li>
                     <li>10er-Block <span>100€</span></li>
                     <li>5er-Block <span>60€</span></li>
                     <li>Schnuppertraining <span>5€</span></li>
-                    <li><span>Leitung</span>: Astrid „Cheesy“ Kaeswurm</li>
-                    <li><span>Wann</span>: Montags von 18:30 Uhr bis 20:00 Uhr</li>
-                    <li><span>Ort</span>: <a href="https://www.google.com/maps/place/Reichenhaller+Str.+15,+83451+Piding/@47.75498,12.8961997,17z" target="_blank" rel="noopener noreferrer">Reichenhaller Str. 15, 83451 Piding</a></li>
                 </ul>
-            </details>
+            </KurseItem>
 
-            <details>
-                <summary>
-                    <div>
-                        <p>Line Dance im TSC Dance & Lifestyle in Salzburg, AT</p>
-                        <img src="/svg/fold.svg" alt="Fold Section">
-                    </div>
-                    <hr>
-                </summary>
-                <ul class="information">
-                    <li><span>Termin</span>: Dienstags, 18:00–21:00 Uhr</li>
-                    <li><span>Ort</span>: TSC Dance & Lifestyle</li>
-                    <li><span>Adresse</span>: <a href="https://www.google.com/maps/place/Wiener+Bundesstra%C3%9Fe+15,+5300+Esch,+%C3%96sterreich/@47.8324707,13.0834421,17z" target="_blank" rel="noopener noreferrer">Wiener Bundesstraße 15, 5300 Hallwang bei Salzburg</a></li>
-                </ul>
-            </details>
-
-
-
+            <KurseItem
+                title="Line Dance im TSC Dance & Lifestyle in Salzburg"
+                country="AT"
+                date="Dienstags von 18:00 Uhr - 21:00 Uhr"
+                address="TSC Dance & Lifestyle - Wiener Bundesstraße 15, 5300 Hallwang bei Salzburg"
+            />
 
             <h3 class="typo-24">Einzelveranstaltungen & Workshops</h3>
 
+            <KurseItem
+                title="T-T-T-T - Tanz-Trainer-Tratsch-Treff in Piding"
+                date="Freitag, 1. Mai 2026 ab 10:00 Uhr"
+                address="Neubichler Alm, Piding"
+                linkRef="https://www.facebook.com/events/3857535167793559"
+                linkName="Facebook"
+            >
+                <p>Austausch & Treffen für Tanz-Trainer:innen</p>
+            </KurseItem>
 
+            <KurseItem
+                title="Internationaler Line Dance Flashmob 2026 in Piding"
+                date="Samstag, 2. Mai 2026 um 18:00 Uhr"
+                address="Neubichler Alm, Piding"
+                linkRef="https://www.facebook.com/events/665130752817202"
+                linkName="Facebook"
+            />
 
+            <KurseItem
+                title="Line Dance Ferien & Festival in Oberstaufen"
+                date="Sonntag, 17. Mai 2026 – Sonntag, 24. Mai 2026"
+                address="Kurhaus Oberstaufen, Argenstraße 3, 87534 Oberstaufen"
+                linkRef="https://www.perfects-events.ch/"
+                linkName="Event-Link"
+                linkDescription="Anmeldung, Info & Zeitplan"
+            />
 
-            <details>
-                <summary>
-                    <div>
-                        <p>Workshop bei den Saloon Sweepers in Velburg, DE</p>
-                        <img src="/svg/fold.svg" alt="Fold Section">
-                    </div>
-                    <hr>
-                </summary>
-                <ul class="information">
-                    <li><span>Termin</span>: Freitag 27.03. – Samstag 28.03.26</li>
-                    <li><span>Ort</span>: Gasthaus Zur Adelburg, Zur Adelburg 4, 92355 Velburg/Hollerstetten</li>
-                    <li>Workshops mit Cheesy & Kerstin  </li>
-                    <li>Anmeldung , Info & Zeitplan: <a href="mailto:event@saloon-sweepers.de">event@saloon-sweepers.de</a></li>
-                </ul>
-            </details>
-
-            <details>
-                <summary>
-                    <div>
-                        <p>T-T-T-T - Tanz-Trainer-Tratsch-Treff in Piding, DE</p>
-                        <img src="/svg/fold.svg" alt="Fold Section">
-                    </div>
-                    <hr>
-                </summary>
-                <ul class="information">
-                    <li><span>Termin</span>: Freitag, 1. Mai ab 10:00 Uhr</li>
-                    <li><span>Ort</span>: Neubichler Alm, Piding</li>
-                    <li>Inhalt: Austausch & Treffen für Tanz-Trainer:innen</li>
-                    <li><a href="https://www.facebook.com/events/3857535167793559" target="_blank" rel="noopener noreferrer">Facebook Informationen</a></li>
-                </ul>
-            </details>
-
-            <details>
-                <summary>
-                    <div>
-                        <p>Internationaler Line Dance Flashmob 2026 in Piding, DE</p>
-                        <img src="/svg/fold.svg" alt="Fold Section">
-                    </div>
-                    <hr>
-                </summary>
-                <ul class="information">
-                    <li><span>Termin</span>: Samstag 02. Mai um 18:00 Uhr</li>
-                    <li><span>Ort</span>: Neubichler Alm, Piding</li>
-                    <li><a href="https://www.facebook.com/events/665130752817202" target="_blank" rel="noopener noreferrer">Facebook Informationen</a></li>
-                </ul>
-            </details>
-
-            <details>
-                <summary>
-                    <div>
-                        <p>Line Dance Ferien & Festival in Oberstaufen, DE</p>
-                        <img src="/svg/fold.svg" alt="Fold Section">
-                    </div>
-                    <hr>
-                </summary>
-                <ul class="information">
-                    <li><span>Termin</span>: Sonntag 17. Mai – Sonntag 24. Mai 2026</li>
-                    <li><span>Ort</span>: Kurhaus Oberstaufen, Argenstraße 3, 87534 Oberstaufen</li>
-                    <li>Anmeldung, Info & Zeitplan: <a href="https://www.perfects-events.ch/" target="_blank" rel="noopener noreferrer">Event-Link</a></li>
-                </ul>
-            </details>
-
-            <details>
-                <summary>
-                    <div>
-                        <p>Line Dance AlpFestival in Zell am See-Kaprun, AT</p>
-                        <img src="/svg/fold.svg" alt="Fold Section">
-                    </div>
-                    <hr>
-                </summary>
-                <ul class="information">
-                    <li><span>Termin</span>: Donnerstag, 18. Juni – Sonntag, 21. Juni 2026</li>
-                    <li><span>Ort</span>: Festival-Gelände am Parkplatz Maiskogel, 5710 Kaprun </li>
-                    <li>Anmeldung, Info & Zeitplan: <a href="https://www.zellamsee-kaprun.com/de/event/line-dance-alpfestival-2026~10698" target="_blank" rel="noopener noreferrer">Event-Link</a></li>
-                </ul>
-            </details>
+            <KurseItem
+                title="Line Dance AlpFestival in Zell am See-Kaprun"
+                country="AT"
+                date="Donnerstag, 18. Juni 2026 – Sonntag, 21. Juni 2026"
+                address="Festival-Gelände am Parkplatz Maiskogel, 5710 Kaprun"
+                linkRef="https://www.zellamsee-kaprun.com/de/event/line-dance-alpfestival-2026~10698"
+                linkName="Event-Link"
+                linkDescription="Anmeldung, Info & Zeitplan"
+            />
 
         </section>
 
@@ -313,68 +249,6 @@ import gal7 from "../../public/img/kurse/img7.webp";
 
         h2, h3 {
             margin: var(--spacing-m) var(--spacing-s);
-        }
-
-        details {
-            background-color: var(--kw-red-l2);
-            border-radius: var(--spacing-s);
-            margin: calc(var(--spacing-s)*0.1);
-            
-
-            cursor: pointer;
-
-            & > ul {
-                padding: var(--spacing-s) var(--spacing-m);
-                padding-top: 0;
-            }
-
-            ul {
-                display: flex;
-                flex-direction: column;
-                gap: calc(var(--spacing-s)*0.1);
-                list-style-type: disc;
-                list-style-position: inside;
-                
-                
-            }
-
-            span {
-                font-weight: 600;
-            }
-
-            a {
-                text-decoration: underline;
-                color: blue;
-
-            }
-        }
-
-        .information {
-
-            & li ul {
-                margin-left: var(--spacing-m);
-            }
-        }
-
-        summary {
-            font-weight: 600;
-            list-style: none;
-            width: 100%;
-            height: 100%;
-
-            padding: var(--spacing-s) var(--spacing-m);
-
-            div {
-                display: flex;
-                justify-content: space-between;
-            }
-
-            hr {
-                color: var(--base-white);
-                margin-top: calc(var(--spacing-s)*0.5);
-                
-            }
-
         }
 
     }

@@ -1,0 +1,112 @@
+---
+const { title = "Neuer Kurs", country="DE", date="", address="", linkName="", linkRef="", linkDescription="Weitere Informationen" } = Astro.props;
+---
+
+<details>
+    <summary>
+        <div>
+            <h4>{title}, {country}</h4>
+            <img src="/svg/fold.svg" alt="Fold Section">
+        </div>
+        <hr>
+    </summary>
+
+    <div class="detail-contents">
+
+        <div>
+            <img src="/svg/icons-125/clock.svg" alt="Uhr" height="45">
+            <div class="detail-headers">
+                <h5>Termin</h5>
+                <p>{date}</p>
+            </div>
+        </div>
+
+        <div>
+            <img src="/svg/icons-125/location-sq.svg" alt="Standort" height="45">
+            <div class="detail-headers">
+                <h5>Ort</h5>
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`} target="_blank" rel="noopener noreferrer">{address}</a>
+            </div>
+        </div>
+
+        {Astro.slots.has('default') && (
+            <div>
+                <img src="/svg/icons-125/info.svg" alt="Information" height="45">
+                <div class="detail-headers">
+                    <h5>Details</h5>
+                    <slot/>
+                </div>
+            </div>
+        )}
+        
+        {(linkRef && linkName) && (
+            <p>{linkDescription}: <a href={linkRef} target="_blank" rel="noopener noreferrer">{linkName} </a></p>
+        )}
+    </div>
+</details>
+
+<style>
+
+    details {
+        background-color: var(--kw-red-l2);
+        border-radius: var(--spacing-s);
+        margin: calc(var(--spacing-s)*0.1);
+        
+
+        cursor: pointer;
+    }
+    
+    summary {
+        list-style: none;
+        width: 100%;
+        height: 100%;
+
+        padding: var(--spacing-s) var(--spacing-m);
+
+        div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        hr {
+            color: var(--base-white);
+            margin-top: calc(var(--spacing-s)*0.5);
+            
+        }
+
+    }
+
+    .detail-contents {
+        padding: var(--spacing-s) var(--spacing-m);
+        padding-top: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+
+        & > div {
+            display: flex;
+            gap: var(--spacing-s);
+            align-items: start;
+
+            img {
+                margin-top: calc(var(--spacing-s)/2);
+            }
+        }
+    }
+
+    ul {
+        list-style-type: disc;
+        list-style-position: inside;
+    }
+
+    h4, h5, span {
+        font-weight: 600;
+    }
+
+    a {
+        text-decoration: underline;
+        color: blue;
+    }
+
+</style>
