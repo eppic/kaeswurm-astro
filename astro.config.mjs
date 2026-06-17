@@ -7,7 +7,11 @@ export default defineConfig({
         locales: ["de", "en"],
         defaultLocale: "de",
         routing: {
-            prefixDefaultLocale: false
+            prefixDefaultLocale: false,
+            fallbackType: "rewrite"
+        },
+        fallback: {
+            en: "de"
         }
     }
 });
