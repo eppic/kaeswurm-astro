@@ -1,4 +1,10 @@
 ---
+const { lang = "de" } = Astro.props;
+
+const t = {
+    text: lang === "en" ? "plus shipping" : "zzgl. Versandkosten",
+};
+
 import Image from "astro/components/Image.astro";
 
 import dummy from "../../public/img/shop/book-de.webp";
@@ -27,7 +33,7 @@ const { price = "X" } = Astro.props;
        <span class="details">{details}</span>
     </p>
 
-    <p class="price typo-24 ">{price},- € zzgl. Versandkosten</p>
+    <p class="price typo-24 ">{price},- € {t.text}</p>
 
 </div>
 

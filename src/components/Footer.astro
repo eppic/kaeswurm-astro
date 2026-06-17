@@ -1,61 +1,143 @@
----
-
+--- 
+const { lang = "de" } = Astro.props; 
+const t = { 
+    contact: lang === "en" ? "Contact" : "Kontakt", 
+    address: lang === "en" ? "Address" : "Adresse", 
+    phone: lang === "en" ? "Phone" : "Telefon", 
+    privacy: lang === "en" ? "Privacy Policy" : "Datenschutz", 
+    imprint: lang === "en" ? "Legal Notice" : "Impressum", 
+    rights: lang === "en" ? "All rights reserved." : "alle Rechte vorbehalten.", 
+}; 
 ---
 
 <footer>
     <div class="footer-top">
         <p class="slogan typo-xl-fat">LineUp<br>by<br>Cheesy</p>
+
         <div class="logo">
             <div class="circle" />
             <img src="/svg/logo.svg" alt="Astrid Kaeswum Logo">
         </div>
+
         <div class="information typo-exp desktop">
             <div>
-                <h4 class="typo-con-slim">Kontakt</h4>
+                <h4 class="typo-con-slim">{t.contact}</h4>
+
                 <h5>Email:</h5>
-                <p><a href="mailto:astrid@kaeswurm.de">astrid@kaeswurm.de</a></p>
+                <p>
+                    <a href="mailto:astrid@kaeswurm.de">
+                        astrid@kaeswurm.de
+                    </a>
+                </p>
+
                 <h5>Instagram:</h5>
-                <p><a href="https://www.instagram.com/astrid_kaeswurm" target="_blank" rel="noopener noreferrer">@astrid_kaeswurm</a></p>
+                <p>
+                    <a
+                        href="https://www.instagram.com/astrid_kaeswurm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        @astrid_kaeswurm
+                    </a>
+                </p>
+
                 <h5>Facebook:</h5>
-                <p><a href="https://www.facebook.com/LD.Cheesy" target="_blank" rel="noopener noreferrer">Astrid Kaeswurm</a></p>
+                <p>
+                    <a
+                        href="https://www.facebook.com/LD.Cheesy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Astrid Kaeswurm
+                    </a>
+                </p>
             </div>
+
             <div>
-                <h4 class="typo-con-slim">Adresse</h4>
-                <h5></h5>
+                <h4 class="typo-con-slim">{t.address}</h4>
+
                 <p>Marzoller Weg 21</p>
                 <p>83451 Piding / D</p>
+
                 <br>
-                <h5>Telefon:</h5>
-                <p><a href="tel:004901703171206">+49 (0)170 3171206</a></p>
+
+                <h5>{t.phone}:</h5>
+                <p>
+                    <a href="tel:004901703171206">
+                        +49 (0)170 3171206
+                    </a>
+                </p>
             </div>
-            
         </div>
+
         <div class="information-mobile mobile">
-            <h4 class="typo-con-slim">Kontakt</h4>
+            <h4 class="typo-con-slim">{t.contact}</h4>
+
             <p>Marzoller Weg 21</p>
             <p>83451 Piding / D</p>
-            <p>Tel.: <a href="tel:004901703171206">+49 (0)170 3171206</a></p>
-            <p>Email: <a href="mailto:astrid@kaeswurm.de">astrid@kaeswurm.de</a></p>
+
+            <p>
+                {t.phone}:
+                <a href="tel:004901703171206">
+                    +49 (0)170 3171206
+                </a>
+            </p>
+
+            <p>
+                Email:
+                <a href="mailto:astrid@kaeswurm.de">
+                    astrid@kaeswurm.de
+                </a>
+            </p>
         </div>
     </div>
+
     <hr>
+
     <div class="footer-bottom">
-        <p class="typo-exp desktop">© {new Date().getFullYear()} Astrid Kaeswurm – alle Rechte vorbehalten.</p>
-        <a class="social-icons" href="https://www.instagram.com/astrid_kaeswurm" target="_blank" rel="noopener noreferrer">
+        <p class="typo-exp desktop">
+            © {new Date().getFullYear()} Astrid Kaeswurm – {t.rights}
+        </p>
+
+        <a
+            class="social-icons"
+            href="https://www.instagram.com/astrid_kaeswurm"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             <img src="/svg/instagram.svg" alt="Instagram Logo">
         </a>
-        <a class="social-icons" href="https://www.facebook.com/LD.Cheesy" target="_blank" rel="noopener noreferrer">
+
+        <a
+            class="social-icons"
+            href="https://www.facebook.com/LD.Cheesy"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             <img src="/svg/facebook.svg" alt="Facebook Logo">
         </a>
+
         <div class="typo-exp">
-            <a href="impressum#Datenschutz">Datenschutz</a>
-            <a href="impressum">Impressum</a>
+            <a href="impressum#Datenschutz">{t.privacy}</a>
+            <a href="impressum">{t.imprint}</a>
         </div>
     </div>
-    <p class="copy-mobile typo-exp mobile">© {new Date().getFullYear()} Astrid Kaeswurm – alle Rechte vorbehalten.</p>
-    <img class="shape desktop" src="/svg/footer-desktop-shape.svg" alt="Kreis">
-    <img class="shape-mobile mobile" src="/svg/footer-mobile-shape.svg" alt="Abstrakte Form">
-    
+
+    <p class="copy-mobile typo-exp mobile">
+        © {new Date().getFullYear()} Astrid Kaeswurm – {t.rights}
+    </p>
+
+    <img
+        class="shape desktop"
+        src="/svg/footer-desktop-shape.svg"
+        alt="Kreis"
+    >
+
+    <img
+        class="shape-mobile mobile"
+        src="/svg/footer-mobile-shape.svg"
+        alt="Abstrakte Form"
+    >
 </footer>
 
 

@@ -1,5 +1,10 @@
 ---
-const { title = "Neuer Kurs", country="DE", date="", address="", linkName="", linkRef="", linkDescription="Weitere Informationen" } = Astro.props;
+const { lang = "de", title = "Neuer Kurs", country="DE", date="", address="", linkName="", linkRef="", linkDescription="Weitere Informationen" } = Astro.props;
+
+const t = {
+    date: lang === "en" ? "Date" : "Termin",
+    location: lang === "en" ? "Location" : "Ort",
+};
 ---
 
 <details>
@@ -16,7 +21,7 @@ const { title = "Neuer Kurs", country="DE", date="", address="", linkName="", li
         <div>
             <img src="/svg/icons-125/clock.svg" alt="Uhr" height="45">
             <div class="detail-headers">
-                <h5>Termin</h5>
+                <h5>{t.date}</h5>
                 <p>{date}</p>
             </div>
         </div>
@@ -24,7 +29,7 @@ const { title = "Neuer Kurs", country="DE", date="", address="", linkName="", li
         <div>
             <img src="/svg/icons-125/location-sq.svg" alt="Standort" height="45">
             <div class="detail-headers">
-                <h5>Ort</h5>
+                <h5>{t.location}</h5>
                 <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`} target="_blank" rel="noopener noreferrer">{address}</a>
             </div>
         </div>

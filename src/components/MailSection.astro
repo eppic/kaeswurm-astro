@@ -1,4 +1,13 @@
+
+
+
 ---
+const { lang = "de" } = Astro.props;
+
+const t = {
+    text: lang === "en" ? "Get in touch with me!" : "Melde dich bei mir!"
+};
+
 import { Image } from "astro:assets";
 
 import Button from "./Button.astro";
@@ -11,7 +20,7 @@ const { href = "mailto:astrid@kaeswurm.de" } = Astro.props;
 <section class="section_def mail">
     <div><Image src={img} alt="Astrid schwingt ihre Haare" width={300}/></div>
     <div>
-        <p class="typo-24">Melde dich bei mir!</p>
+        <p class="typo-24">{t.text}</p>
         <Button href={href}><slot /></Button>
     </div>
 </section>
