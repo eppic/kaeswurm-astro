@@ -1,0 +1,317 @@
+---
+import { Image } from 'astro:assets';
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/Hero.astro";
+import Ticker from "@components/Ticker.astro";
+import MailSection from '@components/MailSection.astro';
+import KurseItem from '@components/KurseItem.astro';
+
+const ticker = [
+    "Secure your spot",
+    "Learn the latest choreographies with Astrid Kaeswurm",
+    "Learn more & book",
+    "Learn the latest choreographies",
+    "Secure your spot",
+    "Learn the latest choreographies with Astrid Kaeswurm",
+    "Learn more & book",
+    "Learn the latest choreographies",
+]
+
+import img_hero from "@public/img/kurse/hero.webp";
+
+import gal1 from "@public/img/kurse/img1.webp";
+import gal2 from "@public/img/kurse/img2.webp";
+import gal3 from "@public/img/kurse/img3.webp";
+import gal4 from "@public/img/kurse/img4.webp";
+import gal5 from "@public/img/kurse/img5.webp";
+import gal6 from "@public/img/kurse/img6.webp";
+import gal7 from "@public/img/kurse/img7.webp";
+
+---
+
+<Layout>
+    <main>
+        <div class="desktop">
+            <Hero img={img_hero} text="Courses" credits="Tristan Schnitzler" position="30% 30%" height="45rem" />
+        </div>
+        <div class="mobile">
+            <Hero img={img_hero} text="Courses" credits="Tristan Schnitzler" position="48% 35%"  height="17rem" />
+        </div>
+        <Ticker ticker={ticker} />
+        
+    <div id="content">
+
+        <section class="quote-container section_def">
+            <div class="quote">
+                <div>
+                    <div><img src="/img/astrid-mic.webp" alt="Astrid, die ein Mikrofon hält"></div>
+                    <div>
+                        <p style="font-weight: 600;">Astrid Kaeswurm</p>
+                        <p class="gray">Dancer, trainer, and author in the field of line dance.</p>
+                    </div>
+                    <img class="quote-icon" src="/svg/quote.svg" alt="Quote Icon" width="48px" height="32px">
+                </div>
+                <p>Registration and further information are available via email (see below). I’m looking forward to hearing from you!</p>
+            </div>
+        </section>
+
+        <section class="section_def termine" id="Termine">
+            <h2 class="desktop typo-36">Line Dance Dates & Classes 2026</h2>
+            <h2 class="mobile typo-36">Classes 2026</h2>
+            <h3 class="typo-24">Regular Courses:</h3>
+
+            <KurseItem
+                title="Line Dance in Piding"
+                date="Mondays from 6:30 PM - 8:00 PM"
+                address="Reichenhaller Str. 15, 83451 Piding"
+            >
+                <ul>
+                    <li><span>Instruction</span>: Astrid „Cheesy“ Kaeswurm</li>
+                    <li>10er-Block <span>100€</span></li>
+                    <li>5er-Block <span>60€</span></li>
+                    <li>Intro Session <span>5€</span></li>
+                </ul>
+            </KurseItem>
+
+            <KurseItem
+                title="Line Dance at TSC Dance & Lifestyle in Salzburg"
+                country="AT"
+                date="Tuesdays from 6:00 PM - 9:00 PM"
+                address="TSC Dance & Lifestyle - Wiener Bundesstraße 15, 5300 Hallwang bei Salzburg"
+            />
+
+            <h3 class="typo-24">Single Events & Workshops</h3>
+
+            <KurseItem
+                title="Line Dance AlpFestival in Zell am See-Kaprun"
+                country="AT"
+                date="Thursday, June 18, 2026 – Sunday, June 21, 2026"
+                address="Festival-Gelände am Parkplatz Maiskogel, 5710 Kaprun"
+                linkRef="https://www.zellamsee-kaprun.com/de/event/line-dance-alpfestival-2026~10698"
+                linkName="Event-Link"
+                linkDescription="Registration, Info & Schedule"
+            />
+
+            <KurseItem
+                title="T-T-T-T - Tanz-Trainer-Tratsch-Treff in Piding"
+                date="Friday, April 9, 2027 from 10:00 AM"
+                address="Neubichler Alm, Piding"
+                linkRef="https://www.facebook.com/photo?fbid=26515300708079460&set=a.558382834197936"
+                linkName="Facebook"
+            >
+                <p>Exchange & Meetup for Dance Instructors</p>
+            </KurseItem>
+
+        </section>
+
+        <section class="section_def gallery">
+            <h2 class="typo-36">Our Line Dance Classes - Be Part of It!</h2>
+            <p class="gray">Join our dance community and experience live line dance!<br>Whether beginner or advanced – we’re excited to welcome you and your moves.</p>
+        </section>
+
+        <div class="gallery-scroll">
+            <div>
+                <Image
+                    src={gal1}
+                    alt="Woman Dancing"
+                />
+                <Image
+                    src={gal2}
+                    alt="Group Photo in a row"
+                />
+                <Image
+                    src={gal3}
+                    alt="Two people dancing"
+                />
+                <Image
+                    src={gal4}
+                    alt="Woman"
+                />
+                <Image
+                    src={gal5}
+                    alt="People dancing in the club room"
+                />
+                <Image
+                    src={gal6}
+                    alt="Big group photo"
+                />
+                <Image
+                    src={gal7}
+                    alt="People line dancing"
+                />
+                
+                <Image
+                    src={gal1}
+                    alt="Woman Dancing"
+                />
+                <Image
+                    src={gal2}
+                    alt="Group Photo in a row"
+                />
+                <Image
+                    src={gal3}
+                    alt="Two people dancing"
+                />
+                <Image
+                    src={gal4}
+                    alt="Woman"
+                />
+                <Image
+                    src={gal5}
+                    alt="People dancing in the club room"
+                />
+                <Image
+                    src={gal6}
+                    alt="Big group photo"
+                />
+                <Image
+                    src={gal7}
+                    alt="People line dancing"
+                />      
+                
+            </div>
+        </div>
+
+        <MailSection href="mailto:astrid@kaeswurm.de?subject=Courses">
+            Contact me
+        </MailSection>
+
+    </div>
+        
+    </main>
+</Layout>
+
+
+
+<style>
+
+    .quote-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .quote {
+        background-color: var(--base-white);
+        border-radius: var(--spacing-s);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        padding: var(--spacing-m);
+        max-width: 55rem;
+
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+        
+
+        & > div {
+            display: flex;
+            gap: var(--spacing-s);
+
+            & > div:first-child {
+                width: 3rem;
+                min-width: 3rem;
+                height: 3rem;
+                overflow: hidden;
+                border-radius: 0.8rem;
+
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            & img:last-child {
+                margin-left: auto;
+            }
+        }
+
+    }
+
+    .termine {
+        display: flex;
+        flex-direction: column;
+
+        h2, h3 {
+            margin: var(--spacing-m) var(--spacing-s);
+        }
+
+    }
+
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+
+        h2, h3 {
+            margin: var(--spacing-m) var(--spacing-s);
+        }
+
+    }
+
+
+    .gallery-scroll {
+        overflow: hidden;
+        width: 100%;
+        white-space: nowrap;
+        position: relative;
+        padding: 4rem 0;
+
+        & > div {
+            display: flex;
+            width: max-content;
+            animation: scroll 50s linear infinite;
+            gap: var(--spacing-m);
+            will-change: transform;
+            height: 27rem;
+            
+            img {
+                border-radius: var(--spacing-m);
+                object-fit: cover;
+                height: 100%;
+                width: 40rem
+            }
+
+            @media (max-width: 900px) {
+                
+                height: 13rem;
+
+                img {
+                    width: 20rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 730px) {
+
+        .mobile {
+            display: block;
+        }
+
+        .desktop {
+            display: none;
+        }
+
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50.2%);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .quote-icon {
+            display: none;
+        }
+
+        .quote {
+            padding: var(--spacing-s)
+        }
+
+
+    }
+</style>

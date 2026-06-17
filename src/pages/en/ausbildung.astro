@@ -1,0 +1,680 @@
+---
+import { Image } from 'astro:assets';
+
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/Hero.astro";
+import Ticker from "@components/Ticker.astro";
+import MailSection from "@components/MailSection.astro";
+
+import img_hero from "@public/img/ausb/hero.webp";
+
+const ticker = [
+    "The courses for 2026 are already fully booked.",
+    "There are still free spots available for the sessions in 2027 in spring and autumn.",
+    "The courses for 2026 are already fully booked.",
+    "There are still free spots available for the sessions in 2027 in spring and autumn.",
+]
+
+import alm_1 from "@public/img/ausb/alm/alm_1.webp";
+import alm_2 from "@public/img/ausb/alm/alm_2.webp";
+import alm_3 from "@public/img/ausb/alm/alm_3.webp";
+import alm_4 from "@public/img/ausb/alm/alm_4.webp";
+import alm_5 from "@public/img/ausb/alm/alm_5.webp";
+import alm_6 from "@public/img/ausb/alm/alm_6.webp";
+
+import gal_1 from "@public/img/ausb/gal/gal_1.webp";
+import gal_2 from "@public/img/ausb/gal/gal_2.webp";
+import gal_3 from "@public/img/ausb/gal/gal_3.webp";
+import gal_4 from "@public/img/ausb/gal/gal_4.webp";
+import gal_5 from "@public/img/ausb/gal/gal_5.webp";
+
+---
+
+<Layout>
+    <main>
+        <Hero img={img_hero} text="Certification" credits="Zell-am-See-Kaprun_JOE" position="50% 35%">
+            <div class="disclaimer">
+                <h2 class="desktop typo-24">Our next dates:</h2>
+                <h2 class="mobile typo-24">Our next <br>dates:</h2>
+                <ul>
+                    <li>Spring course: March 13. - 14. + April 10. - 11. 2027</li>
+                    <li>Autumn course: October 9. - 10. + October 30. - 31. 2027</li>
+                </ul>
+                <p><span>The training takes place on the weekends listed above.</span></p>
+                <img src="/svg/warning.svg" alt="Warning Sign">
+            </div>
+        </Hero>
+
+        <Ticker color={'var(--kw-green)'} ticker={ticker} speed="40s"/>
+    
+        <div id="content">
+
+            <section class="summary section_def">
+                <h2 class="typo-36">Line Dance Trainer Certification</h2>
+                <p class="gray">by Astrid Kaeswurm</p>
+
+                <p class="gray">
+                    A modern training program for anyone who wants to teach line dance professionally – hands-on, structured, and style-spanning (country, modern & mixed). This certification was developed by a line dance trainer for line dancers and is based on extensive teaching experience with a wide range of groups. <br> You will gain solid didactic and methodological skills that help you confidently guide groups and design engaging classes. In addition to technique, musicality, and choreography, the program focuses on lesson structure, communication, and working with different skill levels.
+                </p>
+            </section>
+            <section class="skills section_def">
+
+                <h2 class="typo-36">What you will learn</h2>
+
+                <div class="skills-container">
+                        
+                    <div>
+                        <div class="skills-item">
+                            <div>
+                                <img src="/svg/icons-125/compass.svg" alt="Compass">
+                                <h3 class="typo-24">Didactics & Teaching</h3>
+                            </div>
+                            <div class="gray">
+                                <ul>
+                                    <li>Defining target groups and addressing them effectively</li>
+                                    <li>Designing modern line dance lesson units</li>
+                                    <li>Space orientation, area usage, and adapting choreographies</li>
+                                    <li>Selecting and analyzing suitable music & dances</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="skills-item">
+                            <div>
+                                <img src="/svg/icons-125/clock.svg" alt="Clock">
+                                <h3 class="typo-24">Schedule & Duration</h3>
+                            </div>
+                            <div class="gray">
+                                <ul>
+                                    <li>Total training duration: <span>24 hours</span> (32 learning units including practice and exercise sessions)</li>
+                                    <li>Conducted over two consecutive weekends</li>
+                                    <li>The weekends are <span>not</span> individually bookable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="skills-item">
+                            <div>
+                                <img src="/svg/icons-125/gears.svg" alt="Gears">
+                                <h3 class="typo-24">Technique & Body Work</h3>
+                            </div>
+                            <div class="gray">
+                                <ul>
+                                    <li>Basic stance and clean movement</li>
+                                    <li>Foot positions and weight transfer</li>
+                                    <li>Appropriate dances for different skill levels</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="skills-item">
+                            <div>
+                                <img src="/svg/icons-125/pen.svg" alt="Pen">
+                                <h3 class="typo-24">Examination & Certification</h3>
+                            </div>
+                            <div class="gray">
+                                <p>The training concludes with a three-part examination:</p>
+                                <ul>
+                                    <li><span>Written</span></li>
+                                    <li><span>Oral</span></li>
+                                    <li><span>Practical teaching demonstration (colloquium)</span></li>
+                                </ul>
+                                <p>Upon successful completion, you will receive a certificate. Regular continuing education is recommended.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div class="skills-item">
+                            <div>
+                                <img src="/svg/icons-125/check.svg" alt="Checkmark">
+                                <h3 class="typo-24">Practice</h3>
+                            </div>
+                            <div class="gray">
+                                <ul>
+                                    <li>Step sequences, dance styles and variations</li>
+                                    <li>Application of learned concepts in a real classroom setting</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="skills-item">
+                            <div>
+                                <img src="/svg/icons-125/euro.svg" alt="Euro Sign">
+                                <h3 class="typo-24">Costs</h3>
+                            </div>
+                            <div class="gray">
+                                <p>The course fee is <span>€400</span>.</p>
+                                <p>An additional <span>€50 examination fee</span> applies if the participant wishes to take part in the exam.</p>
+                                <p>The decision to participate in the exam can be made on the day of the exam; the fee only applies then.</p>
+                                <p><span>In total, this would amount to €450.</span></p>
+                                <p>The course fee includes:</p>
+                                <ul>
+                                    <li>All instructional materials</li>
+                                    <li>The line dance book</li>
+                                    <li>Beverages during the training</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="faq section_def">
+                <h2 class="typo-36">Häufig gestellte<br>Fragen</h2>
+
+                <div>
+                    <div class="faq-item">
+                        <h3 class="typo-24"><img src="/svg/circle.svg" alt="Kreis">Do I need prior knowledge or dance experience?</h3>
+                        <p class="gray">Basic line dance experience is an advantage, but no formal training or instructor license is required. The content is designed in a way that both aspiring trainers and those who already teach can benefit from the program.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="typo-24"><img src="/svg/hash.svg" alt="Raute">From what age can I participate in the training?</h3>
+                        <p class="gray">The Line Dance Trainer Certification is open to participants aged 18 and over. The main requirements are a passion for dancing and the desire to teach line dance professionally – regardless of previous career background.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="typo-24"><img src="/svg/triangle.svg" alt="Dreieck">Is the training officially recognized?</h3>
+                        <p class="gray">The training is a private qualification based on Astrid Kaeswurm’s book “From Anchor Step to Weave” and is not officially recognized by sports associations. However, it provides practical, hands-on skills that are essential for teaching line dance professionally.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery section_def">
+                <h2 class="typo-36">Behind the Scenes of the Training</h3>
+                <p>Here you can see many impressions from the training programs of recent years: from the first practical steps to special moments behind the scenes. Some certified trainers have even gone on to be booked as line dance instructors on cruise ships after completing their training.</p>
+
+            </section>
+            <div class="gallery-scroll">
+                <div>
+                    <Image class="gal_1" src={gal_1} alt="People holding a conference"/>
+                    <Image class="gal_2" src={gal_2} alt="A man in front of a laptop"/>
+                    <Image class="gal_3" src={gal_3} alt="Club meeting in a large room"/>
+                    <Image class="gal_4" src={gal_4} alt="Group photo"/>
+                    <Image class="gal_5" src={gal_5} alt="Line dancing in a club room"/>
+
+                    <Image class="gal_1" src={gal_1} alt="People holding a conference"/>
+                    <Image class="gal_2" src={gal_2} alt="A man in front of a laptop"/>
+                    <Image class="gal_3" src={gal_3} alt="Club meeting in a large room"/>
+                    <Image class="gal_4" src={gal_4} alt="Group photo"/>
+                    <Image class="gal_5" src={gal_5} alt="Line dancing in a club room"/>
+                </div>     
+            </div>
+
+
+            <section class="alm-wrapper">
+                <div class="alm">
+                    <div class="carousel">
+                        <div class="slider">
+                            <Image src={alm_1} alt="Berg in der Nacht" />
+                            <Image src={alm_2} alt="Wiese mit Zaun" />
+                            <Image src={alm_3} alt="Ausblick mit Bänken" />
+                            <Image src={alm_4} alt="Ausblick mit sichtbarem Glockenturm" />
+                            <Image src={alm_5} alt="Berg am Tag" />
+                            <Image src={alm_6} alt="Klubraum" />
+                        </div>
+
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+
+                        <div class="slider-nav"></div>
+                    </div>
+
+                    <div>
+                        <h2 class="typo-36">Neubichler Alm</h2>
+                        <p>For our training, I chose the idyllic Neubichler Alm in the Salzburg region – a place of calm, nature, and inspiration. Here, you can fully focus on the training, go hiking during breaks, take a deep breath, or simply enjoy the breathtaking mountain scenery. In the evenings, we eat together, dance, and laugh – because line dance connects people!</p>
+                        <a href="https://maps.app.goo.gl/wjtHTf9QJ4hUsYaN8" target="_blank" rel="noopener noreferrer">View on map</a>
+                    </div>
+                </div>
+            </section>
+
+            <MailSection href="mailto:astrid@kaeswurm.de?subject=Certification">
+                Contact me now
+            </MailSection>
+
+        </div>
+
+
+    </main>
+</Layout>
+
+
+
+<style>
+
+    .disclaimer {
+        color: var(--base-white);
+        background-color: var(--kw-green2);
+        padding: var(--spacing-m);
+        padding-bottom: var(--spacing-l);
+        border-radius: var(--spacing-s);
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+
+        position: relative;
+        width: fit-content;
+
+        ul {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-left: var(--spacing-s);
+        }
+
+        span {
+            font-weight: 600;
+        }
+
+        img {
+            position: absolute;
+            width: 2.75rem;
+            right: var(--spacing-m);
+            top: calc(var(--spacing-m) *0.75);
+        }
+
+    }
+
+    .summary {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+    }
+
+    .skills {
+
+        h2 {
+            margin-bottom: var(--spacing-m);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: var(--spacing-m);
+
+            & > div {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-m);
+            }
+        }
+
+        .skills-item {
+            background-color: var(--base-white);
+            border-radius: var(--spacing-s);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: var(--spacing-m);
+
+            & div:first-child {
+                display: flex;
+                align-items: center;
+                gap: var(--spacing-s);
+
+                img {
+                    width: 2rem;
+
+                }
+
+                margin-bottom: var(--spacing-m);
+            }
+
+            & div:last-child {
+                ul {
+                    list-style: disc;
+                    list-style-position: inside;
+                    margin-left: calc(var(--spacing-s)*0.5);
+                }
+
+                span {
+                    font-weight: 600;
+                }
+
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-s);
+            }
+
+        }
+    }
+
+    .faq {
+        display: flex;
+        gap: var(--spacing-xl);
+
+        h2 {
+            min-width: fit-content;
+            line-height: 120%;
+        }
+
+        & > div {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-s);
+        }
+
+        .faq-item {
+            background-color: var(--kw-green-light);
+            border-radius: var(--spacing-s);
+            padding: calc(var(--spacing-m) * 0.75);
+
+            h3 {
+                display: flex;
+                gap: var(--spacing-s);
+                margin-bottom: var(--spacing-s);
+            }
+        }
+
+    }
+
+    .gallery {
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+        margin-bottom: var(--spacing-l);
+    }
+
+    .gallery-scroll {
+        overflow: hidden;
+        width: 100%;
+        white-space: nowrap;
+        position: relative;
+        padding-bottom: 6rem;
+
+        & > div {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+            gap: var(--spacing-m);
+            will-change: transform;
+            height: 27rem;
+
+            img {
+                border-radius: var(--spacing-m);
+                object-fit: cover;
+                height: 100%;
+                width: 40rem;
+            }
+
+            @media (max-width: 900px) {
+                
+                height: 13rem;
+
+                img {
+                    width: 20rem;
+                }
+            }
+        }
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50.2%);
+        }
+    }
+
+    .alm-wrapper {
+        background-color: var(--base-black);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .alm {
+        max-width: 1200px;
+        
+        background-color: var(--base-black);
+        color: var(--base-white);
+        display: flex;
+
+        .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        overflow: hidden;
+        }
+
+        .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        touch-action: pan-y;
+        }
+
+
+        .slider img {
+        width: 100%;
+        flex-shrink: 0;
+        object-fit: cover;
+        }
+
+        /* Pfeile */
+        .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--kw-yellow);
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+        z-index: 10;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Dots */
+        .slider-nav {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        }
+
+        .slider-nav button {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        border: none;
+        background: var(--base-white);
+        cursor: pointer;
+        }
+
+        .slider-nav button.active {
+        background: var(--kw-yellow);
+        }
+
+     
+        & > div:last-child {
+            flex: 0 0 36%;
+
+            padding-left: var(--spacing-l);
+            padding-right: var(--spacing-m);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--spacing-s);
+
+            h2 {
+                color: var(--kw-yellow);
+            }
+
+            a {
+                color: var(--kw-yellow);
+                text-align: end;
+                text-decoration: underline;
+                padding-right: var(--spacing-m);
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        .skills {
+            
+            .skills-container {
+                display: flex;
+                flex-direction: column;
+
+            }
+        }
+    }
+    
+    @media (max-width: 945px) {
+        .faq {
+            flex-direction: column;
+            gap: var(--spacing-l);
+        }
+
+        .alm-wrapper {
+
+            .alm {
+
+                .slider-wrapper {
+                    flex: unset;
+                }
+                
+                & > div:last-child {
+                    flex: unset;
+
+                    padding: var(--spacing-m);
+                }
+                flex-direction: column;
+
+                .carousel .slider img {
+                    max-height: 24rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 450px) {
+        .mobile {
+            display: block;
+        }
+
+        .desktop {
+            display: none;
+        }
+    }
+
+    @media (max-width: 345px) {
+        .disclaimer {
+
+            padding: var(--spacing-s);
+        
+            img {
+                display: none;
+            }
+        }
+    }
+
+    
+
+</style>
+
+
+<script is:inline>
+  const slider = document.querySelector(".slider");
+  const slides = document.querySelectorAll(".slider img");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const nav = document.querySelector(".slider-nav");
+
+  let current = 0;
+  let startX = 0;
+  let isDragging = false;
+  const autoplayDelay = 4000;
+
+  // -----------------------
+  // DOTS ERZEUGEN
+  // -----------------------
+  slides.forEach((_, index) => {
+    const dot = document.createElement("button");
+    if (index === 0) dot.classList.add("active");
+
+    dot.addEventListener("click", () => {
+      current = index;
+      updateSlider();
+      resetAutoplay();
+    });
+
+    nav.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll(".slider-nav button");
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${current * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[current].classList.add("active");
+  }
+
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    updateSlider();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetAutoplay();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    resetAutoplay();
+  });
+
+  // -----------------------
+  // AUTOPLAY
+  // -----------------------
+  let autoplay = setInterval(nextSlide, autoplayDelay);
+
+  function resetAutoplay() {
+    clearInterval(autoplay);
+    autoplay = setInterval(nextSlide, autoplayDelay);
+  }
+
+  // -----------------------
+  // MOBILE SWIPE
+  // -----------------------
+  slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    if (!isDragging) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (diff > 50) {
+      nextSlide();
+    } else if (diff < -50) {
+      prevSlide();
+    }
+
+    resetAutoplay();
+    isDragging = false;
+  });
+</script>

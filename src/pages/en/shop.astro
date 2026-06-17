@@ -1,0 +1,181 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/Hero.astro";
+import Ticker from "@components/Ticker.astro";
+import MailSection from "@components/MailSection.astro";
+import ShopItem from "@components/ShopItem.astro";
+
+const ticker = [
+    "We are celebrating the 15th anniversary of the book with a new edition, which is currently being prepared and will be published during the anniversary year 2026.",
+    "We are celebrating the 15th anniversary of the book with a new edition, which is currently being prepared and will be published during the anniversary year 2026."
+]
+
+// Images
+import book_de from "@public/img/shop/book-de.webp";
+import book_en from "@public/img/shop/book-en.webp";
+
+import facher_blau_de from "@public/img/shop/facher-blau-de.webp";
+import facher_de from "@public/img/shop/facher-de.webp";
+import facher_en from "@public/img/shop/facher-en.webp";
+
+// pdf
+import leseprobe from "@public/Von-Anchor-Step-Bis-Weave-Leseprobe-0126.pdf";
+
+
+
+---
+
+<Layout>
+    <main>
+        <Hero text="Shop" blank height="14rem">
+
+        </Hero>
+        <Ticker ticker={ticker} speed="50s"/>
+
+        <div id="content">
+            <div class="information section_def">
+                <h2 class="typo-36">Important Information About Ordering</h2>
+                <div>For further information or to place an order, please send an email.<br />
+After receiving your message, you will receive the payment details from me.<br />
+Shipping takes place every Friday after payment has been received.<br />
+Your order will be confirmed by email, including all relevant information.<br />
+Shipping costs depend on the destination country.<br />
+For deliveries within Germany and Austria, a flat shipping fee is charged.<br />
+For international shipments (e.g. Switzerland, non-EU countries), shipping costs are calculated individually and communicated in advance.<br />
+Shipping to the USA is currently not possible.</div>
+            </div>
+
+            <div class="items section_def">
+
+                <div>
+                    <ShopItem 
+                        name="From Anchor Step to Weave –  <br> A Reference Book for Line Dancers"
+                        details="by Astrid Kaeswurm"
+                        image={book_en} 
+                        tr="Engl. Version"
+                        price="35"
+                    />
+                </div>
+
+                <div class="gray book_de_text">
+                    <p>This book fills a long-standing gap: it is one of the first German-language reference books on dance technique in line dance.In a practical, easy-to-understand, and modern way, Astrid Kaeswurm conveys technically correct knowledge that can be applied immediately in training.The content is based on current developments in line dance and is continuously expanded.The book provides valuable support for training but does not replace group classes or instructor education. Instead, it creates clarity, understanding, and many “aha” moments.</p>
+                    <a class="gray leseprobe typo-24" href={leseprobe} target="_blank">Leseprobe</a>
+                </div>
+
+                <div>
+                    <ShopItem 
+                        name="Fan „How does it start?”"
+                        details="in Burgundy red, cotton covering, plastic ribs, English version"
+                        image={facher_en} 
+                        tr="Engl. Version"
+                        price="6"
+                    />
+                </div>
+
+                <div>
+                    <ShopItem 
+                        name="Fan „Wie fing der an?“ <br>"
+                        details="Royal blue, cotton covering, wooden ribs, incl. velvet pouch"
+                        image={facher_blau_de}
+                        price="12"
+                    />
+                </div>
+
+                <div>
+                    <ShopItem 
+                        name="Fan „Wie fing der an?“ <br>"
+                        details="in Burgundy red, cotton covering, plastic ribs, German version"
+                        image={facher_de} 
+                        tr="Ger. Version"
+                        price="6"
+                    />
+                </div>
+
+                <div>
+                    <ShopItem
+                        name="Von Anchor Step bis Weave – <br> Das Referenzbuch für Line Dance"
+                        details="by Astrid Kaeswurm"
+                        image={book_de} 
+                        tr="Ger. Version"
+                        price="35"
+                    />
+                </div>
+
+
+
+
+            </div>
+            <MailSection href="mailto:bestellung@linedance-buch.de?subject=Order&body=I%20would%20like%20to%20order%20the%20following%20items:%0A%0A-%20[LIST%20ITEMS%20HERE]%0A%0A%0AMy%20address:%0A%0AFull%20Name:%20%0AStreet%20and%20House%20Number:%20%0AZip%20Code%20and%20City:%20">
+                Order Now!
+            </MailSection>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .information {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+        margin-top: var(--spacing-m);
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    .items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) ;
+        grid-gap: var(--spacing-m);
+        justify-items: center;
+
+        margin-bottom: var(--spacing-l);
+
+        .book_de_text {
+            grid-row: 2;
+            grid-column: 1;
+
+        }
+
+        .leseprobe {
+            text-align: right;
+            text-decoration: underline;
+            display: block;
+            margin-top: var(--spacing-s);
+        }
+
+        & > div {
+            transform-origin: left;
+
+            @media (max-width: 360px) {
+                transform: scale(0.9);
+            }
+        }
+
+    }
+
+
+    
+    @media (max-width: 1140px) {
+
+        .items {
+            grid-template-columns: repeat(2, 1fr);
+
+        }
+    }
+
+        
+    @media (max-width: 750px) {
+
+        .items {
+            grid-template-columns: repeat(1, 1fr);
+
+        }
+    }
+
+    
+    
+        
+
+</style>
