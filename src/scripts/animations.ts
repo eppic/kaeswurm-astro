@@ -27,6 +27,13 @@ export function basicAnimations() {
     )
 
     inView(
+        ".fade-left",
+        (e) => {
+            animate(e, { opacity: [0, 1], x: [10, 0], }, { ease: [0.39, 0.24, 0.3, 1], duration: 1 } );
+        },
+    )
+
+    inView(
         ".fade-left-delay-stagger",
         (e) => {
             const sub = e.querySelectorAll(".stagger");
