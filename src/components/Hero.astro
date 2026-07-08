@@ -4,14 +4,16 @@ import heroImg from '../../public/img/home/hero.webp';
 
 const { img = heroImg, text = 'Line Dance', textWidth = '60rem', home = false, credits, position, blank, height = '32rem'} = Astro.props;
 ---
-<section id="hero" style={`--headerHeight: ${height}`}>
+<section class="fade-left-delay-stagger" id="hero" style={`--headerHeight: ${height}`}>
     {!blank && 
         <Image style={`--position: ${position}`} src={img} alt="Hero Image" />
         <div class={home ? 'overlay' : 'gradient'} />
     }
-    <h1 class={home ? 'typo-xl-fat' : 'typo-xl-slim'} style={`--textWidth: ${textWidth}; --headerTextColor: ${blank ? 'black' : 'white'}`}>{text}</h1>
+    <h1 class:list={[home ? 'typo-xl-fat' : 'typo-xl-slim', 'stagger']} style={`--textWidth: ${textWidth}; --headerTextColor: ${blank ? 'black' : 'white'}`}>{text}</h1>
     
-    <slot />
+    <div class="stagger">
+        <slot />
+    </div>
 
     {credits && <p class="credits">© {credits}</p> }
 
