@@ -21,11 +21,11 @@ const t = {
                 </a>
             </li>
 
-            <li><a href=".">{t.home}</a></li>
-            <li><a href="kurse">{t.courses}</a></li>
-            <li><a href="ausbildung">{t.training}</a></li>
-            <li><a href="astrid">{t.about}</a></li>
-            <li><a href="shop">{t.shop}</a></li>
+            <li><a href={lang === "en" ? "/en/" : "/"}>{t.home}</a></li>
+            <li><a href={lang === "en" ? "/en/kurse" : "/kurse"}>{t.courses}</a></li>
+            <li><a href={lang === "en" ? "/en/ausbildung" : "/ausbildung"}>{t.training}</a></li>
+            <li><a href={lang === "en" ? "/en/astrid" : "/astrid"}>{t.about}</a></li>
+            <li><a href={lang === "en" ? "/en/shop" : "/shop"}>{t.shop}</a></li>
         </ul>
 
         <ul class="topbar">
@@ -37,11 +37,11 @@ const t = {
                 </a>
             </li>
 
-            <li class="topbar-hide"><a href=".">{t.home}</a></li>
-            <li class="topbar-hide"><a href="kurse">{t.courses}</a></li>
-            <li class="topbar-hide"><a href="ausbildung">{t.training}</a></li>
-            <li class="topbar-hide"><a href="astrid">{t.about}</a></li>
-            <li class="topbar-hide"><a href="shop">{t.shop}</a></li>
+            <li class="topbar-hide"><a href={lang === "en" ? "/en/" : "/"}>{t.home}</a></li>
+            <li class="topbar-hide"><a href={lang === "en" ? "/en/kurse" : "/kurse"}>{t.courses}</a></li>
+            <li class="topbar-hide"><a href={lang === "en" ? "/en/ausbildung" : "/ausbildung"}>{t.training}</a></li>
+            <li class="topbar-hide"><a href={lang === "en" ? "/en/astrid" : "/astrid"}>{t.about}</a></li>
+            <li class="topbar-hide"><a href={lang === "en" ? "/en/shop" : "/shop"}>{t.shop}</a></li>
 
             {lang === "de" ? (
                 <li class="lang">
@@ -58,7 +58,7 @@ const t = {
             )}
 
             <li class="logo">
-                <a href=".">
+                <a href={lang === "en" ? "/en/" : "/"}>
                     <img src="/svg/logo.svg" alt="Astrid Kaeswurm Logo">
                 </a>
             </li>
