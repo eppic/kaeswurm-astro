@@ -12,6 +12,8 @@ import img_vision from "@public/img/home/vision.webp"
 import img_kurse from "@public/img/home/kurse.webp"
 import img_buch from "@public/img/home/buch.webp"
 
+import img_flyer_2026 from "@public/img/Kurs-Flyer-2026.jpeg"
+
 const ticker = [
 	"Tanz bedeutet für mich pure Lebensfreude und Ausdruck.",
 	"Ich liebe es, Menschen durch Bewegung zu verbinden.",
@@ -31,6 +33,17 @@ const ticker = [
 	
 	<Ticker ticker={ticker} speed="60s"/>
 	<div id="content">
+		<section class="home-section home-section-fit">
+			<div class="info-box">
+				<h3 class="typo-36">Montags-Kurse!</h3>
+				<p class="info">Vom <strong>21. 9.</strong> bis zum <strong>30. 11.</strong> leite ich für euch einen Line-Dance-Kurs! Schreibt mir einfach eine Mail und macht mit! Ich freue mich, euch zu sehen.</p>
+				<Button href="mailto:astrid@kaeswurm.de">Jetzt anmelden!</Button>
+			</div>
+			<div class="img-box img-1 img-box-fit">
+				<Image src={img_flyer_2026} alt="Kurs Flyer" />
+			</div>
+		</section>
+
 		<section class="home-section">
 			<div class="img-box img-1">
 				<h2 class="typo-xl-fat">Vision</h2>
@@ -43,6 +56,7 @@ const ticker = [
 				<Button href="astrid">Weiterlesen</Button>
 			</div>
 		</section>
+		
 		<section class="home-section">
 			<div class="img-box img-2">
 				<h2 class="typo-xl-fat">Kurse</h2>
@@ -130,6 +144,15 @@ const ticker = [
 			z-index: -1;
 			top: 0;
 			left: 0;
+		}
+	}
+
+	.img-box-fit {
+
+		img {
+			object-fit: contain; 
+			object-position: center;
+			background-color: #ede4d7;
 		}
 	}
 
