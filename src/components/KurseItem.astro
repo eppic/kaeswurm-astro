@@ -1,5 +1,5 @@
 ---
-const { lang = "de", title = "Neuer Kurs", country="DE", date="", address="", linkName="", linkRef="", linkDescription="Weitere Informationen" } = Astro.props;
+const { lang = "de", title = "Neuer Kurs", country="DE", date="", address="", linkName="", linkRef="", linkDescription="Weitere Informationen", open} = Astro.props;
 
 const t = {
     date: lang === "en" ? "Date" : "Termin",
@@ -7,7 +7,7 @@ const t = {
 };
 ---
 
-<details>
+<details open={open}>
     <summary>
         <div>
             <h4>{title}, {country}</h4>
