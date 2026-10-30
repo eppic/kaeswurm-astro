@@ -21,3 +21,12 @@ body, html {
     font-size: 0.75rem;
   }
 }
+
+@media (scripting: enabled) {
+    .fade-up,
+    .fade-left,
+    .fade-up-stagger .stagger,
+    .fade-left-delay-stagger .stagger {
+        opacity: 0;
+    }
+}

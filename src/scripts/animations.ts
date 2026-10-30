@@ -10,7 +10,7 @@ export function basicAnimations() {
             animate(e, { opacity: [0, 1], y: [10, 0] }, { ease: [0.39, 0.24, 0.3, 1], duration: 1 });
 
         },
-        { amount: 0.25 }
+        { margin: "0px 0px -10% 0px" }
 
     )
 
@@ -22,7 +22,7 @@ export function basicAnimations() {
                 animate(sub, { opacity: [0, 1], y: [10, 0], }, { ease: [0.39, 0.24, 0.3, 1], duration: 1, delay: stagger(0.20, { startDelay: 0.10 }) } );
             }
         },
-        { amount: 0.25 }
+        { margin: "0px 0px -10% 0px" }
 
     )
 
