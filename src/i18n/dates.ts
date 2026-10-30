@@ -1,4 +1,5 @@
 import type { Lang } from "./paths";
+import { useTranslations } from "./ui";
 
 export interface DateRange {
     start: string;
@@ -28,7 +29,7 @@ function formatDay(date: string, lang: Lang): string {
 function formatRange(range: DateRange, lang: Lang): string {
     const start = formatDay(range.start, lang);
     if (!range.end || range.end === range.start) return start;
-    return `${start} ${lang === "en" ? "-" : "bis"} ${formatDay(range.end, lang)}`;
+    return `${start} ${useTranslations(lang)("dates.until")} ${formatDay(range.end, lang)}`;
 }
 
 export function formatDates(ranges: DateRange[], lang: Lang): string {

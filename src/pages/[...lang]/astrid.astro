@@ -19,6 +19,10 @@ const lang = getLang(Astro.params.lang);
 
 const content = {
 	de: {
+		meta: {
+		    title: "Über mich",
+		    description: "Über Astrid „Cheesy“ Kaeswurm: Tänzerin, Trainerin und Autorin im Bereich Line Dance seit 1996.",
+		},
 		ticker: [
 			"Tanz bedeutet für mich pure Lebensfreude und Ausdruck.",
 			"Ich liebe es, Menschen durch Bewegung zu verbinden.",
@@ -40,6 +44,10 @@ const content = {
 		personal: "Wenn ich nicht auf der Tanzfläche bin, genieße ich die Natur rund um Bad Reichenhall, lese gerne kreative Fachbücher oder lasse mich von Musikrichtungen inspirieren, die jenseits des Mainstreams liegen. Ich reise außerdem sehr gerne, entdecke neue Länder und Kulturen und freue mich besonders, wenn ich auf diesen Reisen auch tanzen und lehren darf. Tanzen heißt für mich: <span>„Offen sein für Neues, für Menschen, für das Leben.“</span>",
 	},
 	en: {
+		meta: {
+		    title: "About me",
+		    description: "About Astrid “Cheesy” Kaeswurm: dancer, trainer and author in the field of line dance since 1996.",
+		},
 		ticker: [
 			"Dance means pure joy of life and expression to me.",
 			"I love connecting people through movement.",
@@ -65,7 +73,7 @@ const t = content[lang];
 
 ---
 
-<Layout lang={lang}>
+<Layout lang={lang} title={t.meta.title} description={t.meta.description}>
     <main>
         <Hero img={img_hero} text={t.hero} textWidth="10rem" credits="Zell-am-See-Kaprun_JOE" position="50% 13%"/>
 

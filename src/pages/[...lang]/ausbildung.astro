@@ -29,6 +29,10 @@ const lang = getLang(Astro.params.lang);
 
 const content = {
     de: {
+        meta: {
+            title: "Ausbildung",
+            description: "Line-Dance-Trainer*innen-Ausbildung nach Astrid Kaeswurm: praxisnah, strukturiert und mit Zertifikat, auf der Neubichler Alm.",
+        },
         ticker: [
             "Für die Termine in 2027 sind im Frühling und im Herbst noch freie Plätze verfügbar.",
             "Bereits 99 Trainer haben Ihre Prüfung zu zertifizierten Trainern absolviert!",
@@ -141,6 +145,10 @@ const content = {
         form: "Anmeldeformular",
     },
     en: {
+        meta: {
+            title: "Certification",
+            description: "Line Dance Trainer Certification by Astrid Kaeswurm: hands-on, structured and with a certificate, held at the Neubichler Alm.",
+        },
         ticker: [
             "There are still free spots available for the sessions in 2027 in spring and autumn.",
             "99 trainers have already passed their exam and become certified trainers!",
@@ -258,7 +266,7 @@ const gallery = [gal_1, gal_2, gal_3, gal_4, gal_5].map((src, i) => ({ src, alt:
 const alm = [alm_1, alm_2, alm_3, alm_4, alm_5, alm_6];
 ---
 
-<Layout lang={lang}>
+<Layout lang={lang} title={t.meta.title} description={t.meta.description}>
     <main>
         <Hero img={img_hero} text={t.hero} credits="Zell-am-See-Kaprun_JOE" position="50% 35%">
             <div class="disclaimer">

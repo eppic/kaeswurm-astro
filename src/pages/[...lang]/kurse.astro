@@ -7,6 +7,7 @@ import MailSection from '@components/MailSection.astro';
 import KurseItem from '@components/KurseItem.astro';
 import { langPaths, getLang, tr } from '@i18n/paths';
 import { today, isPast, formatDates } from '@i18n/dates';
+import { useTranslations } from '@i18n/ui';
 import { regular, single, type Kurs, type Veranstaltung } from '@data/termine';
 
 import img_hero from "@public/img/kurse/hero.webp";
@@ -24,6 +25,10 @@ const lang = getLang(Astro.params.lang);
 
 const content = {
     de: {
+        meta: {
+            title: "Kurse",
+            description: "Line Dance Kurse, Workshops und Veranstaltungen mit Astrid „Cheesy“ Kaeswurm in Piding, Salzburg und Umgebung.",
+        },
         hero: "Kurse",
         ticker: [
             "Lerne die neuesten Choreografien mit Astrid Kaeswurm",
@@ -46,6 +51,10 @@ const content = {
         mailButton: "Jetzt schreiben",
     },
     en: {
+        meta: {
+            title: "Courses",
+            description: "Line dance classes, workshops and events with Astrid “Cheesy” Kaeswurm in Piding, Salzburg and the surrounding area.",
+        },
         hero: "Courses",
         ticker: [
             "Secure your spot",
@@ -84,7 +93,7 @@ const singleVisible = single
 function dateText(v: Veranstaltung) {
     const dates = formatDates(v.dates, lang);
     if (!v.time) return dates;
-    const each = v.dates.length > 1 ? (lang === "en" ? "each " : "jeweils ") : "";
+    const each = v.dates.length > 1 ? `${useTranslations(lang)("kurse.each")} ` : "";
     return `${dates}, ${each}${tr(v.time, lang)}`;
 }
 
@@ -113,7 +122,7 @@ const gallery = [
 ];
 ---
 
-<Layout lang={lang}>
+<Layout lang={lang} title={t.meta.title} description={t.meta.description}>
     <main>
         <div class="desktop">
             <Hero img={img_hero} text={t.hero} credits="Tristan Schnitzler" position="30% 30%" height="45rem" />

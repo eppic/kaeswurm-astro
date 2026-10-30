@@ -1,13 +1,11 @@
 ---
-const { lang = "de" } = Astro.props;
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations, navItems } from "@i18n/ui";
 
-const t = {
-    home: lang === "en" ? "Home" : "Startseite",
-    courses: lang === "en" ? "Courses" : "Kurse",
-    training: lang === "en" ? "Certification" : "Ausbildung",
-    about: lang === "en" ? "About me" : "Über mich",
-    shop: "Shop",
-};
+const { lang = "de", switchUrl } = Astro.props;
+const t = useTranslations(lang);
+
+const links = navItems.map((item) => ({ href: getRelativeLocaleUrl(lang, item.path), label: t(item.key) }));
 ---
 
 <header>
@@ -21,11 +19,7 @@ const t = {
                 </a>
             </li>
 
-            <li><a href={lang === "en" ? "/en/" : "/"}>{t.home}</a></li>
-            <li><a href={lang === "en" ? "/en/kurse" : "/kurse"}>{t.courses}</a></li>
-            <li><a href={lang === "en" ? "/en/ausbildung" : "/ausbildung"}>{t.training}</a></li>
-            <li><a href={lang === "en" ? "/en/astrid" : "/astrid"}>{t.about}</a></li>
-            <li><a href={lang === "en" ? "/en/shop" : "/shop"}>{t.shop}</a></li>
+            {links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
         </ul>
 
         <ul class="topbar">
@@ -37,28 +31,16 @@ const t = {
                 </a>
             </li>
 
-            <li class="topbar-hide"><a href={lang === "en" ? "/en/" : "/"}>{t.home}</a></li>
-            <li class="topbar-hide"><a href={lang === "en" ? "/en/kurse" : "/kurse"}>{t.courses}</a></li>
-            <li class="topbar-hide"><a href={lang === "en" ? "/en/ausbildung" : "/ausbildung"}>{t.training}</a></li>
-            <li class="topbar-hide"><a href={lang === "en" ? "/en/astrid" : "/astrid"}>{t.about}</a></li>
-            <li class="topbar-hide"><a href={lang === "en" ? "/en/shop" : "/shop"}>{t.shop}</a></li>
+            {links.map((link) => <li class="topbar-hide"><a href={link.href}>{link.label}</a></li>)}
 
-            {lang === "de" ? (
-                <li class="lang">
-                    <a href="/en/">
-                        <img src="/svg/uk.svg" alt="Change to English" />
-                    </a>
-                </li>
-            ) : (
-                <li class="lang">
-                    <a href="/">
-                        <img src="/svg/de.svg" alt="Wechsel zu Deutsch" />
-                    </a>
-                </li>
-            )}
+            <li class="lang">
+                <a href={switchUrl}>
+                    <img src={lang === "de" ? "/svg/uk.svg" : "/svg/de.svg"} alt={t("nav.switch")} />
+                </a>
+            </li>
 
             <li class="logo">
-                <a href={lang === "en" ? "/en/" : "/"}>
+                <a href={links[0].href}>
                     <img src="/svg/logo.svg" alt="Astrid Kaeswurm Logo">
                 </a>
             </li>

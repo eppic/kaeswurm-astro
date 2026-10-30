@@ -1,12 +1,22 @@
 ---
-const { title = "Line Dance by Cheesy", lang = 'de'} = Astro.props;
+import { getRelativeLocaleUrl, getAbsoluteLocaleUrl } from "astro:i18n";
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
-
+import { useTranslations } from "@i18n/ui";
+import type { Lang } from "@i18n/paths";
 
 import "../styles/globals.css"
 
+const { lang = "de", title, description } = Astro.props;
+const t = useTranslations(lang);
 
+const pageTitle = title ? `${title} – ${t("meta.title")}` : t("meta.title");
+const pageDescription = description ?? t("meta.description");
+
+const translated = Astro.routePattern.includes("[...lang]");
+const path = Astro.url.pathname.replace(/^\/en(\/|$)/, "/").replace(/^\/|\/$/g, "");
+const otherLang: Lang = lang === "de" ? "en" : "de";
+const switchUrl = translated ? getRelativeLocaleUrl(otherLang, path) : getRelativeLocaleUrl(otherLang);
 ---
 
 <!doctype html>
@@ -16,13 +26,21 @@ import "../styles/globals.css"
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>{pageTitle}</title>
 
-		<meta name="description" content="Begeisterte Tänzerin, Trainerin und Autorin im Bereich Line Dance. Bestelle jetzt 'Von Anchor Step bis Weave – Das Referenzbuch für Line Dance'!" />
+		<meta name="description" content={pageDescription} />
+
+		{translated && (
+			<>
+				<link rel="alternate" hreflang="de" href={getAbsoluteLocaleUrl("de", path)} />
+				<link rel="alternate" hreflang="en" href={getAbsoluteLocaleUrl("en", path)} />
+				<link rel="alternate" hreflang="x-default" href={getAbsoluteLocaleUrl("de", path)} />
+			</>
+		)}
 
 	</head>
 	<body>
-		<Header lang={lang} />
+		<Header lang={lang} switchUrl={switchUrl} />
 		<slot />
 		<Footer lang={lang} />
 	</body>

@@ -1,11 +1,9 @@
 ---
+import { useTranslations } from "@i18n/ui";
+
 const { lang = "de", title = "Neuer Kurs", country="DE", date="", address="", linkName="", linkRef="", linkDescription, open} = Astro.props;
 
-const t = {
-    date: lang === "en" ? "Date" : "Termin",
-    location: lang === "en" ? "Location" : "Ort",
-    more: lang === "en" ? "More information" : "Weitere Informationen",
-};
+const t = useTranslations(lang);
 ---
 
 <details open={open}>
@@ -22,7 +20,7 @@ const t = {
         <div>
             <img src="/svg/icons-125/clock.svg" alt="Uhr" height="45">
             <div class="detail-headers">
-                <h5>{t.date}</h5>
+                <h5>{t("kurse.date")}</h5>
                 <p>{date}</p>
             </div>
         </div>
@@ -30,7 +28,7 @@ const t = {
         <div>
             <img src="/svg/icons-125/location-sq.svg" alt="Standort" height="45">
             <div class="detail-headers">
-                <h5>{t.location}</h5>
+                <h5>{t("kurse.location")}</h5>
                 <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`} target="_blank" rel="noopener noreferrer">{address}</a>
             </div>
         </div>
@@ -46,7 +44,7 @@ const t = {
         )}
         
         {(linkRef && linkName) && (
-            <p>{linkDescription ?? t.more}: <a href={linkRef} target="_blank" rel="noopener noreferrer">{linkName} </a></p>
+            <p>{linkDescription ?? t("kurse.more")}: <a href={linkRef} target="_blank" rel="noopener noreferrer">{linkName} </a></p>
         )}
     </div>
 </details>

@@ -55,6 +55,10 @@ const products = {
 
 const content = {
     de: {
+        meta: {
+            title: "Shop",
+            description: "Bestelle das Line-Dance-Referenzbuch „Von Anchor Step bis Weave“ und Fächer von Astrid Kaeswurm.",
+        },
         ticker: [
             "Wir feiern das 15-jährige Jubiläum des Buches mit einer Neuauflage, die derzeit erarbeitet wird und noch im Jubiläumsjahr 2026 erscheinen wird.",
             "Wir feiern das 15-jährige Jubiläum des Buches mit einer Neuauflage, die derzeit erarbeitet wird und noch im Jubiläumsjahr 2026 erscheinen wird."
@@ -71,6 +75,10 @@ const content = {
         mailButton: "Jetzt bestellen!",
     },
     en: {
+        meta: {
+            title: "Shop",
+            description: "Order the line dance reference book “From Anchor Step to Weave” and fans by Astrid Kaeswurm.",
+        },
         ticker: [
             "We are celebrating the 15th anniversary of the book with a new edition, which is currently being prepared and will be published during the anniversary year 2026.",
             "We are celebrating the 15th anniversary of the book with a new edition, which is currently being prepared and will be published during the anniversary year 2026."
@@ -95,7 +103,7 @@ const [first, ...rest] = t.order.map((key) => {
 });
 ---
 
-<Layout lang={lang}>
+<Layout lang={lang} title={t.meta.title} description={t.meta.description}>
     <main>
         <Hero text="Shop" blank height="14rem">
 
