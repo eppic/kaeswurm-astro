@@ -7,6 +7,12 @@ import type { Lang } from "@i18n/paths";
 
 import "../styles/globals.css"
 
+interface Props {
+    lang?: Lang;
+    title?: string;
+    description?: string;
+}
+
 const { lang = "de", title, description } = Astro.props;
 const t = useTranslations(lang);
 
