@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,5 +12,14 @@ export default defineConfig({
         routing: {
             prefixDefaultLocale: false
         }
-    }
+    },
+    integrations: [
+        sitemap({
+            filter: (page) => !/\/(404|500)\/?$/.test(page),
+            i18n: {
+                defaultLocale: "de",
+                locales: { de: "de-DE", en: "en-US" },
+            },
+        }),
+    ],
 });
