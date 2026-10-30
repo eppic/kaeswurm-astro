@@ -1,0 +1,289 @@
+---
+
+import { Image } from 'astro:assets';
+
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import Ticker from '@components/Ticker.astro';
+import Button from '@components/Button.astro';
+import { langPaths, getLang } from '@i18n/paths';
+
+import img_hero from "@public/img/home/hero.webp"
+import img_vision from "@public/img/home/vision.webp"
+import img_kurse from "@public/img/home/kurse.webp"
+import img_buch from "@public/img/home/buch.webp"
+
+export const getStaticPaths = langPaths;
+const lang = getLang(Astro.params.lang);
+
+const content = {
+	de: {
+		ticker: [
+			"Tanz bedeutet für mich pure Lebensfreude und Ausdruck.",
+			"Ich liebe es, Menschen durch Bewegung zu verbinden.",
+			"Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll.",
+			"Tanz bedeutet für mich pure Lebensfreude und Ausdruck.",
+			"Ich liebe es, Menschen durch Bewegung zu verbinden.",
+			"Musik zu hören, zu fühlen und in Tanz umzusetzen ist einfach toll."
+		],
+		hero: "Line Dance lernen mit Cheesy ist easy!",
+		heroButton: "Aktuelle Kurse",
+		vision: {
+			alt: "Cheesy hält ihre Arme nach oben",
+			title: "Das bin ich!",
+			text: "Ich bin Cheesy: neugierig, offen und voller Leidenschaft für Musik und Tanz. Wenn Musik meine Stimmung hebt, wird sie zur Bewegung, zum Ausdruck und zum puren Lebensgefühl. Diese Freude am Line Dance möchte ich teilen - mit Menschen, die bereit sind, Neues zu entdecken und gemeinsam die Energie der Musik zu erleben.",
+			button: "Weiterlesen",
+		},
+		kurse: {
+			heading: "Kurse",
+			alt: "Cheesy bei einem Kurs",
+			title: "Meine Kurse",
+			text: "Line Dance verbindet Musik, Bewegung und Gemeinschaft. In meinen Kursen treffen sich Erwachsene jeden Alters, die Spaß an Musik haben und sich gerne bewegen. Hier findest du Ausgleich, Freude und Menschen, mit denen Tanzen einfach guttut.",
+			button: "Mehr Details",
+		},
+		buch: {
+			heading: "Buch",
+			alt: "Abbildung des Line-Dance-Buchs",
+			title: "Wissen, das weiter tanzt",
+			text: "Manchmal reicht ein Kurs einfach nicht aus - deshalb habe ich mein Wissen, meine Erfahrungen und viele Tipps in meinem eigenen Buch gesammelt. Und wer ein bisschen frischen Wind beim Tanzen mag: Meine Fächer gibt's auch hier.",
+			button: "Jetzt entdecken",
+		},
+		quote: "„Wir machen keine Fehler, wir tanzen Variationen!”",
+		quoteRole: "Tänzerin, Trainerin und Autorin",
+	},
+	en: {
+		ticker: [
+			"Dance means pure joy of life and expression to me.",
+			"I love connecting people through movement.",
+			"Listening to music, feeling it, and expressing it through dance is simply amazing.",
+			"Dance means pure joy of life and expression to me.",
+			"I love connecting people through movement.",
+			"Listening to music, feeling it, and expressing it through dance is simply amazing."
+		],
+		hero: "Learning Line Dance with Cheesy is easy!",
+		heroButton: "Current Classes",
+		vision: {
+			alt: "Cheesy holding her hands up",
+			title: "This is me!",
+			text: "I’m Cheesy – curious, open, and full of passion for music and dance. When music lifts my mood, it turns into movement, expression, and a pure zest for life. I want to share this joy of line dance with people who are ready to discover something new and experience the energy of music together.",
+			button: "Read more",
+		},
+		kurse: {
+			heading: "Classes",
+			alt: "Cheesy at a course",
+			title: "My Classes",
+			text: "Line dance combines music, movement, and community. In my classes, adults of all ages come together who enjoy dancing and love to move. Here you’ll find balance, joy, and people with whom dancing simply feels good.",
+			button: "Read more",
+		},
+		buch: {
+			heading: "Book",
+			alt: "Line-Dance-Book",
+			title: "Knowledge that keeps you moving",
+			text: "Sometimes a class just isn’t enough – that’s why I’ve gathered my knowledge, experience, and many tips in my own book. And for anyone who likes a little fresh breeze while dancing: my fans are also available here.",
+			button: "Discover now",
+		},
+		quote: "„We don’t make mistakes – we dance variations!”",
+		quoteRole: "dancer, trainer, and author",
+	},
+};
+const t = content[lang];
+
+---
+
+<Layout lang={lang}>
+<main>
+	<Hero img={img_hero} text={t.hero} home credits="Sascha Klahn">
+		<Button href="kurse">{t.heroButton}</Button>
+	</Hero>
+
+	<Ticker ticker={t.ticker} speed="60s"/>
+	<div id="content">
+
+		<section class="home-section">
+			<div class="img-box img-1">
+				<h2 class="typo-xl-fat">Vision</h2>
+				<Image src={img_vision} alt={t.vision.alt} />
+				<p class="credits">© Sascha Klahn</p>
+			</div>
+			<div class="info-box">
+				<h3 class="typo-36">{t.vision.title}</h3>
+				<p class="info">{t.vision.text}</p>
+				<Button href="astrid">{t.vision.button}</Button>
+			</div>
+		</section>
+
+		<section class="home-section">
+			<div class="img-box img-2">
+				<h2 class="typo-xl-fat">{t.kurse.heading}</h2>
+				<Image src={img_kurse} alt={t.kurse.alt} />
+				<div class="overlay-gray" />
+				<p class="credits">© Tristan Schnitzler</p>
+			</div>
+			<div class="info-box fade-up">
+				<h3 class="typo-36">{t.kurse.title}</h3>
+				<p class="info">{t.kurse.text}</p>
+				<Button href="kurse">{t.kurse.button}</Button>
+			</div>
+		</section>
+		<section class="home-section order-change">
+			<div class="img-box img-3">
+				<h2 class="typo-xl-fat">{t.buch.heading}</h2>
+				<Image src={img_buch} alt={t.buch.alt} />
+				<div class="overlay-gray" />
+			</div>
+			<div class="info-box fade-up">
+				<h3 class="typo-36">{t.buch.title}</h3>
+				<p class="info">{t.buch.text}</p>
+				<Button href="shop">{t.buch.button}</Button>
+			</div>
+		</section>
+		<section class="quote fade-left">
+			<div class="quote-line" />
+			<div>
+				<h2 class="typo-36">
+					{t.quote}
+				</h2>
+				<p><span>Astrid Kaeswurm, </span> {t.quoteRole}</p>
+			</div>
+		</section>
+	</div>
+</main>
+</Layout>
+
+
+
+<style>
+	.info {
+		color: var(--base-gray);
+	}
+
+	.typo-xl-fat {
+		color: var(--base-white);
+	}
+
+	.home-section {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		height: 40rem;
+
+	}
+
+	.img-box {
+
+		position: relative;
+		overflow: hidden;
+        user-select: none;  
+
+		img {
+			position: absolute;
+			z-index: -1;
+			top: 0;
+
+			width: 100%;
+			height: 100%;
+			object-fit: cover; 
+			object-position: center;
+		}
+
+		h2 {
+			margin: var(--spacing-m)
+		}
+
+		.overlay-gray {
+			position: absolute;
+    		background: #3a393950;
+
+			height: 100%;
+			width: 100%;
+
+			z-index: -1;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	.order-change .info-box { /* Change Container Order */
+		grid-row: 1;
+	}
+
+	.info-box {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: var(--spacing-m);
+
+		margin: var(--spacing-xl);
+
+	}
+
+	.quote {
+		background-color: var(--kw-green);
+		display: flex;
+		gap: var(--spacing-m);
+		padding: var(--spacing-xl);
+		width: 100%;
+
+		& > div:last-child {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-m);
+		}
+
+		span {
+			font-weight: 600;
+		}
+
+		* {
+			color: var(--base-white);
+		}
+	}
+
+	.quote-line {
+		background: var(--base-white);
+		align-self: stretch;
+		min-width: 3px;
+	}
+
+	@media (max-width: 849px) {
+		.home-section {
+			grid-template-columns: 1fr;
+			grid-template-rows: 28rem ;
+			height: unset;
+		}
+
+		.img-box h2 {
+			margin: var(--spacing-s);
+		}
+
+		.order-change .info-box {
+			grid-row: unset;
+		}
+
+		.quote {
+			padding: var(--spacing-l) var(--spacing-m);
+		}
+	}
+
+	@media (max-width: 439px) {
+		.info-box {
+			margin: var(--spacing-m) var(--spacing-s);
+		}
+	}
+
+	/* Font Size Scaling */
+
+	@media (max-width: 610px) {
+		.typo-xl-fat, .typo-xl-slim {
+			font-size: 6rem !important;
+		}
+	}
+
+
+	@media (max-width: 499px) {
+		.typo-xl-fat, .typo-xl-slim {
+			font-size: 4rem !important;
+		}
+	}
+
+
+</style>

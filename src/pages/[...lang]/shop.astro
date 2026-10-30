@@ -1,0 +1,204 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/Hero.astro";
+import Ticker from "@components/Ticker.astro";
+import MailSection from "@components/MailSection.astro";
+import ShopItem from "@components/ShopItem.astro";
+import { langPaths, getLang } from '@i18n/paths';
+
+// Images
+import book_de from "@public/img/shop/book-de.webp";
+import book_en from "@public/img/shop/book-en.webp";
+
+import facher_blau_de from "@public/img/shop/facher-blau-de.webp";
+import facher_de from "@public/img/shop/facher-de.webp";
+import facher_en from "@public/img/shop/facher-en.webp";
+
+// pdf
+import leseprobe from "@public/Von-Anchor-Step-Bis-Weave-Leseprobe-0126.pdf";
+
+export const getStaticPaths = langPaths;
+const lang = getLang(Astro.params.lang);
+
+const products = {
+    book_de: {
+        image: book_de,
+        price: "35",
+        de: { name: "Von Anchor Step bis Weave – <br> Das Referenzbuch für Line Dance", details: "von Astrid Kaeswurm", tr: "DE Version" },
+        en: { name: "Von Anchor Step bis Weave – <br> Das Referenzbuch für Line Dance", details: "by Astrid Kaeswurm", tr: "Ger. Version" },
+    },
+    book_en: {
+        image: book_en,
+        price: "35",
+        de: { name: "From Anchor Step to Weave –  <br> A Reference Book for Line Dancers", details: "von Astrid Kaeswurm", tr: "Engl. Version" },
+        en: { name: "From Anchor Step to Weave –  <br> A Reference Book for Line Dancers", details: "by Astrid Kaeswurm", tr: "Engl. Version" },
+    },
+    facher_blau_de: {
+        image: facher_blau_de,
+        price: "12",
+        de: { name: "Fächer „Wie fing der an?“ <br>", details: "in Royal-Blau, Baumwollbespannung, Steg aus Birnenholz, Inkl. Samtbeutel" },
+        en: { name: "Fan „Wie fing der an?“ <br>", details: "Royal blue, cotton covering, wooden ribs, incl. velvet pouch" },
+    },
+    facher_de: {
+        image: facher_de,
+        price: "6",
+        de: { name: "Fächer „Wie fing der an?“ <br>", details: "in Burgundy-Rot, Baumwollbespannung, Plastiksteg, De. Version", tr: "DE Version" },
+        en: { name: "Fan „Wie fing der an?“ <br>", details: "in Burgundy red, cotton covering, plastic ribs, German version", tr: "Ger. Version" },
+    },
+    facher_en: {
+        image: facher_en,
+        price: "6",
+        de: { name: "Fächer „How does it start?”", details: "in Burgundy-Rot, Baumwollbespannung, Plastiksteg, English Version", tr: "Engl. Version" },
+        en: { name: "Fan „How does it start?”", details: "in Burgundy red, cotton covering, plastic ribs, English version", tr: "Engl. Version" },
+    },
+};
+
+const content = {
+    de: {
+        ticker: [
+            "Wir feiern das 15-jährige Jubiläum des Buches mit einer Neuauflage, die derzeit erarbeitet wird und noch im Jubiläumsjahr 2026 erscheinen wird.",
+            "Wir feiern das 15-jährige Jubiläum des Buches mit einer Neuauflage, die derzeit erarbeitet wird und noch im Jubiläumsjahr 2026 erscheinen wird."
+        ],
+        infoTitle: "Wichtige Informationen zur Bestellung",
+        info: [
+            "Für weitere Informationen oder eine Bestellung senden Sie bitte eine E-Mail. Nach Eingang Ihrer Nachricht erhalten Sie von mir die <span>Zahlungsinformationen</span>. Der Versand erfolgt nach Zahlungseingang jeweils am Freitag. Ihre Bestellung wird per E-Mail mit einer Bestellbestätigung inkl. aller relevanten Informationen beantwortet.",
+            "Die Versandkosten richten sich nach dem Lieferland. Für Lieferungen innerhalb Deutschlands und Österreichs wird ein pauschales Porto berechnet. Bei internationalen Sendungen (z. B. Schweiz, Nicht-EU) werden die Versandkosten individuell ermittelt und vorab mitgeteilt. Ein Versand in die USA ist aktuell nicht möglich.",
+        ],
+        // Das erste Produkt steht neben dem Buchtext, der Rest folgt darunter.
+        order: ["book_de", "facher_blau_de", "facher_de", "book_en", "facher_en"] as const,
+        bookText: "Dieses Buch schließt eine lang bestehende Lücke: Es ist eines der ersten deutsch-sprachigen Fachbücher zur Tanztechnik im Line Dance. Praxisnah, verständlich und zeitgemäß vermittelt Astrid Kaeswurm technisch korrektes Wissen, das im Training sofort anwendbar ist. Dabei orientiert sich der Inhalt an der aktuellen Entwicklung des Line Dance und wird kontinuierlich weitergedacht. Das Buch dient als wertvolle Unterstützung im Training, ersetzt jedoch weder Gruppen-training noch Ausbildung, sondern sorgt für Klarheit, Verständnis und viele „Aha-Momente“.",
+        sample: "Leseprobe",
+        mail: "mailto:bestellung@linedance-buch.de?subject=Bestellung&body=Ich%20möchte%20folgende%20Inhalte%20bestellen:%0A%0A-%20[HIER%20INHALTE%20AUFLISTEN]%0A%0A%0AMeine%20Adresse:%0A%0AVor-%20und%20Nachname:%20%0AStraße%20und%20Hausnummer:%20%0APLZ und Wohnort:%20",
+        mailButton: "Jetzt bestellen!",
+    },
+    en: {
+        ticker: [
+            "We are celebrating the 15th anniversary of the book with a new edition, which is currently being prepared and will be published during the anniversary year 2026.",
+            "We are celebrating the 15th anniversary of the book with a new edition, which is currently being prepared and will be published during the anniversary year 2026."
+        ],
+        infoTitle: "Important Information About Ordering",
+        info: [
+            "For further information or to place an order, please send an email. After receiving your message, you will receive the <span>payment details</span> from me. Shipping takes place every Friday after payment has been received. Your order will be confirmed by email, including all relevant information.",
+            "Shipping costs depend on the destination country. For deliveries within Germany and Austria, a flat shipping fee is charged. For international shipments (e.g. Switzerland, non-EU countries), shipping costs are calculated individually and communicated in advance. Shipping to the USA is currently not possible.",
+        ],
+        order: ["book_en", "facher_en", "facher_blau_de", "facher_de", "book_de"] as const,
+        bookText: "This book fills a long-standing gap: it is one of the first German-language reference books on dance technique in line dance. In a practical, easy-to-understand, and modern way, Astrid Kaeswurm conveys technically correct knowledge that can be applied immediately in training. The content is based on current developments in line dance and is continuously expanded. The book provides valuable support for training but does not replace group classes or instructor education. Instead, it creates clarity, understanding, and many “aha” moments.",
+        sample: "Reading Sample",
+        mail: "mailto:bestellung@linedance-buch.de?subject=Order&body=I%20would%20like%20to%20order%20the%20following%20items:%0A%0A-%20[LIST%20ITEMS%20HERE]%0A%0A%0AMy%20address:%0A%0AFull%20Name:%20%0AStreet%20and%20House%20Number:%20%0AZip%20Code%20and%20City:%20",
+        mailButton: "Order Now!",
+    },
+};
+const t = content[lang];
+
+const [first, ...rest] = t.order.map((key) => {
+    const p = products[key];
+    return { image: p.image, price: p.price, ...p[lang] };
+});
+---
+
+<Layout lang={lang}>
+    <main>
+        <Hero text="Shop" blank height="14rem">
+
+        </Hero>
+        <Ticker ticker={t.ticker} speed="50s"/>
+
+        <div id="content">
+
+            <div class="information section_def">
+                <h2 class="typo-36">{t.infoTitle}</h2>
+                {t.info.map((text) => <p set:html={text} />)}
+            </div>
+
+            <div class="items section_def">
+                <div>
+                    <ShopItem lang={lang} {...first} />
+                </div>
+
+                <div class="gray book_de_text">
+                    <p>{t.bookText}</p>
+                    <a class="gray leseprobe typo-24" href={leseprobe} target="_blank">{t.sample}</a>
+                </div>
+
+                {rest.map((item) => (
+                    <div>
+                        <ShopItem lang={lang} {...item} />
+                    </div>
+                ))}
+
+            </div>
+
+            <MailSection lang={lang} href={t.mail}>
+                {t.mailButton}
+            </MailSection>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .information {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+        margin-top: var(--spacing-m);
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    .items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) ;
+        grid-gap: var(--spacing-m);
+        justify-items: center;
+
+        margin-bottom: var(--spacing-l);
+
+        .book_de_text {
+            grid-row: 2;
+            grid-column: 1;
+
+        }
+
+        .leseprobe {
+            text-align: right;
+            text-decoration: underline;
+            display: block;
+            margin-top: var(--spacing-s);
+        }
+
+        & > div {
+            transform-origin: left;
+
+            @media (max-width: 360px) {
+                transform: scale(0.9);
+            }
+        }
+
+    }
+
+
+    
+    @media (max-width: 1140px) {
+
+        .items {
+            grid-template-columns: repeat(2, 1fr);
+
+        }
+    }
+
+        
+    @media (max-width: 750px) {
+
+        .items {
+            grid-template-columns: repeat(1, 1fr);
+
+        }
+    }
+
+    
+    
+        
+
+</style>

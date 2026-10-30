@@ -1,9 +1,10 @@
 ---
-const { lang = "de", title = "Neuer Kurs", country="DE", date="", address="", linkName="", linkRef="", linkDescription="Weitere Informationen", open} = Astro.props;
+const { lang = "de", title = "Neuer Kurs", country="DE", date="", address="", linkName="", linkRef="", linkDescription, open} = Astro.props;
 
 const t = {
     date: lang === "en" ? "Date" : "Termin",
     location: lang === "en" ? "Location" : "Ort",
+    more: lang === "en" ? "More information" : "Weitere Informationen",
 };
 ---
 
@@ -45,7 +46,7 @@ const t = {
         )}
         
         {(linkRef && linkName) && (
-            <p>{linkDescription}: <a href={linkRef} target="_blank" rel="noopener noreferrer">{linkName} </a></p>
+            <p>{linkDescription ?? t.more}: <a href={linkRef} target="_blank" rel="noopener noreferrer">{linkName} </a></p>
         )}
     </div>
 </details>

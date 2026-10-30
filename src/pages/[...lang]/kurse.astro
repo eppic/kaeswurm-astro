@@ -1,0 +1,422 @@
+---
+import { Image } from 'astro:assets';
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/Hero.astro";
+import Ticker from "@components/Ticker.astro";
+import MailSection from '@components/MailSection.astro';
+import KurseItem from '@components/KurseItem.astro';
+import { langPaths, getLang, tr, type Text } from '@i18n/paths';
+
+import img_hero from "@public/img/kurse/hero.webp";
+
+import gal1 from "@public/img/kurse/img1.webp";
+import gal2 from "@public/img/kurse/img2.webp";
+import gal3 from "@public/img/kurse/img3.webp";
+import gal4 from "@public/img/kurse/img4.webp";
+import gal5 from "@public/img/kurse/img5.webp";
+import gal6 from "@public/img/kurse/img6.webp";
+import gal7 from "@public/img/kurse/img7.webp";
+
+export const getStaticPaths = langPaths;
+const lang = getLang(Astro.params.lang);
+
+const content = {
+    de: {
+        hero: "Kurse",
+        ticker: [
+            "Lerne die neuesten Choreografien mit Astrid Kaeswurm",
+            "Mehr erfahren & buchen",
+            "Kurse, Workshops & Veranstaltungen",
+            "Lerne die neuesten Choreografien mit Astrid Kaeswurm",
+            "Mehr erfahren & buchen",
+            "Kurse, Workshops & Veranstaltungen",
+        ],
+        quoteAlt: "Astrid, die ein Mikrofon hält",
+        quoteRole: "Tänzerin, Trainerin und Autorin im Bereich Line Dance",
+        quote: "Die Anmeldung sowie weitere Informationen erhältst du ganz einfach per E-Mail (siehe unten).<br>Ich freue mich, von dir zu hören!",
+        title: "Termine & Kurse Line Dance 2026 & 2027",
+        titleMobile: "Termine 2026/2027",
+        regular: "Regelmäßige Kurse:",
+        single: "Einzelveranstaltungen & Workshops",
+        galleryTitle: "Unsere Line Dance Stunden - Sei dabei!",
+        galleryText: "Werde Teil unserer Tanz-Community und erlebe Line Dance live!<br>Egal ob Anfänger oder Fortgeschritten - wir freuen uns auf dich und deine Moves.",
+        mailSubject: "Kurse",
+        mailButton: "Jetzt schreiben",
+    },
+    en: {
+        hero: "Courses",
+        ticker: [
+            "Secure your spot",
+            "Learn the latest choreographies with Astrid Kaeswurm",
+            "Learn more & book",
+            "Learn the latest choreographies",
+            "Secure your spot",
+            "Learn the latest choreographies with Astrid Kaeswurm",
+            "Learn more & book",
+            "Learn the latest choreographies",
+        ],
+        quoteAlt: "Astrid holding a microphone",
+        quoteRole: "Dancer, trainer, and author in the field of line dance.",
+        quote: "Registration and further information are available via email (see below). I’m looking forward to hearing from you!",
+        title: "Line Dance Dates & Classes 2026/2027",
+        titleMobile: "Classes 2026/2027",
+        regular: "Regular Courses:",
+        single: "Single Events & Workshops",
+        galleryTitle: "Our Line Dance Classes - Be Part of It!",
+        galleryText: "Join our dance community and experience live line dance!<br>Whether beginner or advanced – we’re excited to welcome you and your moves.",
+        mailSubject: "Courses",
+        mailButton: "Contact me",
+    },
+};
+const t = content[lang];
+
+interface Kurs {
+    title: Text;
+    country?: string;
+    date: Text;
+    address: string;
+    linkName?: string;
+    linkRef?: string;
+    linkDescription?: Text;
+    /** HTML für den „Details“-Bereich */
+    details?: Text;
+    open?: boolean;
+}
+
+const infoLink = { de: "Info & Zeitplan", en: "Info & Schedule" };
+
+const regular: Kurs[] = [
+    {
+        open: true,
+        title: { de: "Line Dance Lernen mit Cheesy ist easy", en: "Line Dance with Cheesy is easy" },
+        country: "DE",
+        date: {
+            de: "Jeden Montag, ab dem 28. September 2026 (10 Abende, 18:30 – 20:00 Uhr)",
+            en: "Every Monday, starting September 28, 2026 (10 Evenings, 6:30 PM – 8:00 PM)",
+        },
+        address: "Reichenhaller Straße 15, 83451 Piding",
+        linkName: "astrid@kaeswurm.de",
+        linkRef: "mailto:astrid@kaeswurm.de",
+        linkDescription: { de: "Info & Anmeldung (Email)", en: "Information & Registration (Email)" },
+        details: {
+            de: `<ul><li><span>Leitung</span>: Astrid „Cheesy“ Kaeswurm</li><li>10 Abende für <span>100€</span></li></ul>`,
+            en: `<ul><li><span>Instruction</span>: Astrid „Cheesy“ Kaeswurm</li><li>10 Evenings for <span>100€</span></li></ul>`,
+        },
+    },
+    // Normale Montagskurse, aktuell ausgeblendet:
+    // {
+    //     title: { de: "Line Dance in Piding", en: "Line Dance in Piding" },
+    //     date: { de: "Montags von 18:30 Uhr - 20:00 Uhr", en: "Mondays from 6:30 PM - 8:00 PM" },
+    //     address: "Reichenhaller Str. 15, 83451 Piding",
+    //     details: {
+    //         de: `<ul><li><span>Leitung</span>: Astrid „Cheesy“ Kaeswurm</li><li>10er-Block <span>100€</span></li><li>5er-Block <span>60€</span></li><li>Schnuppertraining <span>5€</span></li></ul>`,
+    //         en: `<ul><li><span>Instruction</span>: Astrid „Cheesy“ Kaeswurm</li><li>10er-Block <span>100€</span></li><li>5er-Block <span>60€</span></li><li>Intro Session <span>5€</span></li></ul>`,
+    //     },
+    // },
+    {
+        title: { de: "Line Dance im TSC Dance & Lifestyle in Salzburg", en: "Line Dance at TSC Dance & Lifestyle in Salzburg" },
+        country: "AT",
+        date: { de: "Dienstags von 18:00 Uhr - 21:00 Uhr", en: "Tuesdays from 6:00 PM - 9:00 PM" },
+        address: "TSC Dance & Lifestyle - Wiener Bundesstraße 15, 5300 Hallwang bei Salzburg",
+    },
+];
+
+const single: Kurs[] = [
+    {
+        title: { de: "Line Dance Kurs im Oceans", en: "Line Dance Class at Oceans" },
+        country: "DE",
+        date: {
+            de: "Samstag, 7. November 2026, Samstag, 6. März 2027 und Samstag, 24. April 2027, jeweils 19 – 21 Uhr",
+            en: "Saturday, November 7, 2026, Saturday, March 6, 2027 and Saturday, April 24, 2027, from 7 PM to 9 PM",
+        },
+        address: "Oceans in der Spielbank Bad Reichenhall",
+        linkName: "spielbanken-bayern.de",
+        linkRef: "https://www.spielbanken-bayern.de/spielbanken/bad-reichenhall/oceans-club",
+        linkDescription: infoLink,
+    },
+    {
+        title: "Tanz:fest Gastein, Linedance Edition",
+        country: "AT",
+        date: {
+            de: "Donnerstag, 18. März 2027 bis Sonntag, 21. März 2027",
+            en: "Thursday, March 18, 2027 - Sunday, March 21, 2027",
+        },
+        address: "Bad Gastein",
+        linkName: "gastein.com",
+        linkRef: "https://www.gastein.com/erlebnisse-events/veranstaltungen/tanzfest/tanzfest-linedance-edition/",
+        linkDescription: infoLink,
+    },
+    {
+        title: "T-T-T-T - Tanz-Trainer-Tratsch-Treff in Piding",
+        date: { de: "Freitag, 9. April 2027 ab 10:00 Uhr", en: "Friday, April 9, 2027 from 10:00 AM" },
+        address: "Neubichler Alm, Piding",
+        linkName: "Facebook",
+        linkRef: "https://www.facebook.com/photo?fbid=26515300708079460&set=a.558382834197936",
+        details: {
+            de: "<p>Austausch & Treffen für Tanz-Trainer:innen</p>",
+            en: "<p>Exchange & Meetup for Dance Instructors</p>",
+        },
+    },
+    {
+        title: { de: "Line Dance Ferien & Festival 2027", en: "Line Dance Holidays & Festival 2027" },
+        country: "DE",
+        date: {
+            de: "Sonntag, 30. Mai 2027 bis Sonntag, 6. Juni 2027",
+            en: "Sunday, May 30, 2027 - Sunday, June 6, 2027",
+        },
+        address: "Oberstaufen",
+        linkName: "perfects-shop.ch",
+        linkRef: "https://www.perfects-shop.ch/de/?cPath=2_36&cat=c36_Oberstaufen-Line-Dance-Ferien---Festival-2027-line-dance-ferien.html",
+        linkDescription: infoLink,
+    },
+    {
+        title: { de: "Alp Festival mit Weltrekordversuch", en: "Alp Festival with World Record Attempt" },
+        country: "AT",
+        date: {
+            de: "Donnerstag, 17. Juni 2027 bis Sonntag, 20. Juni 2027",
+            en: "Thursday, June 17, 2027 - Sunday, June 20, 2027",
+        },
+        address: "Zell am See-Kaprun",
+        linkName: "zellamsee-kaprun.com",
+        linkRef: "https://www.zellamsee-kaprun.com/de/events/line-dance-alpfestival",
+        linkDescription: infoLink,
+    },
+    {
+        title: "Line Dance Festival",
+        country: "DE",
+        date: {
+            de: "Freitag, 17. September 2027 bis Sonntag, 19. September 2027",
+            en: "Friday, September 17, 2027 - Sunday, September 19, 2027",
+        },
+        address: "Freiburg im Breisgau",
+        linkName: "linedancefestival.de",
+        linkRef: "https://linedancefestival.de/freiburg/",
+        linkDescription: infoLink,
+    },
+];
+
+function itemProps(k: Kurs) {
+    return {
+        lang,
+        open: k.open,
+        title: tr(k.title, lang),
+        country: k.country,
+        date: tr(k.date, lang),
+        address: k.address,
+        linkName: k.linkName,
+        linkRef: k.linkRef,
+        linkDescription: k.linkDescription && tr(k.linkDescription, lang),
+    };
+}
+
+const gallery = [
+    { src: gal1, alt: "Woman Dancing" },
+    { src: gal2, alt: "Group Photo in a row" },
+    { src: gal3, alt: "Two people dancing" },
+    { src: gal4, alt: "Woman" },
+    { src: gal5, alt: "People dancing in the club room" },
+    { src: gal6, alt: "Big group photo" },
+    { src: gal7, alt: "People line dancing" },
+];
+---
+
+<Layout lang={lang}>
+    <main>
+        <div class="desktop">
+            <Hero img={img_hero} text={t.hero} credits="Tristan Schnitzler" position="30% 30%" height="45rem" />
+        </div>
+        <div class="mobile">
+            <Hero img={img_hero} text={t.hero} credits="Tristan Schnitzler" position="48% 35%"  height="17rem" />
+        </div>
+        <Ticker ticker={t.ticker} />
+
+    <div id="content">
+
+        <section class="quote-container section_def">
+            <div class="quote">
+                <div>
+                    <div><img src="/img/astrid-mic.webp" alt={t.quoteAlt}></div>
+                    <div>
+                        <p style="font-weight: 600;">Astrid Kaeswurm</p>
+                        <p class="gray">{t.quoteRole}</p>
+                    </div>
+                    <img class="quote-icon" src="/svg/quote.svg" alt="Quote Icon" width="48px" height="32px">
+                </div>
+                <p set:html={t.quote} />
+            </div>
+        </section>
+
+        <section class="section_def termine fade-up" id="Termine">
+            <h2 class="desktop typo-36">{t.title}</h2>
+            <h2 class="mobile typo-36">{t.titleMobile}</h2>
+
+            <h3 class="typo-24">{t.regular}</h3>
+
+            {regular.map((k) => k.details
+                ? <KurseItem {...itemProps(k)}><Fragment set:html={tr(k.details, lang)} /></KurseItem>
+                : <KurseItem {...itemProps(k)} />
+            )}
+
+            <h3 class="typo-24">{t.single}</h3>
+
+            {single.map((k) => k.details
+                ? <KurseItem {...itemProps(k)}><Fragment set:html={tr(k.details, lang)} /></KurseItem>
+                : <KurseItem {...itemProps(k)} />
+            )}
+
+        </section>
+
+        <section class="section_def gallery">
+            <h2 class="typo-36">{t.galleryTitle}</h2>
+            <p class="gray" set:html={t.galleryText} />
+        </section>
+
+        <div class="gallery-scroll">
+            <div>
+                {[...gallery, ...gallery].map((img) => <Image src={img.src} alt={img.alt} />)}
+            </div>
+        </div>
+
+        <MailSection lang={lang} href={`mailto:astrid@kaeswurm.de?subject=${t.mailSubject}`}>
+            {t.mailButton}
+        </MailSection>
+
+    </div>
+
+    </main>
+</Layout>
+
+
+
+<style>
+
+    .quote-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .quote {
+        background-color: var(--base-white);
+        border-radius: var(--spacing-s);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        padding: var(--spacing-m);
+        max-width: 55rem;
+
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+        
+
+        & > div {
+            display: flex;
+            gap: var(--spacing-s);
+
+            & > div:first-child {
+                width: 3rem;
+                min-width: 3rem;
+                height: 3rem;
+                overflow: hidden;
+                border-radius: 0.8rem;
+
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            & img:last-child {
+                margin-left: auto;
+            }
+        }
+
+    }
+
+    .termine {
+        display: flex;
+        flex-direction: column;
+
+        h2, h3 {
+            margin: var(--spacing-m) var(--spacing-s);
+        }
+
+    }
+
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+
+        h2, h3 {
+            margin: var(--spacing-m) var(--spacing-s);
+        }
+
+    }
+
+
+    .gallery-scroll {
+        overflow: hidden;
+        width: 100%;
+        white-space: nowrap;
+        position: relative;
+        padding: 4rem 0;
+
+        & > div {
+            display: flex;
+            width: max-content;
+            animation: scroll 50s linear infinite;
+            gap: var(--spacing-m);
+            will-change: transform;
+            height: 27rem;
+            
+            img {
+                border-radius: var(--spacing-m);
+                object-fit: cover;
+                height: 100%;
+                width: 40rem
+            }
+
+            @media (max-width: 900px) {
+                
+                height: 13rem;
+
+                img {
+                    width: 20rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 730px) {
+
+        .mobile {
+            display: block;
+        }
+
+        .desktop {
+            display: none;
+        }
+
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50.2%);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .quote-icon {
+            display: none;
+        }
+
+        .quote {
+            padding: var(--spacing-s)
+        }
+
+
+    }
+</style>
