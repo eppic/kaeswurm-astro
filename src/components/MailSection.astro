@@ -2,6 +2,13 @@
 
 
 ---
+import type { Lang } from "@i18n/paths";
+
+interface Props {
+    lang?: Lang;
+    href?: string;
+}
+
 const { lang = "de" } = Astro.props;
 
 const t = useTranslations(lang);
@@ -22,6 +29,7 @@ const { href = mailto(site.email) } = Astro.props;
     <div>
         <p class="typo-24">{t("mail.text")}</p>
         <Button href={href}><slot /></Button>
+        <slot name="after" />
     </div>
 </section>
 
