@@ -1,5 +1,18 @@
 ---
+import type { Lang } from "@i18n/paths";
 import { useTranslations } from "@i18n/ui";
+
+interface Props {
+    lang?: Lang;
+    title?: string;
+    country?: string;
+    date?: string;
+    address?: string;
+    linkName?: string;
+    linkRef?: string;
+    linkDescription?: string;
+    open?: boolean;
+}
 
 const { lang = "de", title = "Neuer Kurs", country="DE", date="", address="", linkName="", linkRef="", linkDescription, open} = Astro.props;
 
@@ -99,12 +112,12 @@ const t = useTranslations(lang);
         }
     }
 
-    ul {
+    .detail-headers :global(ul) {
         list-style-type: disc;
         list-style-position: inside;
     }
 
-    h4, h5, span {
+    h4, h5, .detail-headers :global(span) {
         font-weight: 600;
     }
 
