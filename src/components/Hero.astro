@@ -2,6 +2,17 @@
 import { Image } from 'astro:assets';
 import heroImg from '@assets/img/home/hero.webp';
 
+interface Props {
+    img?: ImageMetadata;
+    text?: string;
+    textWidth?: string;
+    home?: boolean;
+    credits?: string;
+    position?: string;
+    blank?: boolean;
+    height?: string;
+}
+
 const { img = heroImg, text = 'Line Dance', textWidth = '60rem', home = false, credits, position, blank, height = '32rem'} = Astro.props;
 ---
 <section class="fade-left-delay-stagger" id="hero" style={`--headerHeight: ${height}`}>
