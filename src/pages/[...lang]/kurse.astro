@@ -170,7 +170,7 @@ const gallery = [
 
         <div class="gallery-scroll">
             <div>
-                {[...gallery, ...gallery].map((img) => <Image src={img.src} alt={img.alt} />)}
+                {[...gallery, ...gallery].map((img) => <Image src={img.src} alt={img.alt} widths={[320, 640, 1000]} sizes="(max-width: 900px) 20rem, 40rem" />)}
             </div>
         </div>
 
