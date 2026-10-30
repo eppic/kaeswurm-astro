@@ -1,4 +1,10 @@
 ---
+interface Props {
+    color?: string;
+    ticker?: string[];
+    speed?: string;
+}
+
 const { color = 'var(--kw-red)', ticker = [], speed = '40s' } = Astro.props;
 
 const items = Array.from({ length: 4 }, () => ticker).flat();
