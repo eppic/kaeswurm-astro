@@ -11,6 +11,8 @@ const ui = {
         "nav.about": "Über mich",
         "nav.shop": "Shop",
         "nav.switch": "Change to English",
+        "nav.open": "Menü öffnen",
+        "nav.close": "Menü schließen",
 
         "footer.contact": "Kontakt",
         "footer.address": "Adresse",
@@ -39,6 +41,8 @@ const ui = {
         "nav.about": "About me",
         "nav.shop": "Shop",
         "nav.switch": "Wechsel zu Deutsch",
+        "nav.open": "Open menu",
+        "nav.close": "Close menu",
 
         "footer.contact": "Contact",
         "footer.address": "Address",
