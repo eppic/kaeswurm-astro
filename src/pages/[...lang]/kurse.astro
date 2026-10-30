@@ -40,8 +40,8 @@ const content = {
         quoteAlt: "Astrid, die ein Mikrofon hält",
         quoteRole: "Tänzerin, Trainerin und Autorin im Bereich Line Dance",
         quote: "Die Anmeldung sowie weitere Informationen erhältst du ganz einfach per E-Mail (siehe unten).<br>Ich freue mich, von dir zu hören!",
-        title: "Termine & Kurse Line Dance 2026 & 2027",
-        titleMobile: "Termine 2026/2027",
+        title: (years: string[]) => `Termine & Kurse Line Dance ${years.join(" & ")}`,
+        titleMobile: (years: string[]) => `Termine ${years.join("/")}`,
         regular: "Regelmäßige Kurse:",
         single: "Einzelveranstaltungen & Workshops",
         galleryTitle: "Unsere Line Dance Stunden - Sei dabei!",
@@ -64,8 +64,8 @@ const content = {
         quoteAlt: "Astrid holding a microphone",
         quoteRole: "Dancer, trainer, and author in the field of line dance.",
         quote: "Registration and further information are available via email (see below). I’m looking forward to hearing from you!",
-        title: "Line Dance Dates & Classes 2026/2027",
-        titleMobile: "Classes 2026/2027",
+        title: (years: string[]) => `Line Dance Dates & Classes ${years.join("/")}`,
+        titleMobile: (years: string[]) => `Classes ${years.join("/")}`,
         regular: "Regular Courses:",
         single: "Single Events & Workshops",
         galleryTitle: "Our Line Dance Classes - Be Part of It!",
@@ -84,6 +84,8 @@ const singleVisible = single
     .map((v) => ({ ...v, dates: v.dates.filter((d) => !isPast(d, now)) }))
     .filter((v) => v.dates.length > 0)
     .sort((a, b) => a.dates[0].start.localeCompare(b.dates[0].start));
+
+const years = [...new Set(singleVisible.flatMap((v) => v.dates.flatMap((d) => [d.start, d.end ?? d.start])).map((d) => d.slice(0, 4)))].sort();
 
 function dateText(v: Veranstaltung) {
     const dates = formatDates(v.dates, lang);
@@ -144,8 +146,8 @@ const gallery = [
         </section>
 
         <section class="section_def termine fade-up" id="Termine">
-            <h2 class="desktop typo-36">{t.title}</h2>
-            <h2 class="mobile typo-36">{t.titleMobile}</h2>
+            <h2 class="desktop typo-36">{t.title(years)}</h2>
+            <h2 class="mobile typo-36">{t.titleMobile(years)}</h2>
 
             <h3 class="typo-24">{t.regular}</h3>
 
