@@ -1,10 +1,13 @@
 ---
-const { href = "#" } = Astro.props;
+interface Props {
+    href?: string;
+    class?: string;
+}
 
-const { class: className } = Astro.props;
+const { href = "#", class: className } = Astro.props;
 ---
 
-<a class={`button ${className}`} href={href}>
+<a class:list={["button", className]} href={href}>
     <slot />
 </a>
 
