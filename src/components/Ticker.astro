@@ -1,10 +1,12 @@
 ---
 const { color = 'var(--kw-red)', ticker = [], speed = '40s' } = Astro.props;
+
+const items = Array.from({ length: 4 }, () => ticker).flat();
 ---
 
 <section id="ticker" style={`--color: ${color}`} >
     <div class="ticker-container" style={`--speed: ${speed}`}>
-
+        {items.map((text) => <div class="ticker-item">{text}</div>)}
     </div>
 </section>
 
@@ -15,7 +17,7 @@ const { color = 'var(--kw-red)', ticker = [], speed = '40s' } = Astro.props;
   background-color: var(--color);
   display: flex;
   align-items: center;
-  
+
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
@@ -24,28 +26,20 @@ const { color = 'var(--kw-red)', ticker = [], speed = '40s' } = Astro.props;
 .ticker-container {
   display: inline-block;
   user-select: none;
-  
-  animation: ticker var(--speed) linear infinite; 
+
+  animation: ticker var(--speed) linear infinite;
+}
+
+.ticker-item {
+  display: inline-block;
+  padding: 0 2rem;
+  color: var(--base-white);
+  font-weight: 600;
 }
 
 @keyframes ticker {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } 
+  100% { transform: translateX(-50%); }
 }
 
 </style>
-
-<script define:vars={{ ticker }}>
-
-const tickerList = document.querySelector('.ticker-container');
-
-ticker.forEach((text) => {
-  const item = document.createElement('div');
-  item.classList.add('ticker-item');
-  item.textContent = text;
-  tickerList.appendChild(item);
-});
-
-tickerList.innerHTML += tickerList.innerHTML;
-
-</script>

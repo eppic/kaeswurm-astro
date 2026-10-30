@@ -3,13 +3,6 @@
 @import "./base.css";
 @import "./typography.css";
 
-.ticker-item {
-  display: inline-block;
-  padding: 0 2rem;
-  color: var(--base-white);
-  font-weight: 600;
-}
-
 /* Fix for header stopping after 100vh */
 body, html {
     overflow-x: hidden;
