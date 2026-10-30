@@ -1,9 +1,11 @@
 ---
 import { getRelativeLocaleUrl, getAbsoluteLocaleUrl } from "astro:i18n";
+import { getImage } from "astro:assets";
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import { useTranslations } from "@i18n/ui";
 import type { Lang } from "@i18n/paths";
+import defaultImage from "@assets/img/home/hero.webp";
 
 import "../styles/globals.css"
 
@@ -11,9 +13,11 @@ interface Props {
     lang?: Lang;
     title?: string;
     description?: string;
+    image?: ImageMetadata;
+    noindex?: boolean;
 }
 
-const { lang = "de", title, description } = Astro.props;
+const { lang = "de", title, description, image = defaultImage, noindex = false } = Astro.props;
 const t = useTranslations(lang);
 
 const pageTitle = title ? `${title} – ${t("meta.title")}` : t("meta.title");
@@ -23,6 +27,11 @@ const translated = Astro.routePattern.includes("[...lang]");
 const path = Astro.url.pathname.replace(/^\/en(\/|$)/, "/").replace(/^\/|\/$/g, "");
 const otherLang: Lang = lang === "de" ? "en" : "de";
 const switchUrl = translated ? getRelativeLocaleUrl(otherLang, path) : getRelativeLocaleUrl(otherLang);
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = await getImage({ src: image, width: 1200, height: 630, fit: "cover", position: "attention", format: "jpg" });
+const ogImageUrl = new URL(ogImage.src, Astro.site);
+const locales = { de: "de_DE", en: "en_US" };
 ---
 
 <!doctype html>
@@ -35,6 +44,20 @@ const switchUrl = translated ? getRelativeLocaleUrl(otherLang, path) : getRelati
 		<title>{pageTitle}</title>
 
 		<meta name="description" content={pageDescription} />
+
+		{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={t("meta.title")} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:locale" content={locales[lang]} />
+		{translated && <meta property="og:locale:alternate" content={locales[otherLang]} />}
+		<meta name="twitter:card" content="summary_large_image" />
 
 		{translated && (
 			<>
