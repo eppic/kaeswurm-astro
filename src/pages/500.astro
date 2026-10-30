@@ -3,11 +3,11 @@ import Layout from "@layouts/Layout.astro"
 import Button from "@components/Button.astro"
 ---
 
-<Layout>
+<Layout title="Serverfehler">
     <section >
-        <h1 class="typo-xl-fat">505</h1>
-        <p class="typo-24" >HTTP-Version nicht unterstützt.</p>
-        <a href="https://www.google.com/search?q=Error+505+Hilfe">Hilfe</a>
+        <h1 class="typo-xl-fat">500</h1>
+        <p class="typo-24" >Es ist ein Fehler aufgetreten. Bitte versuche es später erneut.</p>
+        <Button href="/">Zurück zur Startseite</Button>
     </section>
 </Layout>
 
@@ -22,10 +22,5 @@ import Button from "@components/Button.astro"
         align-items: center;
         justify-content: center;
         gap: var(--spacing-s);
-    }
-
-    a {
-        text-decoration: underline;
-        color: blue;
     }
 </style>
