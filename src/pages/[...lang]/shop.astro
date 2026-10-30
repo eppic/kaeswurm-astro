@@ -6,6 +6,7 @@ import MailSection from "@components/MailSection.astro";
 import ShopItem from "@components/ShopItem.astro";
 import { langPaths, getLang } from '@i18n/paths';
 import { site } from '@config/site';
+import { useTranslations } from '@i18n/ui';
 
 // Images
 import book_de from "@assets/img/shop/book-de.webp";
@@ -19,36 +20,42 @@ import facher_en from "@assets/img/shop/facher-en.webp";
 export const getStaticPaths = langPaths;
 const lang = getLang(Astro.params.lang);
 
+const sample = "/Von-Anchor-Step-Bis-Weave-Leseprobe-0126.pdf";
+
 const products = {
     book_de: {
         image: book_de,
-        price: "35",
-        de: { name: "Von Anchor Step bis Weave – <br> Das Referenzbuch für Line Dance", details: "von Astrid Kaeswurm", tr: "DE Version" },
-        en: { name: "Von Anchor Step bis Weave – <br> Das Referenzbuch für Line Dance", details: "by Astrid Kaeswurm", tr: "Ger. Version" },
+        price: 35,
+        sample,
+        de: { name: "Von Anchor Step bis Weave – Das Referenzbuch für Line Dance", details: "von Astrid Kaeswurm", badge: "Deutsch" },
+        en: { name: "Von Anchor Step bis Weave – Das Referenzbuch für Line Dance", details: "by Astrid Kaeswurm", badge: "German Version" },
     },
     book_en: {
         image: book_en,
-        price: "35",
-        de: { name: "From Anchor Step to Weave –  <br> A Reference Book for Line Dancers", details: "von Astrid Kaeswurm", tr: "Engl. Version" },
-        en: { name: "From Anchor Step to Weave –  <br> A Reference Book for Line Dancers", details: "by Astrid Kaeswurm", tr: "Engl. Version" },
-    },
-    facher_blau_de: {
-        image: facher_blau_de,
-        price: "12",
-        de: { name: "Fächer „Wie fing der an?“ <br>", details: "in Royal-Blau, Baumwollbespannung, Steg aus Birnenholz, Inkl. Samtbeutel" },
-        en: { name: "Fan „Wie fing der an?“ <br>", details: "Royal blue, cotton covering, wooden ribs, incl. velvet pouch" },
-    },
-    facher_de: {
-        image: facher_de,
-        price: "6",
-        de: { name: "Fächer „Wie fing der an?“ <br>", details: "in Burgundy-Rot, Baumwollbespannung, Plastiksteg, De. Version", tr: "DE Version" },
-        en: { name: "Fan „Wie fing der an?“ <br>", details: "in Burgundy red, cotton covering, plastic ribs, German version", tr: "Ger. Version" },
+        price: 35,
+        mailNote: "[ENGLISH VERSION]",
+        de: { name: "From Anchor Step to Weave – A Reference Book for Line Dancers", details: "von Astrid Kaeswurm", badge: "Englische Version" },
+        en: { name: "From Anchor Step to Weave – A Reference Book for Line Dancers", details: "by Astrid Kaeswurm", badge: "English" },
     },
     facher_en: {
         image: facher_en,
-        price: "6",
-        de: { name: "Fächer „How does it start?”", details: "in Burgundy-Rot, Baumwollbespannung, Plastiksteg, English Version", tr: "Engl. Version" },
-        en: { name: "Fan „How does it start?”", details: "in Burgundy red, cotton covering, plastic ribs, English version", tr: "Engl. Version" },
+        price: 6,
+        de: { name: "Fächer „How does it start?“", details: "in Burgundy-Rot, Baumwollbespannung, Plastiksteg", badge: "Englische Version" },
+        en: { name: "Fan “How does it start?”", details: "Burgundy red, cotton covering, plastic ribs", badge: "English" },
+    },
+    facher_blau_de: {
+        image: facher_blau_de,
+        price: 12,
+        soldOut: true,
+        de: { name: "Fächer „Wie fing der an?“", details: "in Royal-Blau, Baumwollbespannung, Steg aus Birnenholz, inkl. Samtbeutel", badge: "Deutsch" },
+        en: { name: "Fan “Wie fing der an?”", details: "Royal blue, cotton covering, wooden ribs, incl. velvet pouch", badge: "German Version" },
+    },
+    facher_de: {
+        image: facher_de,
+        price: 6,
+        soldOut: true,
+        de: { name: "Fächer „Wie fing der an?“", details: "in Burgundy-Rot, Baumwollbespannung, Plastiksteg", badge: "Deutsch" },
+        en: { name: "Fan “Wie fing der an?”", details: "Burgundy red, cotton covering, plastic ribs", badge: "German Version" },
     },
 };
 
@@ -61,15 +68,21 @@ const content = {
         ticker: [
             "Wir feiern das 15-jährige Jubiläum des Buches mit einer Neuauflage, die derzeit erarbeitet wird und noch im Jubiläumsjahr 2026 erscheinen wird.",
         ],
-        infoTitle: "Wichtige Informationen zur Bestellung",
-        info: [
-            "Für weitere Informationen oder eine Bestellung senden Sie bitte eine E-Mail. Nach Eingang Ihrer Nachricht erhalten Sie von mir die <span>Zahlungsinformationen</span>. Der Versand erfolgt nach Zahlungseingang jeweils am Freitag. Ihre Bestellung wird per E-Mail mit einer Bestellbestätigung inkl. aller relevanten Informationen beantwortet.",
-            "Die Versandkosten richten sich nach dem Lieferland. Für Lieferungen innerhalb Deutschlands und Österreichs wird ein pauschales Porto berechnet. Bei internationalen Sendungen (z. B. Schweiz, Nicht-EU) werden die Versandkosten individuell ermittelt und vorab mitgeteilt. Ein Versand in die USA ist aktuell nicht möglich.",
-        ],
-        order: ["book_de", "facher_blau_de", "facher_de", "book_en", "facher_en"] as const,
+        intro: "Bestellungen laufen ganz einfach per E-Mail: Bei jedem Artikel öffnet „Bestellen“ eine vorbereitete Nachricht, in der du nur noch deine Adresse ergänzt.",
+        order: ["book_de", "book_en", "facher_en", "facher_blau_de", "facher_de"] as const,
+        soldOutNote: "Aktuell ausverkauft – voraussichtlich ab ca. Dezember wieder erhältlich.",
+        bookTitle: "Über das Buch",
         bookText: "Dieses Buch schließt eine lang bestehende Lücke: Es ist eines der ersten deutsch-sprachigen Fachbücher zur Tanztechnik im Line Dance. Praxisnah, verständlich und zeitgemäß vermittelt Astrid Kaeswurm technisch korrektes Wissen, das im Training sofort anwendbar ist. Dabei orientiert sich der Inhalt an der aktuellen Entwicklung des Line Dance und wird kontinuierlich weitergedacht. Das Buch dient als wertvolle Unterstützung im Training, ersetzt jedoch weder Gruppen-training noch Ausbildung, sondern sorgt für Klarheit, Verständnis und viele „Aha-Momente“.",
-        sample: "Leseprobe",
-        mail: `mailto:${site.orderEmail}?subject=Bestellung&body=Ich%20möchte%20folgende%20Inhalte%20bestellen:%0A%0A-%20[HIER%20INHALTE%20AUFLISTEN]%0A%0A%0AMeine%20Adresse:%0A%0AVor-%20und%20Nachname:%20%0AStraße%20und%20Hausnummer:%20%0APLZ und Wohnort:%20`,
+        stepsTitle: "So funktioniert die Bestellung",
+        steps: [
+            { title: "E-Mail senden", text: "Schreib mir, welche Artikel du möchtest, und gib deine Lieferadresse an." },
+            { title: "Bezahlen", text: "Du erhältst eine Bestellbestätigung mit den <span>Zahlungsinformationen</span> und allen wichtigen Angaben per E-Mail." },
+            { title: "Versand", text: "Nach Zahlungseingang wird deine Bestellung am darauffolgenden Freitag verschickt." },
+        ],
+        shipping: "Die Versandkosten richten sich nach dem Lieferland. Für Lieferungen innerhalb Deutschlands und Österreichs wird ein pauschales Porto berechnet. Bei internationalen Sendungen (z. B. Schweiz, Nicht-EU) werden die Versandkosten individuell ermittelt und vorab mitgeteilt. Ein Versand in die USA ist aktuell nicht möglich.",
+        mailSubject: "Bestellung",
+        mailBody: (item: string) => `Ich möchte folgende Inhalte bestellen:\n\n- ${item}\n\n\nMeine Adresse:\n\nVor- und Nachname: \nStraße und Hausnummer: \nPLZ und Wohnort: `,
+        mailPlaceholder: "[HIER INHALTE AUFLISTEN]",
         mailButton: "Jetzt bestellen!",
     },
     en: {
@@ -80,59 +93,80 @@ const content = {
         ticker: [
             "We are celebrating the 15th anniversary of the book with a new edition, which is currently being prepared and will be published during the anniversary year 2026.",
         ],
-        infoTitle: "Important Information About Ordering",
-        info: [
-            "For further information or to place an order, please send an email. After receiving your message, you will receive the <span>payment details</span> from me. Shipping takes place every Friday after payment has been received. Your order will be confirmed by email, including all relevant information.",
-            "Shipping costs depend on the destination country. For deliveries within Germany and Austria, a flat shipping fee is charged. For international shipments (e.g. Switzerland, non-EU countries), shipping costs are calculated individually and communicated in advance. Shipping to the USA is currently not possible.",
-        ],
-        order: ["book_en", "facher_en", "facher_blau_de", "facher_de", "book_de"] as const,
+        intro: "Ordering is simple and done by email: “Order” opens a prepared message for each item, you only need to add your address.",
+        order: ["book_en", "book_de", "facher_en", "facher_blau_de", "facher_de"] as const,
+        soldOutNote: "Currently sold out – expected to be available again from around December.",
+        bookTitle: "About the book",
         bookText: "This book fills a long-standing gap: it is one of the first German-language reference books on dance technique in line dance. In a practical, easy-to-understand, and modern way, Astrid Kaeswurm conveys technically correct knowledge that can be applied immediately in training. The content is based on current developments in line dance and is continuously expanded. The book provides valuable support for training but does not replace group classes or instructor education. Instead, it creates clarity, understanding, and many “aha” moments.",
-        sample: "Reading Sample",
-        mail: `mailto:${site.orderEmail}?subject=Order&body=I%20would%20like%20to%20order%20the%20following%20items:%0A%0A-%20[LIST%20ITEMS%20HERE]%0A%0A%0AMy%20address:%0A%0AFull%20Name:%20%0AStreet%20and%20House%20Number:%20%0AZip%20Code%20and%20City:%20`,
+        stepsTitle: "How ordering works",
+        steps: [
+            { title: "Send an email", text: "Tell me which items you would like and include your shipping address." },
+            { title: "Payment", text: "You will receive an order confirmation with the <span>payment details</span> and all relevant information by email." },
+            { title: "Shipping", text: "Once payment has been received, your order is shipped on the following Friday." },
+        ],
+        shipping: "Shipping costs depend on the destination country. For deliveries within Germany and Austria, a flat shipping fee is charged. For international shipments (e.g. Switzerland, non-EU countries), shipping costs are calculated individually and communicated in advance. Shipping to the USA is currently not possible.",
+        mailSubject: "Order",
+        mailBody: (item: string) => `I would like to order the following items:\n\n- ${item}\n\n\nMy address:\n\nFull Name: \nStreet and House Number: \nZip Code and City: `,
+        mailPlaceholder: "[LIST ITEMS HERE]",
         mailButton: "Order Now!",
     },
 };
 const t = content[lang];
 
-const [first, ...rest] = t.order.map((key) => {
+function orderMail(item: string, subject = t.mailSubject) {
+    return `mailto:${site.orderEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(t.mailBody(item))}`;
+}
+
+const items = t.order.map((key) => {
     const p = products[key];
-    return { image: p.image, price: p.price, ...p[lang] };
+    const text = p[lang];
+    const item = "mailNote" in p ? `${text.name} ${p.mailNote}` : text.name;
+    return {
+        image: p.image,
+        price: p.price,
+        sampleHref: "sample" in p ? p.sample : undefined,
+        soldOut: "soldOut" in p ? t.soldOutNote : undefined,
+        ...text,
+        orderHref: orderMail(item, `${t.mailSubject}: ${item}`),
+    };
 });
 ---
 
 <Layout lang={lang} title={t.meta.title} description={t.meta.description}>
     <main>
-        <Hero text="Shop" blank height="14rem">
-
-        </Hero>
+        <Hero text="Shop" blank height="14rem" />
         <Ticker ticker={t.ticker} speed="50s"/>
 
         <div id="content">
 
-            <div class="information section_def">
-                <h2 class="typo-36">{t.infoTitle}</h2>
-                {t.info.map((text) => <p set:html={text} />)}
-            </div>
-
-            <div class="items section_def">
-                <div>
-                    <ShopItem lang={lang} {...first} />
+            <section class="section_def products">
+                <p class="intro gray">{t.intro}</p>
+                <div class="grid">
+                    {items.map((item) => <ShopItem lang={lang} {...item} />)}
                 </div>
+            </section>
 
-                <div class="gray book_de_text">
-                    <p>{t.bookText}</p>
-                    <a class="gray leseprobe typo-24" href="/Von-Anchor-Step-Bis-Weave-Leseprobe-0126.pdf" target="_blank">{t.sample}</a>
-                </div>
+            <section class="section_def book">
+                <h2 class="typo-36">{t.bookTitle}</h2>
+                <p class="gray">{t.bookText}</p>
+                <a class="sample typo-24" href={sample} target="_blank" rel="noopener noreferrer">{useTranslations(lang)("shop.sample")} (PDF)</a>
+            </section>
 
-                {rest.map((item) => (
-                    <div>
-                        <ShopItem lang={lang} {...item} />
-                    </div>
-                ))}
+            <section class="section_def steps">
+                <h2 class="typo-36">{t.stepsTitle}</h2>
+                <ol>
+                    {t.steps.map((step, i) => (
+                        <li>
+                            <span class="number">{i + 1}</span>
+                            <h3 class="typo-24">{step.title}</h3>
+                            <p set:html={step.text} />
+                        </li>
+                    ))}
+                </ol>
+                <p class="gray shipping">{t.shipping}</p>
+            </section>
 
-            </div>
-
-            <MailSection lang={lang} href={t.mail}>
+            <MailSection lang={lang} href={orderMail(t.mailPlaceholder)}>
                 {t.mailButton}
             </MailSection>
         </div>
@@ -140,69 +174,75 @@ const [first, ...rest] = t.order.map((key) => {
 </Layout>
 
 <style>
-    .information {
+    .products {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-m);
         margin-top: var(--spacing-m);
+    }
 
-        span {
+    .intro {
+        max-width: 50rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+        gap: var(--spacing-m);
+    }
+
+    .book {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+        margin-top: var(--spacing-m);
+
+        .sample {
+            text-decoration: underline;
+            width: fit-content;
+        }
+    }
+
+    .steps {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+        margin-top: var(--spacing-m);
+        margin-bottom: var(--spacing-l);
+
+        ol {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+            gap: var(--spacing-m);
+        }
+
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: var(--spacing-m);
+            border-radius: var(--spacing-s);
+            background-color: var(--kw-red-l2);
+        }
+
+        .number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: var(--kw-red);
+            color: var(--base-white);
+            font-weight: 600;
+        }
+
+        h3 {
+            font-weight: 600;
+        }
+
+        span:not(.number) {
             font-weight: 600;
         }
     }
-
-    .items {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr) ;
-        grid-gap: var(--spacing-m);
-        justify-items: center;
-
-        margin-bottom: var(--spacing-l);
-
-        .book_de_text {
-            grid-row: 2;
-            grid-column: 1;
-
-        }
-
-        .leseprobe {
-            text-align: right;
-            text-decoration: underline;
-            display: block;
-            margin-top: var(--spacing-s);
-        }
-
-        & > div {
-            transform-origin: left;
-
-            @media (max-width: 360px) {
-                transform: scale(0.9);
-            }
-        }
-
-    }
-
-
-    
-    @media (max-width: 1140px) {
-
-        .items {
-            grid-template-columns: repeat(2, 1fr);
-
-        }
-    }
-
-        
-    @media (max-width: 750px) {
-
-        .items {
-            grid-template-columns: repeat(1, 1fr);
-
-        }
-    }
-
-    
-    
-        
-
 </style>

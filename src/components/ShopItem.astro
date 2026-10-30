@@ -1,116 +1,165 @@
 ---
 import type { Lang } from "@i18n/paths";
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+import { useTranslations } from "@i18n/ui";
 
 interface Props {
     lang?: Lang;
-    image?: ImageMetadata;
-    tr?: string;
-    name?: string;
+    image: ImageMetadata;
+    badge?: string;
+    name: string;
     details?: string;
-    price?: string;
+    price: number;
+    orderHref: string;
+    sampleHref?: string;
+    soldOut?: string;
 }
 
-const { lang = "de" } = Astro.props;
-
+const { lang = "de", image, badge, name, details, price, orderHref, sampleHref, soldOut } = Astro.props;
 const t = useTranslations(lang);
 
-import Image from "astro/components/Image.astro";
-import { useTranslations } from "@i18n/ui";
-
-import dummy from "@assets/img/shop/book-de.webp";
-
-const { image = dummy } = Astro.props;
-const { tr = "" } = Astro.props;
-const { name = "Product Name" } = Astro.props;
-const { details = "" } = Astro.props;
-const { price = "X" } = Astro.props;
+const formattedPrice = new Intl.NumberFormat(lang === "en" ? "en-US" : "de-DE", { style: "currency", currency: "EUR" }).format(price);
 ---
 
-<div class="item">
-
-    <div class="frame">
-        {tr && (
-            <p class="tr typo-24">{tr}</p>
-        )}
-        <div class="shape" />
-        <div class="image">
-            <Image src={image} alt={name}/>
-        </div>
+<article class:list={["card", { "sold-out": soldOut }]}>
+    <div class="card-image">
+        {badge && <span class="badge">{badge}</span>}
+        <Image src={image} alt={name} widths={[300, 400]} sizes="18rem" />
     </div>
 
-    <p class="info">
-       <span class="name typo-24" set:html={name} >{name}</span>
-       <span class="details">{details}</span>
-    </p>
+    <div class="card-body">
+        <h3 class="name">{name}</h3>
+        {details && <p class="details">{details}</p>}
 
-    <p class="price typo-24 ">{price},- € {t("shop.shipping")}</p>
+        <p class="price">
+            <span class="typo-24">{formattedPrice}</span>
+            <span class="shipping">{t("shop.shipping")}</span>
+        </p>
 
-</div>
-
+        {soldOut ? (
+            <div class="actions">
+                <span class="disabled" aria-disabled="true">{t("shop.soldOut")}</span>
+            </div>
+            <p class="sold-out-note">{soldOut}</p>
+        ) : (
+            <div class="actions">
+                <Button href={orderHref}>{t("shop.order")}</Button>
+                {sampleHref && <a class="sample" href={sampleHref} target="_blank" rel="noopener noreferrer">{t("shop.sample")}</a>}
+            </div>
+        )}
+    </div>
+</article>
 
 <style>
-
-    .item {
+    .card {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-m);
-
-        width: 21rem;
+        background-color: var(--base-white);
+        border-radius: var(--spacing-s);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
     }
 
-    .frame {
+    .card-image {
         position: relative;
-        height: 20rem;
+        height: 18rem;
+        padding: var(--spacing-m);
+        background-color: var(--kw-red-l2);
 
-        .shape {
-            position: absolute;
-            background-color: var(--kw-red-l);
-            border-radius: var(--spacing-s);
-            height: 94%;
-            width: 86%;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: -1;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
-
-        .tr {
-            position: absolute;
-            right: 0;
-            top: 0;
-            z-index: 1;
-        }
-
-        .image {
-            position: absolute;
-
-            z-index: 2;
-
-            img {
-                object-fit: contain;
-                width: 100%;
-                height: 100%;
-            }
-        }
-        
     }
 
-    .tr {
-        color: white;
-        background-color: var(--kw-red);
+    .badge {
+        position: absolute;
+        top: var(--spacing-s);
+        right: var(--spacing-s);
+        padding: 0.3rem 0.7rem;
         border-radius: 0.8rem;
-        padding: 0.8rem;
-        width: fit-content;
+        background-color: var(--kw-red);
+        color: var(--base-white);
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: var(--spacing-m);
+    }
+
+    .name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 130%;
     }
 
     .details {
-        font-size: 1.125rem;
         color: var(--base-gray);
     }
 
     .price {
-        text-align: end;
+        margin-top: auto;
+        padding-top: var(--spacing-s);
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+
+        span:first-child {
+            font-weight: 600;
+        }
     }
 
+    .shipping {
+        font-size: 0.9rem;
+        color: var(--base-gray);
+    }
 
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        margin-top: var(--spacing-s);
+    }
+
+    .sample {
+        text-decoration: underline;
+    }
+
+    .sold-out .card-image img {
+        filter: grayscale(1);
+        opacity: 0.5;
+    }
+
+    .sold-out .card-image {
+        background-color: #e6e6e6;
+    }
+
+    .sold-out .badge {
+        background-color: var(--base-gray);
+    }
+
+    .disabled {
+        display: inline-flex;
+        padding: 0.8rem 1.6rem;
+        border-radius: 0.8rem;
+        background-color: #d4d4d4;
+        color: var(--base-gray);
+        font-size: 1.125rem;
+        letter-spacing: -0.06em;
+        font-stretch: expanded;
+        cursor: not-allowed;
+    }
+
+    .sold-out-note {
+        font-size: 0.9rem;
+        color: var(--kw-red);
+        font-weight: 600;
+    }
 </style>

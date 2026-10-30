@@ -30,6 +30,9 @@ const ui = {
 
         "mail.text": "Melde dich bei mir!",
         "shop.shipping": "zzgl. Versandkosten",
+        "shop.order": "Bestellen",
+        "shop.sample": "Leseprobe",
+        "shop.soldOut": "Ausverkauft",
     },
     en: {
         "meta.title": "Line Dance by Cheesy",
@@ -60,6 +63,9 @@ const ui = {
 
         "mail.text": "Get in touch with me!",
         "shop.shipping": "plus shipping",
+        "shop.order": "Order",
+        "shop.sample": "Reading sample",
+        "shop.soldOut": "Sold out",
     },
 } as const;
 
