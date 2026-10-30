@@ -1,6 +1,12 @@
 ---
+import type { Lang } from "@i18n/paths";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations, navItems } from "@i18n/ui";
+
+interface Props {
+    lang?: Lang;
+    switchUrl: string;
+}
 
 const { lang = "de", switchUrl } = Astro.props;
 const t = useTranslations(lang);
@@ -10,25 +16,25 @@ const links = navItems.map((item) => ({ href: getRelativeLocaleUrl(lang, item.pa
 
 <header>
     <nav>
-        <ul class="sidebar typo-24">
-            <li onclick=hideSidebar()>
-                <a href="#">
+        <ul class="sidebar typo-24" id="sidebar">
+            <li>
+                <button class="nav-button" type="button" aria-label={t("nav.close")} data-sidebar-close>
                     <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000">
                         <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
                     </svg>
-                </a>
+                </button>
             </li>
 
             {links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
         </ul>
 
         <ul class="topbar">
-            <li class="burger" onclick=showSidebar()>
-                <a href="#">
+            <li class="burger">
+                <button class="nav-button" type="button" aria-label={t("nav.open")} aria-controls="sidebar" aria-expanded="false" data-sidebar-open>
                     <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000">
                         <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
                     </svg>
-                </a>
+                </button>
             </li>
 
             {links.map((link) => <li class="topbar-hide"><a href={link.href}>{link.label}</a></li>)}
@@ -72,14 +78,15 @@ li {
     height: 4.8rem;
 }
 
-a {
+a, .nav-button {
     height: 100%;
     padding: 0 var(--spacing-m);
     display: flex;
     align-items: center;
+    color: inherit;
 }
 
-a:hover {
+a:hover, .nav-button:hover {
     background-color: var(--kw-red);
     color: var(--base-white);
     cursor: pointer;
@@ -103,7 +110,7 @@ a:hover {
     flex-direction: column;
     align-items: flex-start;
 
-    li, a {
+    li, a, .nav-button {
         width: 100%;
     }
 }
@@ -114,7 +121,7 @@ a:hover {
     border-right-style: solid;
     border-right-color: var(--base-gray);
 
-    a {
+    .nav-button {
         padding: var(--spacing-s);
     }
 }
@@ -150,7 +157,7 @@ a:hover {
         background-color: var(--kw-red);
     }
     
-    a {
+    a, .nav-button {
         padding: 0 var(--spacing-s);
     }
     
@@ -160,14 +167,19 @@ a:hover {
 </style>
 
 
-<script is:inline>
-    function showSidebar(){
-        const sidebar = document.querySelector('.sidebar')
-        sidebar.style.display = 'flex'
+<script>
+    const sidebar = document.getElementById("sidebar")!;
+    const openButton = document.querySelector<HTMLButtonElement>("[data-sidebar-open]")!;
+    const closeButton = document.querySelector<HTMLButtonElement>("[data-sidebar-close]")!;
+
+    function setSidebar(open: boolean) {
+        sidebar.style.display = open ? "flex" : "none";
+        openButton.setAttribute("aria-expanded", String(open));
     }
 
-    function hideSidebar(){
-        const sidebar = document.querySelector('.sidebar')
-        sidebar.style.display = 'none'
-    }
+    openButton.addEventListener("click", () => setSidebar(true));
+    closeButton.addEventListener("click", () => setSidebar(false));
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setSidebar(false);
+    });
 </script>
