@@ -357,7 +357,7 @@ const alm = [alm_1, alm_2, alm_3, alm_4, alm_5, alm_6];
 
             <MailSection lang={lang} href={mailto(site.email, t.mailSubject)}>
                 {t.mailButton}
-                <a style="text-decoration: underline;" href="/Anmeldung-Trainer-Ausbildung-2027.pdf" target="_blank" >{t.form}</a>
+                <a slot="after" style="text-decoration: underline;" href="/Anmeldung-Trainer-Ausbildung-2027.pdf" target="_blank" >{t.form}</a>
             </MailSection>
 
         </div>
@@ -712,12 +712,13 @@ const alm = [alm_1, alm_2, alm_3, alm_4, alm_5, alm_6];
 </style>
 
 
-<script is:inline>
-  const slider = document.querySelector(".slider");
-  const slides = document.querySelectorAll(".slider img");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-  const nav = document.querySelector(".slider-nav");
+<script>
+  const carousel = document.querySelector<HTMLElement>(".carousel")!;
+  const slider = carousel.querySelector<HTMLElement>(".slider")!;
+  const slides = carousel.querySelectorAll(".slider img");
+  const prevBtn = carousel.querySelector<HTMLButtonElement>(".prev")!;
+  const nextBtn = carousel.querySelector<HTMLButtonElement>(".next")!;
+  const nav = carousel.querySelector<HTMLElement>(".slider-nav")!;
 
   let current = 0;
   let startX = 0;
@@ -740,7 +741,7 @@ const alm = [alm_1, alm_2, alm_3, alm_4, alm_5, alm_6];
     nav.appendChild(dot);
   });
 
-  const dots = document.querySelectorAll(".slider-nav button");
+  const dots = nav.querySelectorAll("button");
 
   function updateSlider() {
     slider.style.transform = `translateX(-${current * 100}%)`;
