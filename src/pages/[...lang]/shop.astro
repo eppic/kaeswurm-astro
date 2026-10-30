@@ -5,6 +5,7 @@ import Ticker from "@components/Ticker.astro";
 import MailSection from "@components/MailSection.astro";
 import ShopItem from "@components/ShopItem.astro";
 import { langPaths, getLang } from '@i18n/paths';
+import { site } from '@config/site';
 
 // Images
 import book_de from "@public/img/shop/book-de.webp";
@@ -71,7 +72,7 @@ const content = {
         order: ["book_de", "facher_blau_de", "facher_de", "book_en", "facher_en"] as const,
         bookText: "Dieses Buch schließt eine lang bestehende Lücke: Es ist eines der ersten deutsch-sprachigen Fachbücher zur Tanztechnik im Line Dance. Praxisnah, verständlich und zeitgemäß vermittelt Astrid Kaeswurm technisch korrektes Wissen, das im Training sofort anwendbar ist. Dabei orientiert sich der Inhalt an der aktuellen Entwicklung des Line Dance und wird kontinuierlich weitergedacht. Das Buch dient als wertvolle Unterstützung im Training, ersetzt jedoch weder Gruppen-training noch Ausbildung, sondern sorgt für Klarheit, Verständnis und viele „Aha-Momente“.",
         sample: "Leseprobe",
-        mail: "mailto:bestellung@linedance-buch.de?subject=Bestellung&body=Ich%20möchte%20folgende%20Inhalte%20bestellen:%0A%0A-%20[HIER%20INHALTE%20AUFLISTEN]%0A%0A%0AMeine%20Adresse:%0A%0AVor-%20und%20Nachname:%20%0AStraße%20und%20Hausnummer:%20%0APLZ und Wohnort:%20",
+        mail: `mailto:${site.orderEmail}?subject=Bestellung&body=Ich%20möchte%20folgende%20Inhalte%20bestellen:%0A%0A-%20[HIER%20INHALTE%20AUFLISTEN]%0A%0A%0AMeine%20Adresse:%0A%0AVor-%20und%20Nachname:%20%0AStraße%20und%20Hausnummer:%20%0APLZ und Wohnort:%20`,
         mailButton: "Jetzt bestellen!",
     },
     en: {
@@ -91,7 +92,7 @@ const content = {
         order: ["book_en", "facher_en", "facher_blau_de", "facher_de", "book_de"] as const,
         bookText: "This book fills a long-standing gap: it is one of the first German-language reference books on dance technique in line dance. In a practical, easy-to-understand, and modern way, Astrid Kaeswurm conveys technically correct knowledge that can be applied immediately in training. The content is based on current developments in line dance and is continuously expanded. The book provides valuable support for training but does not replace group classes or instructor education. Instead, it creates clarity, understanding, and many “aha” moments.",
         sample: "Reading Sample",
-        mail: "mailto:bestellung@linedance-buch.de?subject=Order&body=I%20would%20like%20to%20order%20the%20following%20items:%0A%0A-%20[LIST%20ITEMS%20HERE]%0A%0A%0AMy%20address:%0A%0AFull%20Name:%20%0AStreet%20and%20House%20Number:%20%0AZip%20Code%20and%20City:%20",
+        mail: `mailto:${site.orderEmail}?subject=Order&body=I%20would%20like%20to%20order%20the%20following%20items:%0A%0A-%20[LIST%20ITEMS%20HERE]%0A%0A%0AMy%20address:%0A%0AFull%20Name:%20%0AStreet%20and%20House%20Number:%20%0AZip%20Code%20and%20City:%20`,
         mailButton: "Order Now!",
     },
 };

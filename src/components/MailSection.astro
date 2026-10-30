@@ -10,10 +10,11 @@ import { Image } from "astro:assets";
 
 import Button from "./Button.astro";
 import { useTranslations } from "@i18n/ui";
+import { site, mailto } from "@config/site";
 
 import img from "../../public/img/astrid-haare.webp"
 
-const { href = "mailto:astrid@kaeswurm.de" } = Astro.props;
+const { href = mailto(site.email) } = Astro.props;
 ---
 
 <section class="section_def mail">

@@ -6,6 +6,7 @@ import Hero from "@components/Hero.astro";
 import Ticker from "@components/Ticker.astro";
 import MailSection from "@components/MailSection.astro";
 import { langPaths, getLang } from '@i18n/paths';
+import { site, mailto } from '@config/site';
 
 import img_hero from "@public/img/ausb/hero.webp";
 
@@ -359,7 +360,7 @@ const alm = [alm_1, alm_2, alm_3, alm_4, alm_5, alm_6];
                 </div>
             </section>
 
-            <MailSection lang={lang} href={`mailto:astrid@kaeswurm.de?subject=${t.mailSubject}`}>
+            <MailSection lang={lang} href={mailto(site.email, t.mailSubject)}>
                 {t.mailButton}
                 <a style="text-decoration: underline;" href={anmeldeformular} target="_blank" >{t.form}</a>
             </MailSection>

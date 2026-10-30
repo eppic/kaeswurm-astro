@@ -1,5 +1,6 @@
 ---
 import { useTranslations } from "@i18n/ui";
+import { site, mailto } from "@config/site";
 
 const { lang = "de" } = Astro.props;
 const t = useTranslations(lang);
@@ -20,30 +21,30 @@ const t = useTranslations(lang);
 
                 <h5>Email:</h5>
                 <p>
-                    <a href="mailto:astrid@kaeswurm.de">
-                        astrid@kaeswurm.de
+                    <a href={mailto(site.email)}>
+                        {site.email}
                     </a>
                 </p>
 
                 <h5>Instagram:</h5>
                 <p>
                     <a
-                        href="https://www.instagram.com/astrid_kaeswurm"
+                        href={site.instagram.url}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        @astrid_kaeswurm
+                        {site.instagram.name}
                     </a>
                 </p>
 
                 <h5>Facebook:</h5>
                 <p>
                     <a
-                        href="https://www.facebook.com/LD.Cheesy"
+                        href={site.facebook.url}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Astrid Kaeswurm
+                        {site.facebook.name}
                     </a>
                 </p>
             </div>
@@ -51,15 +52,15 @@ const t = useTranslations(lang);
             <div class="stagger">
                 <h4 class="typo-con-slim">{t("footer.address")}</h4>
 
-                <p>Marzoller Weg 21</p>
-                <p>83451 Piding / D</p>
+                <p>{site.address.street}</p>
+                <p>{site.address.city} / {site.address.country}</p>
 
                 <br>
 
                 <h5>{t("footer.phone")}:</h5>
                 <p>
-                    <a href="tel:004901703171206">
-                        +49 (0)170 3171206
+                    <a href={site.phone.href}>
+                        {site.phone.display}
                     </a>
                 </p>
             </div>
@@ -68,20 +69,20 @@ const t = useTranslations(lang);
         <div class="information-mobile mobile stagger">
             <h4 class="typo-con-slim">{t("footer.contact")}</h4>
 
-            <p>Marzoller Weg 21</p>
-            <p>83451 Piding / D</p>
+            <p>{site.address.street}</p>
+            <p>{site.address.city} / {site.address.country}</p>
 
             <p>
                 {t("footer.phone")}:
-                <a href="tel:004901703171206">
-                    +49 (0)170 3171206
+                <a href={site.phone.href}>
+                    {site.phone.display}
                 </a>
             </p>
 
             <p>
                 Email:
-                <a href="mailto:astrid@kaeswurm.de">
-                    astrid@kaeswurm.de
+                <a href={mailto(site.email)}>
+                    {site.email}
                 </a>
             </p>
         </div>
@@ -91,12 +92,12 @@ const t = useTranslations(lang);
 
     <div class="footer-bottom">
         <p class="typo-exp desktop">
-            © {new Date().getFullYear()} Astrid Kaeswurm – {t("footer.rights")}
+            © {new Date().getFullYear()} {site.name} – {t("footer.rights")}
         </p>
 
         <a
             class="social-icons"
-            href="https://www.instagram.com/astrid_kaeswurm"
+            href={site.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -105,7 +106,7 @@ const t = useTranslations(lang);
 
         <a
             class="social-icons"
-            href="https://www.facebook.com/LD.Cheesy"
+            href={site.facebook.url}
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -120,7 +121,7 @@ const t = useTranslations(lang);
     </div>
 
     <p class="copy-mobile typo-exp mobile">
-        © {new Date().getFullYear()} Astrid Kaeswurm – {t("footer.rights")}
+        © {new Date().getFullYear()} {site.name} – {t("footer.rights")}
     </p>
 
     <img

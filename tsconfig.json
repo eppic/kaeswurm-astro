@@ -13,6 +13,7 @@
       "@scripts/*": ["./src/scripts/*"],
       "@i18n/*": ["./src/i18n/*"],
       "@data/*": ["./src/data/*"],
+      "@config/*": ["./src/config/*"],
 
       "@public/*": ["./public/*"]
       

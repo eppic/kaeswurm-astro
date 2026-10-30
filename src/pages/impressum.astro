@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro"
 import Hero from "@components/Hero.astro"
+import { site, mailto } from "@config/site"
 ---
 
 <Layout title="Impressum">
@@ -13,15 +14,15 @@ import Hero from "@components/Hero.astro"
             <h2 class="typo-48">Impressum</h2>
             <h3 class='typo-36'>Angaben gemäß § 5 TMG</h3>
             <p>
-                Astrid Kaeswurm<br />
-                Marzoller Weg 21<br/>
-                83451 Piding
+                {site.name}<br />
+                {site.address.street}<br/>
+                {site.address.city}
             </p>
 
             <h3 class='typo-36'>Kontakt</h3>
             <p>
-                Telefon: (0)170 3171206 <br/>
-                E-Mail: <a href="mailto:bestellung@linedance-buch.de">bestellung@linedance-buch.de</a> <br/>
+                Telefon: <a href={site.phone.href}>{site.phone.display}</a> <br/>
+                E-Mail: <a href={mailto(site.orderEmail)}>{site.orderEmail}</a> <br/>
                 Website: <a href="https://www.kaeswurm.de">www.kaeswurm.de</a> <br>
                 Website (Buch): <a href="http://www.linedance-buch.de">www.linedance-buch.de</a> <br>
                 Website (Trainer): <a href="http://www.linedance-trainer.de">www.linedance-trainer.de</a>
@@ -35,9 +36,9 @@ import Hero from "@components/Hero.astro"
 
             <h3 class="typo-36">Redaktionell verantwortlich</h3>
             <p>
-                Astrid Kaeswurm<br/>
-                Marzoller Weg 21<br/>
-                83451 Piding
+                {site.name}<br/>
+                {site.address.street}<br/>
+                {site.address.city}
             </p>
 
             <h3 class='typo-36'>EU-Streitschlichtung</h3>
@@ -104,11 +105,11 @@ import Hero from "@components/Hero.astro"
             <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
 
             <p>
-                Astrid Kaeswurm<br/>
-                Marzoller Weg 21<br/>
-                83451 Piding<br/><br/>
-                Telefon: (0)170 3171206<br/>
-                E-Mail: <a href="mailto:bestellung@linedance-buch.de">bestellung@linedance-buch.de</a>
+                {site.name}<br/>
+                {site.address.street}<br/>
+                {site.address.city}<br/><br/>
+                Telefon: <a href={site.phone.href}>{site.phone.display}</a><br/>
+                E-Mail: <a href={mailto(site.orderEmail)}>{site.orderEmail}</a>
             </p>
 
             <h4 class="typo-24">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h4>

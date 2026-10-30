@@ -1,5 +1,6 @@
 import type { Text } from "@i18n/paths";
 import type { DateRange } from "@i18n/dates";
+import { site, mailto } from "@config/site";
 
 interface Basis {
     title: Text;
@@ -36,8 +37,8 @@ export const regular: Kurs[] = [
         },
         end: "2026-11-30",
         address: "Reichenhaller Straße 15, 83451 Piding",
-        linkName: "astrid@kaeswurm.de",
-        linkRef: "mailto:astrid@kaeswurm.de",
+        linkName: site.email,
+        linkRef: mailto(site.email),
         linkDescription: { de: "Info & Anmeldung (Email)", en: "Information & Registration (Email)" },
         details: {
             de: `<ul><li><span>Leitung</span>: Astrid „Cheesy“ Kaeswurm</li><li>10 Abende für <span>100€</span></li></ul>`,

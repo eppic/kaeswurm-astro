@@ -6,6 +6,7 @@ import Ticker from "@components/Ticker.astro";
 import MailSection from '@components/MailSection.astro';
 import KurseItem from '@components/KurseItem.astro';
 import { langPaths, getLang, tr } from '@i18n/paths';
+import { site, mailto } from '@config/site';
 import { today, isPast, formatDates } from '@i18n/dates';
 import { useTranslations } from '@i18n/ui';
 import { regular, single, type Kurs, type Veranstaltung } from '@data/termine';
@@ -179,7 +180,7 @@ const gallery = [
             </div>
         </div>
 
-        <MailSection lang={lang} href={`mailto:astrid@kaeswurm.de?subject=${t.mailSubject}`}>
+        <MailSection lang={lang} href={mailto(site.email, t.mailSubject)}>
             {t.mailButton}
         </MailSection>
 
