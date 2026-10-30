@@ -2,6 +2,7 @@
 import type { Lang } from "@i18n/paths";
 import { useTranslations } from "@i18n/ui";
 import { site, mailto } from "@config/site";
+import worm from "@assets/img/footer/worm.gif";
 
 interface Props {
     lang?: Lang;
@@ -96,9 +97,12 @@ const t = useTranslations(lang);
     <hr>
 
     <div class="footer-bottom">
-        <p class="typo-exp desktop">
-            © {new Date().getFullYear()} {site.name} – {t("footer.rights")}
-        </p>
+        <div class="copyright desktop">
+            <p class="typo-exp">
+                © {new Date().getFullYear()} {site.name} – {t("footer.rights")}
+            </p>
+            <img class="worm" src={worm.src} width={worm.width} height={worm.height} alt="" aria-hidden="true" loading="lazy" decoding="async">
+        </div>
 
         <a
             class="social-icons"
@@ -239,6 +243,23 @@ const t = useTranslations(lang);
         pointer-events: none;
     }
     
+    .copyright {
+        position: relative;
+    }
+
+    .worm {
+        position: absolute;
+        z-index: 10;
+        left: calc(100% + var(--spacing-m));
+        bottom: calc(var(--spacing-m) * -1);
+        width: 3.375rem;
+        height: calc(3.375rem * 71 / 47 * 2 / 3);
+        object-fit: cover;
+        object-position: top;
+        image-rendering: pixelated;
+        pointer-events: none;
+    }
+
     .footer-bottom {
         position: relative;
         z-index: 1;
