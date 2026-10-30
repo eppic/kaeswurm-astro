@@ -1,4 +1,15 @@
 ---
+import type { Lang } from "@i18n/paths";
+
+interface Props {
+    lang?: Lang;
+    image?: ImageMetadata;
+    tr?: string;
+    name?: string;
+    details?: string;
+    price?: string;
+}
+
 const { lang = "de" } = Astro.props;
 
 const t = useTranslations(lang);
