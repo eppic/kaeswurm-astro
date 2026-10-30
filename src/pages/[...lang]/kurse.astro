@@ -78,9 +78,9 @@ interface Kurs {
     linkName?: string;
     linkRef?: string;
     linkDescription?: Text;
-    /** HTML für den „Details“-Bereich */
     details?: Text;
     open?: boolean;
+    hidden?: boolean;
 }
 
 const infoLink = { de: "Info & Zeitplan", en: "Info & Schedule" };
@@ -103,16 +103,16 @@ const regular: Kurs[] = [
             en: `<ul><li><span>Instruction</span>: Astrid „Cheesy“ Kaeswurm</li><li>10 Evenings for <span>100€</span></li></ul>`,
         },
     },
-    // Normale Montagskurse, aktuell ausgeblendet:
-    // {
-    //     title: { de: "Line Dance in Piding", en: "Line Dance in Piding" },
-    //     date: { de: "Montags von 18:30 Uhr - 20:00 Uhr", en: "Mondays from 6:30 PM - 8:00 PM" },
-    //     address: "Reichenhaller Str. 15, 83451 Piding",
-    //     details: {
-    //         de: `<ul><li><span>Leitung</span>: Astrid „Cheesy“ Kaeswurm</li><li>10er-Block <span>100€</span></li><li>5er-Block <span>60€</span></li><li>Schnuppertraining <span>5€</span></li></ul>`,
-    //         en: `<ul><li><span>Instruction</span>: Astrid „Cheesy“ Kaeswurm</li><li>10er-Block <span>100€</span></li><li>5er-Block <span>60€</span></li><li>Intro Session <span>5€</span></li></ul>`,
-    //     },
-    // },
+    {
+        hidden: true,
+        title: { de: "Line Dance in Piding", en: "Line Dance in Piding" },
+        date: { de: "Montags von 18:30 Uhr - 20:00 Uhr", en: "Mondays from 6:30 PM - 8:00 PM" },
+        address: "Reichenhaller Str. 15, 83451 Piding",
+        details: {
+            de: `<ul><li><span>Leitung</span>: Astrid „Cheesy“ Kaeswurm</li><li>10er-Block <span>100€</span></li><li>5er-Block <span>60€</span></li><li>Schnuppertraining <span>5€</span></li></ul>`,
+            en: `<ul><li><span>Instruction</span>: Astrid „Cheesy“ Kaeswurm</li><li>10er-Block <span>100€</span></li><li>5er-Block <span>60€</span></li><li>Intro Session <span>5€</span></li></ul>`,
+        },
+    },
     {
         title: { de: "Line Dance im TSC Dance & Lifestyle in Salzburg", en: "Line Dance at TSC Dance & Lifestyle in Salzburg" },
         country: "AT",
@@ -252,7 +252,7 @@ const gallery = [
 
             <h3 class="typo-24">{t.regular}</h3>
 
-            {regular.map((k) => k.details
+            {regular.filter((k) => !k.hidden).map((k) => k.details
                 ? <KurseItem {...itemProps(k)}><Fragment set:html={tr(k.details, lang)} /></KurseItem>
                 : <KurseItem {...itemProps(k)} />
             )}
