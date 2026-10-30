@@ -1,6 +1,11 @@
 ---
+import type { Lang } from "@i18n/paths";
 import { useTranslations } from "@i18n/ui";
 import { site, mailto } from "@config/site";
+
+interface Props {
+    lang?: Lang;
+}
 
 const { lang = "de" } = Astro.props;
 const t = useTranslations(lang);
@@ -267,10 +272,6 @@ const t = useTranslations(lang);
             h4, h5, p {
                 font-size: 1rem;
             }
-        }
-
-        h4, {
-            font-size: 1rem;
         }
 
 
