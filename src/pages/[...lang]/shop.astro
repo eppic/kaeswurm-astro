@@ -8,15 +8,13 @@ import { langPaths, getLang } from '@i18n/paths';
 import { site } from '@config/site';
 
 // Images
-import book_de from "@public/img/shop/book-de.webp";
-import book_en from "@public/img/shop/book-en.webp";
+import book_de from "@assets/img/shop/book-de.webp";
+import book_en from "@assets/img/shop/book-en.webp";
 
-import facher_blau_de from "@public/img/shop/facher-blau-de.webp";
-import facher_de from "@public/img/shop/facher-de.webp";
-import facher_en from "@public/img/shop/facher-en.webp";
+import facher_blau_de from "@assets/img/shop/facher-blau-de.webp";
+import facher_de from "@assets/img/shop/facher-de.webp";
+import facher_en from "@assets/img/shop/facher-en.webp";
 
-// pdf
-import leseprobe from "@public/Von-Anchor-Step-Bis-Weave-Leseprobe-0126.pdf";
 
 export const getStaticPaths = langPaths;
 const lang = getLang(Astro.params.lang);
@@ -125,7 +123,7 @@ const [first, ...rest] = t.order.map((key) => {
 
                 <div class="gray book_de_text">
                     <p>{t.bookText}</p>
-                    <a class="gray leseprobe typo-24" href={leseprobe} target="_blank">{t.sample}</a>
+                    <a class="gray leseprobe typo-24" href="/Von-Anchor-Step-Bis-Weave-Leseprobe-0126.pdf" target="_blank">{t.sample}</a>
                 </div>
 
                 {rest.map((item) => (

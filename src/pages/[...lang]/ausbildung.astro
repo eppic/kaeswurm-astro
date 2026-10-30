@@ -8,22 +8,21 @@ import MailSection from "@components/MailSection.astro";
 import { langPaths, getLang } from '@i18n/paths';
 import { site, mailto } from '@config/site';
 
-import img_hero from "@public/img/ausb/hero.webp";
+import img_hero from "@assets/img/ausb/hero.webp";
 
-import anmeldeformular from "@public/Anmeldung-Trainer-Ausbildung-2027.pdf"
 
-import alm_1 from "@public/img/ausb/alm/alm_1.webp";
-import alm_2 from "@public/img/ausb/alm/alm_2.webp";
-import alm_3 from "@public/img/ausb/alm/alm_3.webp";
-import alm_4 from "@public/img/ausb/alm/alm_4.webp";
-import alm_5 from "@public/img/ausb/alm/alm_5.webp";
-import alm_6 from "@public/img/ausb/alm/alm_6.webp";
+import alm_1 from "@assets/img/ausb/alm/alm_1.webp";
+import alm_2 from "@assets/img/ausb/alm/alm_2.webp";
+import alm_3 from "@assets/img/ausb/alm/alm_3.webp";
+import alm_4 from "@assets/img/ausb/alm/alm_4.webp";
+import alm_5 from "@assets/img/ausb/alm/alm_5.webp";
+import alm_6 from "@assets/img/ausb/alm/alm_6.webp";
 
-import gal_1 from "@public/img/ausb/gal/gal_1.webp";
-import gal_2 from "@public/img/ausb/gal/gal_2.webp";
-import gal_3 from "@public/img/ausb/gal/gal_3.webp";
-import gal_4 from "@public/img/ausb/gal/gal_4.webp";
-import gal_5 from "@public/img/ausb/gal/gal_5.webp";
+import gal_1 from "@assets/img/ausb/gal/gal_1.webp";
+import gal_2 from "@assets/img/ausb/gal/gal_2.webp";
+import gal_3 from "@assets/img/ausb/gal/gal_3.webp";
+import gal_4 from "@assets/img/ausb/gal/gal_4.webp";
+import gal_5 from "@assets/img/ausb/gal/gal_5.webp";
 
 export const getStaticPaths = langPaths;
 const lang = getLang(Astro.params.lang);
@@ -362,7 +361,7 @@ const alm = [alm_1, alm_2, alm_3, alm_4, alm_5, alm_6];
 
             <MailSection lang={lang} href={mailto(site.email, t.mailSubject)}>
                 {t.mailButton}
-                <a style="text-decoration: underline;" href={anmeldeformular} target="_blank" >{t.form}</a>
+                <a style="text-decoration: underline;" href="/Anmeldung-Trainer-Ausbildung-2027.pdf" target="_blank" >{t.form}</a>
             </MailSection>
 
         </div>

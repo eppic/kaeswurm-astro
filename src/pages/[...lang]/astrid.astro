@@ -7,12 +7,12 @@ import Hero from "@components/Hero.astro";
 import Ticker from "@components/Ticker.astro";
 import { langPaths, getLang } from '@i18n/paths';
 
-import img_hero from "@public/img/astrid/hero.webp";
+import img_hero from "@assets/img/astrid/hero.webp";
 
-import img_astrid from "@public/img/astrid-portrait.webp";
-import img_mauritius from "@public/img/astrid/mauritius.webp";
-import img_weltrekord from "@public/img/ausb/hero.webp";
-import img_facebook from "@public/img/astrid/thumbnail.webp";
+import img_astrid from "@assets/img/astrid-portrait.webp";
+import img_mauritius from "@assets/img/astrid/mauritius.webp";
+import img_weltrekord from "@assets/img/ausb/hero.webp";
+import img_facebook from "@assets/img/astrid/thumbnail.webp";
 
 export const getStaticPaths = langPaths;
 const lang = getLang(Astro.params.lang);
