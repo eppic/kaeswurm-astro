@@ -7,3 +7,7 @@
 <FilesMatch "\.(js|css|woff2?|ttf|svg|png|jpg|jpeg|gif|webp|avif|ico)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
 </FilesMatch>
+
+# Error pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
