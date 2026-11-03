@@ -5,7 +5,8 @@ https://kaeswurm.de/
 
 ## Disclaimer
 
-This repository is not up to date with the current state of the website. The code is now private. 
+> [!CAUTION]
+> This repository is not up to date with the current state of the website. The code is now private. 
 
 ## Screenshots
 
